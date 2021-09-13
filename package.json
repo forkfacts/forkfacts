@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "forkfacts",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A static web app to find nutrition in our food",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "authors": [],
   "dependencies": {
     "gatsby": "^3.13.0",
     "gatsby-plugin-image": "^1.13.0",
@@ -36,9 +36,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/bonsaiilabs/forkfacts"
   }
 }
