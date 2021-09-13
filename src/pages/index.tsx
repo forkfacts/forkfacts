@@ -11,7 +11,7 @@ type DataProps = {
   }
 }
 
-const UsingTypescript: React.FC<PageProps<DataProps>> = ({ data, path }) => (
+const Index: React.FC<PageProps<DataProps>> = ({ data, path }) => (
   <Layout>
     <Seo title="Using TypeScript" />
     <h1>Gatsby supports TypeScript by default!</h1>
@@ -39,7 +39,7 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({ data, path }) => (
   </Layout>
 )
 
-export default UsingTypescript
+export default Index
 
 export const query = graphql`
   {
