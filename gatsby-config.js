@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Forkfacts - Nutrition facts about your food`,
     description: `Coming soon`,
-    //author: `@gatsbyjs`,
-    // siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    author: `@forkfacts`,
+    siteUrl: `https://forkfacts.app/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -27,6 +27,21 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: "gatsby-source-pg",
+      options: {
+        connectionString: "postgres://forkfacts:forkfacts@127.0.0.1/ffidb",
+        schema: "public",
+        refetchInterval: 60, // Refetch data every 60 seconds
+      },
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
