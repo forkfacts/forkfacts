@@ -4,7 +4,6 @@
  * See: https://www.gatsbyjs.com/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
 const path = require("path")
 const ff_nutrition_facts = require("./src/data/foundation_food_nutrition_facts.json")
 const rdi = require("./src/data/rdi.json")
