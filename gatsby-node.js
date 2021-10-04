@@ -18,7 +18,8 @@ exports.createPages = ({ actions }) => {
       component: template,
       context: {
         food,
-        rdi
+        rdi,
+        breadcrumbs: ["All Foods", "USDA", "Foundation Food", food["category"], food["name"]]
       }
     })
   })
