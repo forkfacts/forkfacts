@@ -6,7 +6,6 @@ interface BreadcrumbProps {
 }
 
 export const Breadcrumb = ({ paths }: BreadcrumbProps) => {
-  console.log(paths)
   return <div>
     {paths.map((path, index) => {
       return <span key={index}>

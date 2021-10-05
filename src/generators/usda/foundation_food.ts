@@ -1,4 +1,5 @@
 import { ALL_FOODS, createBreadcrumb, createLeafBreadcrumb, FOUNDATION_FOOD, USDA } from "../utilities/breadcrumbs"
+import { spaceToDashes } from "../utilities/helpers"
 
 const path = require("path")
 const ff_nutrition_facts = require("../../../src/data/foundation_food_nutrition_facts.json")
@@ -24,7 +25,7 @@ type CreatePageFnProps = {
 const generateFoundationFoodNutritionFactTables = ({ createPageFunction }: CreatePageFnProps) => {
   const template = path.resolve("./src/templates/usda/FoundationFoodNutritionFacts.tsx")
   ff_nutrition_facts.forEach((food: FoundationFoodType) => {
-    const pagePath = food["name"].toString().replace(/[^\w]+/g, "-")
+    const pagePath = spaceToDashes(food["name"].toString())
     createPageFunction({
       path: pagePath,
       component: template,

@@ -1,3 +1,5 @@
+import { spaceToDashes } from "./helpers"
+
 export type BreadcrumbType = {
   displayName: string,
   url?: string
@@ -22,7 +24,7 @@ export const FOUNDATION_FOOD: BreadcrumbType = {
 export const createBreadcrumb = (parentBreadcrumb: BreadcrumbType, name: string) => {
   return {
     displayName: name,
-    url: `${parentBreadcrumb.url}/#${name}`
+    url: `${parentBreadcrumb.url}/#${spaceToDashes(name)}`
   }
 }
 
