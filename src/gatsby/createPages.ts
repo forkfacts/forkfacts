@@ -9,8 +9,8 @@ const {
 export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  generateFoundationFoodNutritionFactTables(createPage)
-  const { data } = await graphql(`
+  generateFoundationFoodNutritionFactTables({ createPageFunction: createPage })
+  /*const { data } = await graphql(`
   query {
     allFoundationFoodNutritionFactsJson {
       nodes {
@@ -19,5 +19,5 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
       }
     }
    }`)
-  generateFoundationFoodPage(createPage, data)
+  generateFoundationFoodPage(createPage, data)*/
 }
