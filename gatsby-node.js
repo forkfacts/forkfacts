@@ -10,9 +10,9 @@ const rdi = require("./src/data/rdi.json")
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
-  const template = path.resolve("./src/templates/FoundationFoodNutritionFacts.tsx")
+  const template = path.resolve("./src/templates/usda/FoundationFoodNutritionFacts.tsx")
   ff_nutrition_facts.forEach(food => {
-    const pagePath = food["name"].toString().replace(/[^\w]+/g, "_")
+    const pagePath = food["name"].toString().replace(/[^\w]+/g, "-")
     createPage({
       path: pagePath,
       component: template,

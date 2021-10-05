@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Breadcrumb } from "../Breadcrumb"
+import { Breadcrumb } from "../../Breadcrumb"
 
 export default ({ pageContext }) => {
   const { food, rdi, breadcrumbs } = pageContext
