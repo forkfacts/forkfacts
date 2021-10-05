@@ -1,5 +1,4 @@
 import * as React from "react"
-import { graphql } from "gatsby"
 import { Breadcrumb } from "../Breadcrumb"
 
 export default ({ pageContext }) => {
@@ -22,20 +21,3 @@ export default ({ pageContext }) => {
     </div>
   </div>
 }
-
-export const query = graphql`
-query MyQuery {
-  allFoundationFoodNutritionFactsJson {
-    nodes {
-        fdcId
-        name
-        category
-        nutrients {
-          name
-          amount
-          unit
-      }
-    }
-  }
-}
-`
