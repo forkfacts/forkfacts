@@ -1,3 +1,5 @@
+import { ALL_FOODS, createBreadcrumb, createLeafBreadcrumb, FOUNDATION_FOOD, USDA } from "../utilities/breadcrumbs"
+
 const path = require("path")
 const ff_nutrition_facts = require("../../../src/data/foundation_food_nutrition_facts.json")
 const rdi = require("../../../src/data/rdi.json")
@@ -29,7 +31,7 @@ const generateFoundationFoodNutritionFactTables = ({ createPageFunction }: Creat
       context: {
         food,
         rdi,
-        breadcrumbs: ["All Foods", "USDA", "Foundation Food", food["category"], food["name"]]
+        breadcrumbs: [ALL_FOODS, USDA, FOUNDATION_FOOD, createBreadcrumb(FOUNDATION_FOOD, food.category), createLeafBreadcrumb(food.name)]
       }
     })
   })
