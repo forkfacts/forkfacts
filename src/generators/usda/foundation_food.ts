@@ -15,11 +15,11 @@ interface FoundationFoodType {
   nutrients: [{ name: string, amount: number, unit: "G" | "MG" | "UG" }]
 }
 
-interface foundationFoodNutritionFactTableProps {
+type CreatePageFnProps = {
   createPageFunction: (fnType: NutritionFactFnType) => void
 }
 
-const generateFoundationFoodNutritionFactTables = ({ createPageFunction }: foundationFoodNutritionFactTableProps) => {
+const generateFoundationFoodNutritionFactTables = ({ createPageFunction }: CreatePageFnProps) => {
   const template = path.resolve("./src/templates/usda/FoundationFoodNutritionFacts.tsx")
   ff_nutrition_facts.forEach((food: FoundationFoodType) => {
     const pagePath = food["name"].toString().replace(/[^\w]+/g, "-")
@@ -35,21 +35,23 @@ const generateFoundationFoodNutritionFactTables = ({ createPageFunction }: found
   })
 }
 
-/*const generateFoundationFoodPage = (createPageFunction, data) => {
+
+type FoundationFoodPageProps = CreatePageFnProps & { data: [{ name: string, category: string }] }
+const generateFoundationFoodPage = ({ createPageFunction, data }: FoundationFoodPageProps) => {
   const template = path.resolve("./src/templates/usda/food_sources/FoundationFood.tsx")
-  const foundationFoodWithCategories = data.allFoundationFoodNutritionFactsJson.nodes.reduce((acc, node) => {
-    const foods = acc.has(node.category) ? [...acc.get(node.category), node.name] : [node.name]
-    return acc.set(node.category, foods)
-  }, new Map())
-  console.log(foundationFoodWithCategories)
+  const foundationFoodWithCategories = data.reduce((acc, node) => {
+    const foods = acc.has(node.category) ? [...(acc.get(node.category) as string[]), node.name] : [node.name]
+    acc.set(node.category, foods)
+    return acc
+  }, new Map<string, string[]>())
   createPageFunction({
     path: "foundation-foods",
     component: template,
     context: { foundationFoodWithCategories: Object.fromEntries(foundationFoodWithCategories) }
   })
-}*/
+}
 
 module.exports = {
-  generateFoundationFoodNutritionFactTables
-  //generateFoundationFoodPage
+  generateFoundationFoodNutritionFactTables,
+  generateFoundationFoodPage
 }
