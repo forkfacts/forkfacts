@@ -26,6 +26,21 @@ const generateFoundationFoodNutritionFactTables = (createPageFunction) => {
   })
 }
 
+const generateFoundationFoodPage = (createPageFunction, data) => {
+  const template = path.resolve("./src/templates/usda/food_sources/FoundationFood.tsx")
+  const foundationFoodWithCategories = data.allFoundationFoodNutritionFactsJson.nodes.reduce((acc, node) => {
+    const foods = acc.has(node.category) ? [...acc.get(node.category), node.name] : [node.name]
+    return acc.set(node.category, foods)
+  }, new Map())
+  console.log(foundationFoodWithCategories)
+  createPageFunction({
+    path: "foundation-foods",
+    component: template,
+    context: { foundationFoodWithCategories: Object.fromEntries(foundationFoodWithCategories) }
+  })
+}
+
 module.exports = {
-  generateFoundationFoodNutritionFactTables
+  generateFoundationFoodNutritionFactTables,
+  generateFoundationFoodPage
 }
