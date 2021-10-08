@@ -16,26 +16,3 @@ require('ts-node').register({
 })
 
 exports.createPages = require('./src/gatsby/createPages').createPages
-
-// const {
-//   generateFoundationFoodNutritionFactTables,
-//   generateFoundationFoodPage
-// } = require("./src/generators/usda/foundation_food")
-
-/*
-exports.createPages = async ({ actions, graphql }) => {
-  const { createPage } = actions
-  generateFoundationFoodNutritionFactTables(createPage)
-
-
-  const { data } = await graphql(`
-  query {
-    allFoundationFoodNutritionFactsJson {
-      nodes {
-        name
-        category
-      }
-    }
-   }`)
-  generateFoundationFoodPage(createPage, data)
-}*/

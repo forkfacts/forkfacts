@@ -15,7 +15,11 @@ export default ({ pageContext }) => {
       const id = spaceToDashes(category)
       return <section id={id} key={index}>
         <h3>{category}</h3>
-        {foods.map((food, idx) => <p key={idx}>{food}</p>)}
+        {foods.map((food, idx) => <div key={idx}>
+          <a href={`/${spaceToDashes(food)}`}>
+            {food}
+          </a>
+        </div>)}
       </section>
     })}
   </div>
