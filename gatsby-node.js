@@ -4,22 +4,15 @@
  * See: https://www.gatsbyjs.com/docs/node-apis/
  */
 
-const path = require("path")
-const ff_nutrition_facts = require("./src/data/foundation_food_nutrition_facts.json")
-const rdi = require("./src/data/rdi.json")
+// adapted using https://gist.github.com/clarkdave/53cc050fa58d9a70418f8a76982dd6c8#gistcomment-3064797
 
-exports.createPages = ({ actions }) => {
-  const { createPage } = actions
-  const template = path.resolve("./src/templates/FoundationFoodNutritionFacts.tsx")
-  ff_nutrition_facts.forEach(food => {
-    const pagePath = food["name"].toString().replace(/[^\w]+/g, "_")
-    createPage({
-      path: pagePath,
-      component: template,
-      context: {
-        food,
-        rdi
-      }
-    })
-  })
-}
+'use strict'
+
+require('ts-node').register({
+  compilerOptions: {
+    module: 'commonjs',
+    target: 'es2017',
+  },
+})
+
+exports.createPages = require('./src/gatsby/createPages').createPages
