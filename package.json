@@ -5,6 +5,10 @@
   "version": "0.1.0",
   "authors": [],
   "dependencies": {
+    "@chakra-ui/react": "^1.6.10",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "framer-motion": "^4",
     "gatsby": "^3.14.3",
     "gatsby-plugin-image": "^1.14.1",
     "gatsby-plugin-manifest": "^3.14.0",

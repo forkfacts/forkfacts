@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Forkfacts - Nutrition facts about your food`,
+    title: `Forkfacts`,
     description: `Coming soon`,
     author: `@forkfacts`,
     siteUrl: `https://forkfacts.app/`,
