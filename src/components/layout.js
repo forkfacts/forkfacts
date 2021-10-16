@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 import { ChakraProvider } from "@chakra-ui/react"
+import { theme } from "../theme"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,7 +26,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
