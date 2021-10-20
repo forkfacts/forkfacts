@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Forkfacts - Nutrition facts about your food`,
+    title: `Forkfacts`,
     description: `Coming soon`,
     author: `@forkfacts`,
     siteUrl: `https://forkfacts.app/`,
@@ -26,7 +26,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/forkfacts.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -44,6 +44,7 @@ module.exports = {
         path: `./src/data/`,
       },
     },
+    'gatsby-plugin-svgr',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
