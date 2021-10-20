@@ -2,6 +2,14 @@ import {ChakraProvider} from "@chakra-ui/react";
 import {theme} from '@chakra-ui/react';
 
 export const parameters = {
+  backgrounds: {
+    default: 'gray300',
+    values: [
+      { name: 'gray100', value: '#EDF2F7' },
+      { name: 'gray300', value: '#CBD5E0' },
+      { name: 'gray600', value: '#4A5568' },
+    ],
+  },
   actions: {argTypesRegex: "^on[A-Z].*"},
   controls: {
     matchers: {
