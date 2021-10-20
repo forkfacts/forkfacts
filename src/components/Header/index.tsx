@@ -1,10 +1,10 @@
 import React from "react"
-import { Box, Text } from "@chakra-ui/react"
-//import {ReactComponent as ForkFactsLogo}  from "../../images/forkfacts-logo.svg"
+import {Flex, Text} from "@chakra-ui/react"
+import {ReactComponent as Logo} from "../../images/svg/logo.svg"
 
 export const Header = () => {
-  return <Box h={56} border={'1px solid black'}>
-    {/*<ForkFactsLogo />*/}
-    <Text>ForkFacts</Text>
-  </Box>
+    return <Flex py={2} pl={2} border={'1px solid black'} gridGap={2} alignItems={"center"}>
+        <Logo height={32} width={32}/>
+        <Text fontSize={'xl'} fontWeight={"black"}>TheBigLogo</Text>
+    </Flex>
 }
