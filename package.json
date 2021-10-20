@@ -2,7 +2,7 @@
   "name": "forkfacts",
   "private": true,
   "description": "A static web app to find nutrition in our food",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "authors": [],
   "dependencies": {
     "@chakra-ui/icons": "^1.0.16",
@@ -39,7 +39,8 @@
     "babel-loader": "^8.2.2",
     "prettier": "2.4.1",
     "ts-node": "^10.3.0",
-    "typescript": "^4.4.4"
+    "typescript": "^4.4.4",
+    "semantic-release": "^18.0.0"
   },
   "keywords": [
     ""
@@ -54,10 +55,19 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/bonsaiilabs/forkfacts"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
   }
 }
