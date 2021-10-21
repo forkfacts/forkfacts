@@ -11,7 +11,7 @@ export default {
   },
 }
 
-export const OneParentLevel = () => {
+export const Trail = () => {
   const paths: BreadcrumbType[] = [
     { displayName: "USDA", url: "/#" },
     {
