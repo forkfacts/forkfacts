@@ -20,8 +20,7 @@ jobs:
         uses: bahmutov/npm-install@v1
 
 #      - name: Test
-#        run: yarn test
-  --ci --coverage --maxWorkers=2
+#        run: yarn test  --ci --coverage --maxWorkers=2
 
       - name: Build Artifacts
         run: yarn build
