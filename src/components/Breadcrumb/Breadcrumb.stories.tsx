@@ -1,9 +1,9 @@
-import { Breadcrumb } from "./index"
+import { Breadcrumbs } from "./index"
 import { BreadcrumbType } from "../../generators/utilities/breadcrumbs"
 
 export default {
   title: "Components/Breadcrumb",
-  component: Breadcrumb,
+  component: Breadcrumbs,
   parameters: {
     backgrounds: {
       default: "white",
@@ -16,5 +16,5 @@ export const OneParentLevel = () => {
     { displayName: "USDA", url: "/usda" },
     { displayName: "Avocado" },
   ]
-  return <Breadcrumb paths={paths} />
+  return <Breadcrumbs paths={paths} />
 }

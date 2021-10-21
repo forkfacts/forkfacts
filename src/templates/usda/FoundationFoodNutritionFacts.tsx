@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Breadcrumb } from "../../components/Breadcrumb"
+import { Breadcrumbs } from "../../components/Breadcrumb"
 
 export default ({ pageContext }) => {
   const { food, rdi, breadcrumbs } = pageContext
@@ -13,7 +13,7 @@ export default ({ pageContext }) => {
     >
       <div>
         <div>
-          <Breadcrumb paths={breadcrumbs} />
+          <Breadcrumbs paths={breadcrumbs} />
         </div>
         <h1>{food.name}</h1>
         <pre style={{ height: 600, width: "auto" }}>

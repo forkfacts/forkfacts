@@ -1,16 +1,23 @@
 import * as React from "react"
 import { BreadcrumbType } from "../../generators/utilities/breadcrumbs"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  Text,
+} from "@chakra-ui/react"
+import { Link } from "gatsby"
 
 interface BreadcrumbProps {
   paths: BreadcrumbType[]
 }
 
-export const Breadcrumb = ({ paths }: BreadcrumbProps) => {
+export const Breadcrumbs = ({ paths }: BreadcrumbProps) => {
   return (
-    <div>
+    <Breadcrumb>
       {paths.map((path, index) => {
         return (
-          <span key={index}>
+          /*<span key={index}>
             {path.url && (
               <a href={path.url}>
                 <span>
@@ -19,9 +26,14 @@ export const Breadcrumb = ({ paths }: BreadcrumbProps) => {
               </a>
             )}
             {!path.url && <span>{path.displayName}</span>}
-          </span>
+          </span>*/
+          <BreadcrumbItem key={index}>
+            <BreadcrumbLink as={Link} to={path.url}>
+              <Text>{path.displayName}</Text>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
         )
       })}
-    </div>
+    </Breadcrumb>
   )
 }

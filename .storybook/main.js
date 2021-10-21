@@ -5,6 +5,7 @@ module.exports = {
     "@storybook/addon-essentials",
     "@snek-at/storybook-addon-chakra-ui",
     "@storybook/addon-viewport",
+    "storybook-addon-gatsby",
   ],
   webpackFinal: config => {
     // Default rule for images /\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/
