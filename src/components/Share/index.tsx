@@ -5,6 +5,8 @@ import {
   FacebookShareButton,
   TwitterIcon,
   TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
 } from "react-share"
 import { SOCIAL_USERNAME } from "./shareConstants"
 
@@ -43,6 +45,13 @@ export const Share = ({
           url={url}
           children={
             <FacebookIcon size={32} round={true} bgStyle={{ fill: "black" }} />
+          }
+        />
+        <WhatsappShareButton
+          title={title}
+          url={url}
+          children={
+            <WhatsappIcon size={32} round={true} bgStyle={{ fill: "black" }} />
           }
         />
       </Box>
