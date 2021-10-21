@@ -10,4 +10,11 @@ export default {
   },
 }
 
-export const Social = () => <Share />
+export const Social = () => (
+  <Share
+    headline={"Share and contribute in creating a healthy planet!"}
+    title={"Nutrition Facts for Avocado"}
+    url={"https://google.com"}
+    twitterHashTags={["nutrition", "avocado"]}
+  />
+)
