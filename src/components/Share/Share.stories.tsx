@@ -17,5 +17,6 @@ export const Social = () => (
     url={"https://google.com"}
     twitterHashTags={["nutrition", "avocado"]}
     facebookHashTag={"nutrition"}
+    emailBody={"Hey, I think you will care about this information"}
   />
 )

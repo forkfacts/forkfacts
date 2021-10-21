@@ -1,6 +1,8 @@
 import React from "react"
 import { Box, Text } from "@chakra-ui/react"
 import {
+  EmailIcon,
+  EmailShareButton,
   FacebookIcon,
   FacebookShareButton,
   TwitterIcon,
@@ -16,6 +18,7 @@ interface ShareProps {
   title: string
   twitterHashTags: string[]
   facebookHashTag: string
+  emailBody: string
 }
 
 export const Share = ({
@@ -24,6 +27,7 @@ export const Share = ({
   title,
   twitterHashTags,
   facebookHashTag,
+  emailBody,
 }: ShareProps) => {
   return (
     <Box borderRadius={4} border={"1px solid black"}>
@@ -52,6 +56,14 @@ export const Share = ({
           url={url}
           children={
             <WhatsappIcon size={32} round={true} bgStyle={{ fill: "black" }} />
+          }
+        />
+        <EmailShareButton
+          subject={title}
+          body={emailBody}
+          url={url}
+          children={
+            <EmailIcon size={32} round={true} bgStyle={{ fill: "black" }} />
           }
         />
       </Box>
