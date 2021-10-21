@@ -16,5 +16,6 @@ export const Social = () => (
     title={"Nutrition Facts for Avocado"}
     url={"https://google.com"}
     twitterHashTags={["nutrition", "avocado"]}
+    facebookHashTag={"nutrition"}
   />
 )

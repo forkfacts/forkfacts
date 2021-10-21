@@ -1,6 +1,11 @@
 import React from "react"
 import { Box, Text } from "@chakra-ui/react"
-import { TwitterIcon, TwitterShareButton } from "react-share"
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+} from "react-share"
 import { SOCIAL_USERNAME } from "./shareConstants"
 
 interface ShareProps {
@@ -8,6 +13,7 @@ interface ShareProps {
   url: string
   title: string
   twitterHashTags: string[]
+  facebookHashTag: string
 }
 
 export const Share = ({
@@ -15,20 +21,31 @@ export const Share = ({
   url,
   title,
   twitterHashTags,
+  facebookHashTag,
 }: ShareProps) => {
   return (
     <Box borderRadius={4} border={"1px solid black"}>
       <Text fontSize={"sm"}>{headline}</Text>
-      <TwitterShareButton
-        title={title}
-        hashtags={twitterHashTags}
-        onClick={() => {}} // todo: track sharing?
-        via={SOCIAL_USERNAME}
-        children={
-          <TwitterIcon size={32} round={true} bgStyle={{ fill: "black" }} />
-        }
-        url={url}
-      />
+      <Box>
+        <TwitterShareButton
+          title={title}
+          hashtags={twitterHashTags}
+          onClick={() => {}} // todo: track sharing?
+          via={SOCIAL_USERNAME}
+          url={url}
+          children={
+            <TwitterIcon size={32} round={true} bgStyle={{ fill: "black" }} />
+          }
+        />
+        <FacebookShareButton
+          quote={title}
+          hashtag={`#${facebookHashTag}`}
+          url={url}
+          children={
+            <FacebookIcon size={32} round={true} bgStyle={{ fill: "black" }} />
+          }
+        />
+      </Box>
     </Box>
   )
 }
