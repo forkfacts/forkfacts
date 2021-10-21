@@ -1,5 +1,8 @@
 import { ChakraProvider } from "@chakra-ui/react"
 import { theme } from "@chakra-ui/react"
+import "@fontsource/inter/400.css"
+import "@fontsource/inter/700.css"
+import "@fontsource/inter/900.css"
 
 export const parameters = {
   backgrounds: {
