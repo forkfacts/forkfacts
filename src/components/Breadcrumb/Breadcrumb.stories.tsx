@@ -13,8 +13,11 @@ export default {
 
 export const OneParentLevel = () => {
   const paths: BreadcrumbType[] = [
-    { displayName: "USDA", url: "/usda" },
-    { displayName: "Avocado" },
+    { displayName: "USDA", url: "/#" },
+    {
+      displayName: "Legumes and Legume Products",
+      url: "/#",
+    },
   ]
   return <Breadcrumbs paths={paths} />
 }

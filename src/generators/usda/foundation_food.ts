@@ -1,4 +1,9 @@
-import { ALL_FOODS, createBreadcrumb, createLeafBreadcrumb, FOUNDATION_FOOD, USDA } from "../utilities/breadcrumbs"
+import {
+  ALL_FOODS,
+  createBreadcrumb,
+  FOUNDATION_FOOD,
+  USDA,
+} from "../utilities/breadcrumbs"
 import { spaceToDashes } from "../utilities/helpers"
 
 const path = require("path")
@@ -12,18 +17,22 @@ interface NutritionFactFnType {
 }
 
 interface FoundationFoodType {
-  fdcId: number,
-  name: string,
-  category: string,
-  nutrients: [{ name: string, amount: number, unit: "G" | "MG" | "UG" }]
+  fdcId: number
+  name: string
+  category: string
+  nutrients: [{ name: string; amount: number; unit: "G" | "MG" | "UG" }]
 }
 
 type CreatePageFnProps = {
   createPageFunction: (fnType: NutritionFactFnType) => void
 }
 
-const generateFoundationFoodNutritionFactTables = ({ createPageFunction }: CreatePageFnProps) => {
-  const template = path.resolve("./src/templates/usda/FoundationFoodNutritionFacts.tsx")
+const generateFoundationFoodNutritionFactTables = ({
+  createPageFunction,
+}: CreatePageFnProps) => {
+  const template = path.resolve(
+    "./src/templates/usda/FoundationFoodNutritionFacts.tsx"
+  )
   ff_nutrition_facts.forEach((food: FoundationFoodType) => {
     const pagePath = spaceToDashes(food["name"].toString())
     createPageFunction({
@@ -32,29 +41,46 @@ const generateFoundationFoodNutritionFactTables = ({ createPageFunction }: Creat
       context: {
         food,
         rdi,
-        breadcrumbs: [ALL_FOODS, USDA, FOUNDATION_FOOD, createBreadcrumb(FOUNDATION_FOOD, food.category), createLeafBreadcrumb(food.name)]
-      }
+        breadcrumbs: [
+          ALL_FOODS,
+          USDA,
+          FOUNDATION_FOOD,
+          createBreadcrumb(FOUNDATION_FOOD, food.category),
+        ],
+      },
     })
   })
 }
 
-
-type FoundationFoodPageProps = CreatePageFnProps & { data: [{ name: string, category: string }] }
-const generateFoundationFoodPage = ({ createPageFunction, data }: FoundationFoodPageProps) => {
-  const template = path.resolve("./src/templates/usda/food_sources/FoundationFood.tsx")
+type FoundationFoodPageProps = CreatePageFnProps & {
+  data: [{ name: string; category: string }]
+}
+const generateFoundationFoodPage = ({
+  createPageFunction,
+  data,
+}: FoundationFoodPageProps) => {
+  const template = path.resolve(
+    "./src/templates/usda/food_sources/FoundationFood.tsx"
+  )
   const foundationFoodWithCategories = data.reduce((acc, node) => {
-    const foods = acc.has(node.category) ? [...(acc.get(node.category) as string[]), node.name] : [node.name]
+    const foods = acc.has(node.category)
+      ? [...(acc.get(node.category) as string[]), node.name]
+      : [node.name]
     acc.set(node.category, foods)
     return acc
   }, new Map<string, string[]>())
   createPageFunction({
     path: "foundation-foods",
     component: template,
-    context: { foundationFoodWithCategories: Object.fromEntries(foundationFoodWithCategories) }
+    context: {
+      foundationFoodWithCategories: Object.fromEntries(
+        foundationFoodWithCategories
+      ),
+    },
   })
 }
 
 module.exports = {
   generateFoundationFoodNutritionFactTables,
-  generateFoundationFoodPage
+  generateFoundationFoodPage,
 }
