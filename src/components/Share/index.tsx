@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Text } from "@chakra-ui/react"
+import { Box, Flex, Text } from "@chakra-ui/react"
 import {
   EmailIcon,
   EmailShareButton,
@@ -30,9 +30,16 @@ export const Share = ({
   emailBody,
 }: ShareProps) => {
   return (
-    <Box borderRadius={4} border={"1px solid black"}>
-      <Text fontSize={"sm"}>{headline}</Text>
-      <Box>
+    <Flex
+      borderRadius={4}
+      border={"1px solid black"}
+      alignItems={"center"}
+      justify={"space-around"}
+      py={2}
+      background={"gray.50"}
+    >
+      <Text>{headline}</Text>
+      <Flex justify={"space-around"} gridGap={6}>
         <TwitterShareButton
           title={title}
           hashtags={twitterHashTags}
@@ -66,7 +73,7 @@ export const Share = ({
             <EmailIcon size={32} round={true} bgStyle={{ fill: "black" }} />
           }
         />
-      </Box>
-    </Box>
+      </Flex>
+    </Flex>
   )
 }
