@@ -1,7 +1,7 @@
 import React from "react"
 import { Box, Text } from "@chakra-ui/react"
 import { TwitterIcon, TwitterShareButton } from "react-share"
-import { TWITTER_USERNAME } from "./shareConstants"
+import { SOCIAL_USERNAME } from "./shareConstants"
 
 interface ShareProps {
   headline: string
@@ -23,7 +23,7 @@ export const Share = ({
         title={title}
         hashtags={twitterHashTags}
         onClick={() => {}} // todo: track sharing?
-        via={TWITTER_USERNAME}
+        via={SOCIAL_USERNAME}
         children={
           <TwitterIcon size={32} round={true} bgStyle={{ fill: "black" }} />
         }
