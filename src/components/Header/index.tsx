@@ -9,7 +9,7 @@ export const Header = () => {
     <Flex py={2} pl={2} gridGap={2} alignItems={"center"} bg={"white"}>
       <Logo height={32} width={32} />
       {breakpoint !== "base" && breakpoint !== "sm" && (
-        <Text fontSize={"xl"} fontWeight={"extrabold"}>
+        <Text fontSize={"xl"} fontWeight={"black"}>
           forkfacts
         </Text>
       )}

@@ -9,10 +9,12 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import "./layout.css"
 import { ChakraProvider } from "@chakra-ui/react"
 import { theme } from "../theme"
 import { Header } from "./Header"
+import "@fontsource/inter/400.css"
+import "@fontsource/inter/700.css"
+import "@fontsource/inter/900.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -27,7 +29,7 @@ const Layout = ({ children }) => {
 
   return (
     <ChakraProvider theme={theme}>
-      <Header/>
+      <Header />
       <div
         style={{
           margin: `0 auto`,

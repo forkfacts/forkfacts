@@ -44,7 +44,7 @@ module.exports = {
         path: `./src/data/`,
       },
     },
-    'gatsby-plugin-svgr',
+    "gatsby-plugin-svgr",
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
