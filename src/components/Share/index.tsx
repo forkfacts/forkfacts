@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Flex, Text } from "@chakra-ui/react"
+import { Box, Flex, Text, useBreakpoint } from "@chakra-ui/react"
 import {
   EmailIcon,
   EmailShareButton,
@@ -11,6 +11,7 @@ import {
   WhatsappShareButton,
 } from "react-share"
 import { SOCIAL_USERNAME } from "./shareConstants"
+import { ResponsiveBreakpoint } from "../utils"
 
 interface ShareProps {
   headline: string
@@ -29,6 +30,7 @@ export const Share = ({
   facebookHashTag,
   emailBody,
 }: ShareProps) => {
+  const breakpoint = useBreakpoint() as ResponsiveBreakpoint
   return (
     <Flex
       borderRadius={4}
@@ -37,6 +39,10 @@ export const Share = ({
       justify={"space-around"}
       py={2}
       background={"gray.50"}
+      flexDirection={
+        breakpoint === "sm" || breakpoint === "base" ? "column" : "row"
+      }
+      gridGap={3}
     >
       <Text>{headline}</Text>
       <Flex justify={"space-around"} gridGap={6}>
