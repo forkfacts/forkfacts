@@ -22,6 +22,8 @@ interface ShareProps {
   emailBody: string
 }
 
+const iconProps = { size: 32, round: true, fill: "black" }
+
 export const Share = ({
   headline,
   url,
@@ -53,7 +55,11 @@ export const Share = ({
           via={SOCIAL_USERNAME}
           url={url}
           children={
-            <TwitterIcon size={32} round={true} bgStyle={{ fill: "black" }} />
+            <TwitterIcon
+              size={iconProps.size}
+              round={iconProps.round}
+              bgStyle={{ fill: iconProps.fill }}
+            />
           }
         />
         <FacebookShareButton
@@ -61,14 +67,22 @@ export const Share = ({
           hashtag={`#${facebookHashTag}`}
           url={url}
           children={
-            <FacebookIcon size={32} round={true} bgStyle={{ fill: "black" }} />
+            <FacebookIcon
+              size={iconProps.size}
+              round={iconProps.round}
+              bgStyle={{ fill: iconProps.fill }}
+            />
           }
         />
         <WhatsappShareButton
           title={title}
           url={url}
           children={
-            <WhatsappIcon size={32} round={true} bgStyle={{ fill: "black" }} />
+            <WhatsappIcon
+              size={iconProps.size}
+              round={iconProps.round}
+              bgStyle={{ fill: iconProps.fill }}
+            />
           }
         />
         <EmailShareButton
@@ -76,7 +90,11 @@ export const Share = ({
           body={emailBody}
           url={url}
           children={
-            <EmailIcon size={32} round={true} bgStyle={{ fill: "black" }} />
+            <EmailIcon
+              size={iconProps.size}
+              round={iconProps.round}
+              bgStyle={{ fill: iconProps.fill }}
+            />
           }
         />
       </Flex>
