@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 const rows: GridRowsProp = [
   { id: 1, nutrient: "Hello", amount: "World", dailyValue: "2.68%" },
   { id: 2, nutrient: "DataGridPro", amount: "is Awesome", dailyValue: "4.5 %" },
-  { id: 3, nutrient: "MUI", amount: "is Amazing", dailyValue: "9.1 %" },
+  { id: 3, nutrient: "MUI", amount: "is Amazing" },
   /*
       {id: 4, nutrient: "MUI", amount: "is Amazing", dailyValue: "9.1 %"},
       {id: 5, nutrient: "MUI", amount: "is Amazing", dailyValue: "9.1 %"},
