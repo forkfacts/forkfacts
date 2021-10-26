@@ -11,6 +11,9 @@ export default {
     viewport: {
       viewports: INITIAL_VIEWPORTS,
     },
+    backgrounds: {
+      default: "gray300",
+    },
   },
 }
 

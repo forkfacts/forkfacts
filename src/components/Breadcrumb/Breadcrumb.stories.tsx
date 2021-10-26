@@ -4,11 +4,6 @@ import { BreadcrumbType } from "../../generators/utilities/breadcrumbs"
 export default {
   title: "Components/Breadcrumb",
   component: Breadcrumbs,
-  parameters: {
-    backgrounds: {
-      default: "white",
-    },
-  },
 }
 
 export const Trail = () => {
