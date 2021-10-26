@@ -1,9 +1,9 @@
 import React from "react"
-import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid"
-import { Box, Text } from "@chakra-ui/react"
+import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid"
+import { Box, Flex, Text } from "@chakra-ui/react"
 import { makeStyles } from "@material-ui/core"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((/*theme*/) => ({
   root: {
     "& .MuiDataGrid-columnsContainer": {
       backgroundColor: "black",
@@ -21,37 +21,55 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const rows: GridRowsProp = [
-  { id: 1, nutrient: "Hello", amount: "World", dailyValue: "2.68%" },
-  { id: 2, nutrient: "DataGridPro", amount: "is Awesome", dailyValue: "4.5 %" },
-  { id: 3, nutrient: "MUI", amount: "is Amazing" },
-  /*
-      {id: 4, nutrient: "MUI", amount: "is Amazing", dailyValue: "9.1 %"},
-      {id: 5, nutrient: "MUI", amount: "is Amazing", dailyValue: "9.1 %"},
-      {id: 6, nutrient: "MUI", amount: "is Amazing", dailyValue: "9.1 %"},
-  */
-]
-
 const getHeader = (name: string) => <Text fontWeight={"bold"}>{name}</Text>
 const columns: GridColDef[] = [
   {
     field: "nutrient",
     flex: 1,
-    renderHeader: params => getHeader("Nutrient"),
+    renderHeader: (/*params*/) => getHeader("Nutrient"),
   },
   {
     field: "amount",
     width: 150,
-    renderHeader: params => getHeader("Amount"),
+    renderHeader: (/*params*/) => getHeader("Amount"),
+    renderCell: (params: GridRenderCellParams) => {
+      const row: FactTableRow = params.row as FactTableRow
+      return (
+        <Flex>
+          <Text w={10}>{row.amount}</Text>
+          <Text>{row.amountUnit}</Text>
+        </Flex>
+      )
+    },
   },
   {
     field: "dailyValue",
     flex: 1,
-    renderHeader: params => getHeader("% Daily Value"),
+    renderHeader: (/*params*/) => getHeader("% Daily Value"),
+    renderCell: (params: GridRenderCellParams) => {
+      const row: FactTableRow = params.row as FactTableRow
+      return (
+        <Flex>
+          <Text>
+            {row.dailyValue} {row.dailyValue && <>%</>}
+          </Text>
+        </Flex>
+      )
+    },
   },
 ]
 
-export const FactTable = () => {
+export interface FactTableRow {
+  id: number
+  nutrient: string
+  amount: number
+  amountUnit: string
+  dailyValue?: number
+}
+interface FactTableProps {
+  rows: FactTableRow[]
+}
+export const FactTable = ({ rows }: FactTableProps) => {
   const classes = useStyles()
   return (
     <div style={{ height: 500, width: "100%" }}>
@@ -65,7 +83,7 @@ export const FactTable = () => {
           Footer: () => (
             <Box py={4} pl={3}>
               <Text fontSize={"xs"} color={"gray.500"}>
-                27 Nutrients
+                {rows.length} Nutrients
               </Text>
             </Box>
           ),
