@@ -10,7 +10,7 @@ forkfactsdb => forkfacts-scripts => forkfacts
 ## [forkfactsdb](https://github.com/bonsaiilabs/forkfactsdb) 
 - Responsible for setting up database locally with USDA dataset (currently, our only supported dataset)
 
-## [forkfacts-script](https://github.com/bonsaiilabs/forkfacts-scripts)
+## [forkfacts-scripts](https://github.com/bonsaiilabs/forkfacts-scripts)
 - Responsible for fetching the data from the database and generating data files that can be fed to the Gatsby website
 - **Why we need this?**
   - We have specific requirements on what data needs to be shown on each page. Gatsby can connect to a PostgreSQL database,
