@@ -2,7 +2,7 @@ import { AgeFilter } from "./index"
 import { action } from "@storybook/addon-actions"
 
 export default {
-  title: "Components/AgeFilter",
+  title: "Components/Filters/AgeFilter",
   component: AgeFilter,
 }
 

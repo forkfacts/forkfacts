@@ -2,7 +2,7 @@ import { GenderFilter } from "./index"
 import { action } from "@storybook/addon-actions"
 
 export default {
-  title: "Components/GenderFilter",
+  title: "Components/Filters/GenderFilter",
   component: GenderFilter,
 }
 
