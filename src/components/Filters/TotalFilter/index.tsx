@@ -1,6 +1,6 @@
 import React from "react"
-import { TriangleDownIcon } from "@chakra-ui/icons"
-import { Button } from "@chakra-ui/react"
+import { Button, Icon } from "@chakra-ui/react"
+import { RiEqualizerFill } from "react-icons/ri"
 
 interface TotalFilterProps {
   applied: number
@@ -10,7 +10,7 @@ interface TotalFilterProps {
 export const TotalFilter = ({ applied, onClick }: TotalFilterProps) => {
   return (
     <Button
-      leftIcon={<TriangleDownIcon />}
+      leftIcon={<Icon as={RiEqualizerFill} />}
       variant="outline"
       onClick={onClick}
       size={"sm"}
