@@ -13,10 +13,14 @@ import React from "react"
 import { CgSearch } from "react-icons/cg"
 
 interface NutrientFilterOptionsProps {
+  allNutrients: string[]
+  selectedNutrients: string[]
   focusRef: React.MutableRefObject<HTMLInputElement | undefined>
 }
 
 export const NutrientFilterOptions = ({
+  allNutrients,
+  selectedNutrients,
   focusRef,
 }: NutrientFilterOptionsProps) => {
   return (
@@ -34,72 +38,11 @@ export const NutrientFilterOptions = ({
         </InputGroup>
       </Box>
       <Box mt={6}>
-        <CheckboxGroup defaultValue={["Calcium"]}>
+        <CheckboxGroup defaultValue={selectedNutrients}>
           <Stack>
-            <Checkbox value="Choline">Choline</Checkbox>
-            <Checkbox value="Magnesium">Magnesium</Checkbox>
-            <Checkbox value="Calcium">Calcium</Checkbox>
-            <Checkbox value="Protein">Protein</Checkbox>
-            <Checkbox value="Iron">Iron</Checkbox>
-            <Checkbox value="Copper">Copper</Checkbox>
-            <Checkbox value="Riboflavin">Riboflavin</Checkbox>
-            <Checkbox value="Vitamin D">Vitamin D</Checkbox>
-            <Checkbox value="SFA 15:0">SFA 15:0</Checkbox>
-            <Checkbox value="Cholesterol">Cholesterol</Checkbox>
-            <Checkbox value="Vitamin A">Vitamin A</Checkbox>
-            <Checkbox value="Vitamin B-12">Vitamin B-12</Checkbox>
-
-            <Checkbox value="Choline">Choline</Checkbox>
-            <Checkbox value="Magnesium">Magnesium</Checkbox>
-            <Checkbox value="Calcium">Calcium</Checkbox>
-            <Checkbox value="Protein">Protein</Checkbox>
-            <Checkbox value="Iron">Iron</Checkbox>
-            <Checkbox value="Copper">Copper</Checkbox>
-            <Checkbox value="Riboflavin">Riboflavin</Checkbox>
-            <Checkbox value="Vitamin D">Vitamin D</Checkbox>
-            <Checkbox value="SFA 15:0">SFA 15:0</Checkbox>
-            <Checkbox value="Cholesterol">Cholesterol</Checkbox>
-            <Checkbox value="Vitamin A">Vitamin A</Checkbox>
-            <Checkbox value="Vitamin B-12">Vitamin B-12</Checkbox>
-
-            <Checkbox value="Choline">Choline</Checkbox>
-            <Checkbox value="Magnesium">Magnesium</Checkbox>
-            <Checkbox value="Calcium">Calcium</Checkbox>
-            <Checkbox value="Protein">Protein</Checkbox>
-            <Checkbox value="Iron">Iron</Checkbox>
-            <Checkbox value="Copper">Copper</Checkbox>
-            <Checkbox value="Riboflavin">Riboflavin</Checkbox>
-            <Checkbox value="Vitamin D">Vitamin D</Checkbox>
-            <Checkbox value="SFA 15:0">SFA 15:0</Checkbox>
-            <Checkbox value="Cholesterol">Cholesterol</Checkbox>
-            <Checkbox value="Vitamin A">Vitamin A</Checkbox>
-            <Checkbox value="Vitamin B-12">Vitamin B-12</Checkbox>
-
-            <Checkbox value="Choline">Choline</Checkbox>
-            <Checkbox value="Magnesium">Magnesium</Checkbox>
-            <Checkbox value="Calcium">Calcium</Checkbox>
-            <Checkbox value="Protein">Protein</Checkbox>
-            <Checkbox value="Iron">Iron</Checkbox>
-            <Checkbox value="Copper">Copper</Checkbox>
-            <Checkbox value="Riboflavin">Riboflavin</Checkbox>
-            <Checkbox value="Vitamin D">Vitamin D</Checkbox>
-            <Checkbox value="SFA 15:0">SFA 15:0</Checkbox>
-            <Checkbox value="Cholesterol">Cholesterol</Checkbox>
-            <Checkbox value="Vitamin A">Vitamin A</Checkbox>
-            <Checkbox value="Vitamin B-12">Vitamin B-12</Checkbox>
-
-            <Checkbox value="Choline">Choline</Checkbox>
-            <Checkbox value="Magnesium">Magnesium</Checkbox>
-            <Checkbox value="Calcium">Calcium</Checkbox>
-            <Checkbox value="Protein">Protein</Checkbox>
-            <Checkbox value="Iron">Iron</Checkbox>
-            <Checkbox value="Copper">Copper</Checkbox>
-            <Checkbox value="Riboflavin">Riboflavin</Checkbox>
-            <Checkbox value="Vitamin D">Vitamin D</Checkbox>
-            <Checkbox value="SFA 15:0">SFA 15:0</Checkbox>
-            <Checkbox value="Cholesterol">Cholesterol</Checkbox>
-            <Checkbox value="Vitamin A">Vitamin A</Checkbox>
-            <Checkbox value="Vitamin B-12">Vitamin B-12</Checkbox>
+            {allNutrients.map(nutrient => (
+              <Checkbox value={nutrient}>{nutrient}</Checkbox>
+            ))}
           </Stack>
         </CheckboxGroup>
       </Box>

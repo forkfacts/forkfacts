@@ -7,7 +7,19 @@ import { NutrientFilter } from "../NutrientFilter"
 import { FocusableElement } from "@chakra-ui/utils"
 import { FilterModal } from "../FilterModal"
 
-export const TableFilters = () => {
+interface TableFiltersProps {
+  allNutrients: string[]
+  selectedNutrients: string[]
+  selectedGender: "Female" | "Male"
+  selectedAge: { start: number; end?: number }
+}
+
+export const TableFilters = ({
+  allNutrients,
+  selectedNutrients,
+  selectedGender,
+  selectedAge,
+}: TableFiltersProps) => {
   const totalFiltersRef = React.useRef<HTMLDivElement>(null)
   const genderRef = React.useRef<HTMLDivElement>(null)
   const ageRef = React.useRef<HTMLDivElement>(null)
@@ -23,18 +35,25 @@ export const TableFilters = () => {
       <Flex gridGap={4} bg={"white"} py={4} px={4} grow={1}>
         <TotalFilter applied={4} onClick={() => handleClick(totalFiltersRef)} />
         <NutrientFilter
-          selectedNutrients={[]}
+          selectedNutrients={selectedNutrients}
           onClick={() => handleClick(nutrientsRef)}
         />
-        <GenderFilter onClick={() => handleClick(genderRef)} />
+        <GenderFilter
+          selectedGender={selectedGender}
+          onClick={() => handleClick(genderRef)}
+        />
         <AgeFilter
-          startAge={31}
-          endAge={50}
+          startAge={selectedAge.start}
+          endAge={selectedAge.end}
           ageUnit={"year"}
           onClick={() => handleClick(ageRef)}
         />
       </Flex>
       <FilterModal
+        allNutrients={allNutrients}
+        selectedNutrients={selectedNutrients}
+        selectedAge={selectedAge}
+        selectedGender={selectedGender}
         isOpen={focusRef !== undefined}
         onClose={() => setFocusRef(undefined)}
         totalFiltersRef={totalFiltersRef}
