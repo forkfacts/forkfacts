@@ -11,10 +11,10 @@ export const TableFilters = () => {
   const totalFiltersRef = React.useRef<HTMLDivElement>(null)
   const genderRef = React.useRef<HTMLDivElement>(null)
   const ageRef = React.useRef<HTMLDivElement>(null)
-  const nutrientsRef = React.useRef<HTMLDivElement>(null)
+  const nutrientsRef = React.useRef<HTMLInputElement>(null)
   const [focusRef, setFocusRef] = useState<
     RefObject<HTMLDivElement | FocusableElement> | undefined
-  >(nutrientsRef)
+  >(undefined)
 
   const handleClick = (ref: RefObject<HTMLDivElement>) => setFocusRef(ref)
 
@@ -22,16 +22,16 @@ export const TableFilters = () => {
     <>
       <Flex gridGap={4} bg={"white"} py={4} px={4} grow={1}>
         <TotalFilter applied={4} onClick={() => handleClick(totalFiltersRef)} />
+        <NutrientFilter
+          selectedNutrients={[]}
+          onClick={() => handleClick(nutrientsRef)}
+        />
         <GenderFilter onClick={() => handleClick(genderRef)} />
         <AgeFilter
           startAge={31}
           endAge={50}
           ageUnit={"year"}
           onClick={() => handleClick(ageRef)}
-        />
-        <NutrientFilter
-          selectedNutrients={[]}
-          onClick={() => handleClick(nutrientsRef)}
         />
       </Flex>
       <FilterModal
