@@ -58,13 +58,19 @@ export const FilterModal = ({
       selectedNutrients: values as string[],
     }))
   }
+  const onGenderChange = (selectedGender: "Female" | "Male") => {
+    setUserSelected(prevState => ({
+      ...prevState,
+      selectedGender,
+    }))
+  }
+
   return (
     <Box ref={totalFiltersRef}>
       <Modal
         onClose={onClose}
         size={"full"}
         isOpen={isOpen}
-        scrollBehavior={"inside"}
         returnFocusOnClose={true}
         initialFocusRef={focusRef}
       >
@@ -99,7 +105,10 @@ export const FilterModal = ({
               </Box>
               <Divider my={4} />
               <Box ref={genderRef} tabIndex={-1}>
-                <GenderFilterOptions />
+                <GenderFilterOptions
+                  selectedGender={selectedGender}
+                  onChange={onGenderChange}
+                />
               </Box>
             </Box>
           </ModalBody>

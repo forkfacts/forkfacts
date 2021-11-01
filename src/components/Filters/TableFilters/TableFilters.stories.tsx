@@ -147,8 +147,8 @@ const getRandomlySelectedNutrients = (howMany: number) =>
     .sort(() => 0.5 - Math.random()) // https://stackoverflow.com/a/38571132/379235
     .slice(0, howMany)
 
-const onDone = ({ selectedNutrients }: UserSelectionProps) => {
-  action("Table Filters Change")({ selectedNutrients })
+const onDone = ({ selectedNutrients, selectedGender }: UserSelectionProps) => {
+  action("Table Filters Change")({ selectedNutrients, selectedGender })
 }
 
 export const Desktop = () => (
