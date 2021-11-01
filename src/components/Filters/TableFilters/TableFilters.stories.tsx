@@ -9,7 +9,7 @@ export default {
       viewports: INITIAL_VIEWPORTS,
     },
     backgrounds: {
-      default: "gray300",
+      default: "gray100",
     },
   },
 }
