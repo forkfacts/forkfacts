@@ -9,18 +9,20 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react"
-import React from "react"
+import React, { ReactText } from "react"
 import { CgSearch } from "react-icons/cg"
 
 interface NutrientFilterOptionsProps {
   allNutrients: string[]
   selectedNutrients: string[]
+  onChange: (selectedNutrients: ReactText[]) => void
   focusRef: React.MutableRefObject<HTMLInputElement | undefined>
 }
 
 export const NutrientFilterOptions = ({
   allNutrients,
   selectedNutrients,
+  onChange,
   focusRef,
 }: NutrientFilterOptionsProps) => {
   return (
@@ -38,7 +40,7 @@ export const NutrientFilterOptions = ({
         </InputGroup>
       </Box>
       <Box mt={6}>
-        <CheckboxGroup defaultValue={selectedNutrients}>
+        <CheckboxGroup defaultValue={selectedNutrients} onChange={onChange}>
           <Stack>
             {allNutrients.map(nutrient => (
               <Checkbox value={nutrient}>{nutrient}</Checkbox>

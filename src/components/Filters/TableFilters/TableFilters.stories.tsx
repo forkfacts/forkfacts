@@ -1,5 +1,6 @@
-import { TableFilters } from "./index"
+import { TableFilters, UserSelectionProps } from "./index"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
+import { action } from "@storybook/addon-actions"
 
 export default {
   title: "Components/Filters/TableFilters",
@@ -146,11 +147,16 @@ const getRandomlySelectedNutrients = (howMany: number) =>
     .sort(() => 0.5 - Math.random()) // https://stackoverflow.com/a/38571132/379235
     .slice(0, howMany)
 
+const onDone = ({ selectedNutrients }: UserSelectionProps) => {
+  action("Table Filters Change")({ selectedNutrients })
+}
+
 export const DesktopNoNutrientSelected = () => (
   <TableFilters
     allNutrients={nutrients}
-    selectedNutrients={getRandomlySelectedNutrients(50)}
+    selectedNutrients={getRandomlySelectedNutrients(5)}
     selectedGender={"Male"}
     selectedAge={{ start: 70 }}
+    onDone={onDone}
   />
 )

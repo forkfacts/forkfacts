@@ -12,12 +12,13 @@ import {
   ModalOverlay,
   Text,
 } from "@chakra-ui/react"
-import React from "react"
+import React, { ReactText, useState } from "react"
 import { ArrowBackIcon } from "@chakra-ui/icons"
 import { GenderFilterOptions } from "./GenderFilterOptions"
 import { AgeFilterOptions } from "./AgeFilterOptions"
 import { NutrientFilterOptions } from "./NutrientFilterOptions"
 import { FocusableElement } from "@chakra-ui/utils"
+import { UserSelectionProps } from "../TableFilters"
 
 interface FilterModalProps {
   allNutrients: string[]
@@ -26,6 +27,7 @@ interface FilterModalProps {
   selectedAge: { start: number; end?: number }
   isOpen: boolean
   onClose: () => void
+  onDone: (changes: UserSelectionProps) => void
   totalFiltersRef: React.RefObject<HTMLDivElement>
   genderRef: React.RefObject<HTMLDivElement>
   ageRef: React.RefObject<HTMLDivElement>
@@ -42,12 +44,20 @@ export const FilterModal = ({
   selectedAge,
   isOpen,
   onClose,
+  onDone,
   totalFiltersRef,
   genderRef,
   ageRef,
   nutrientRef,
   focusRef,
 }: FilterModalProps) => {
+  const [userSelected, setUserSelected] = useState<UserSelectionProps>()
+  const onNutrientsChange = (values: ReactText[]) => {
+    setUserSelected(prevState => ({
+      ...prevState,
+      selectedNutrients: values as string[],
+    }))
+  }
   return (
     <Modal
       onClose={onClose}
@@ -79,6 +89,7 @@ export const FilterModal = ({
             <NutrientFilterOptions
               allNutrients={allNutrients}
               selectedNutrients={selectedNutrients}
+              onChange={onNutrientsChange}
               focusRef={nutrientRef}
             />
             <Divider my={4} />
@@ -92,7 +103,12 @@ export const FilterModal = ({
           </Box>
         </ModalBody>
         <ModalFooter>
-          <Button bg="black" color="white" variant="solid" onClick={onClose}>
+          <Button
+            bg="black"
+            color="white"
+            variant="solid"
+            onClick={() => onDone(userSelected)}
+          >
             Done
           </Button>
         </ModalFooter>

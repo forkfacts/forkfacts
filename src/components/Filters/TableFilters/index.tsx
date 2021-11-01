@@ -12,13 +12,20 @@ interface TableFiltersProps {
   selectedNutrients: string[]
   selectedGender: "Female" | "Male"
   selectedAge: { start: number; end?: number }
+  onDone: (changes: UserSelectionProps) => void
 }
+
+export type UserSelectionProps = Pick<
+  TableFiltersProps,
+  "selectedNutrients" | "selectedAge" | "selectedGender"
+>
 
 export const TableFilters = ({
   allNutrients,
   selectedNutrients,
   selectedGender,
   selectedAge,
+  onDone,
 }: TableFiltersProps) => {
   const totalFiltersRef = React.useRef<HTMLDivElement>(null)
   const genderRef = React.useRef<HTMLDivElement>(null)
@@ -29,6 +36,10 @@ export const TableFilters = ({
   >(undefined)
 
   const handleClick = (ref: RefObject<HTMLDivElement>) => setFocusRef(ref)
+  const handleDone = (userSelectedChanges: UserSelectionProps) => {
+    setFocusRef(undefined)
+    onDone(userSelectedChanges)
+  }
 
   return (
     <>
@@ -56,6 +67,7 @@ export const TableFilters = ({
         selectedGender={selectedGender}
         isOpen={focusRef !== undefined}
         onClose={() => setFocusRef(undefined)}
+        onDone={handleDone}
         totalFiltersRef={totalFiltersRef}
         genderRef={genderRef}
         ageRef={ageRef}
