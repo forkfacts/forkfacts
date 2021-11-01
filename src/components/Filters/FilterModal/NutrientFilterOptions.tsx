@@ -2,6 +2,7 @@ import {
   Box,
   Checkbox,
   CheckboxGroup,
+  Flex,
   Icon,
   Input,
   InputGroup,
@@ -38,24 +39,31 @@ export const NutrientFilterOptions = ({
         Nutrients
       </Text>
       <Box mt={6}>
-        <InputGroup>
-          <InputLeftElement
-            pointerEvents="none"
-            children={<Icon as={CgSearch} color="gray.500" />}
-          />
-          <Input
-            type="text"
-            placeholder="Search Nutrients"
-            ref={focusRef}
-            onChange={onInputChange}
-          />
-        </InputGroup>
+        <Flex direction={"column"} width={"inherit"}>
+          <InputGroup>
+            <InputLeftElement
+              pointerEvents="none"
+              children={<Icon as={CgSearch} color="gray.500" />}
+            />
+            <Input
+              type="text"
+              placeholder="Search Nutrients"
+              ref={focusRef}
+              onChange={onInputChange}
+            />
+          </InputGroup>
+          <Text fontSize={"xs"} color="gray.500" mt={2}>
+            {searchResults.length} Nutrients
+          </Text>
+        </Flex>
       </Box>
       <Box mt={6}>
         <CheckboxGroup defaultValue={selectedNutrients} onChange={onChange}>
           <Stack>
-            {searchResults.map(nutrient => (
-              <Checkbox value={nutrient}>{nutrient}</Checkbox>
+            {searchResults.map((nutrient, index) => (
+              <Checkbox key={index} value={nutrient}>
+                {nutrient}
+              </Checkbox>
             ))}
           </Stack>
         </CheckboxGroup>

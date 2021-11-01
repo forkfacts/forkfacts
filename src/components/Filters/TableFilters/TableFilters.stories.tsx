@@ -151,7 +151,7 @@ const onDone = ({ selectedNutrients }: UserSelectionProps) => {
   action("Table Filters Change")({ selectedNutrients })
 }
 
-export const DesktopNoNutrientSelected = () => (
+export const Desktop = () => (
   <TableFilters
     allNutrients={nutrients}
     selectedNutrients={getRandomlySelectedNutrients(5)}
