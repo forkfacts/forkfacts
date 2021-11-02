@@ -1,6 +1,7 @@
 import { AgeProps, TableFilters, UserSelectionProps } from "./index"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 import { action } from "@storybook/addon-actions"
+import { useState } from "react"
 
 export default {
   title: "Components/Filters/TableFilters",
@@ -172,13 +173,32 @@ const onDone = ({
   })
 }
 
-export const Desktop = () => (
-  <TableFilters
-    allAges={allAges}
-    allNutrients={nutrients}
-    selectedNutrients={getRandomlySelectedNutrients(5)}
-    selectedGender={"Male"}
-    selectedAge={allAges[1]}
-    onDone={onDone}
-  />
-)
+export const Desktop = () => {
+  const [userSelected, setUserSelected] = useState<UserSelectionProps>({
+    selectedNutrients: getRandomlySelectedNutrients(5),
+    selectedGender: "Male",
+    selectedAge: allAges[1],
+  })
+  return (
+    <TableFilters
+      allAges={allAges}
+      allNutrients={nutrients}
+      selectedNutrients={userSelected.selectedNutrients}
+      selectedGender={userSelected.selectedGender}
+      selectedAge={userSelected.selectedAge}
+      onDone={({
+        selectedNutrients,
+        selectedGender,
+        selectedAge,
+      }: UserSelectionProps) => {
+        setUserSelected(prevState => ({
+          ...prevState,
+          selectedNutrients,
+          selectedGender,
+          selectedAge,
+        }))
+        onDone({ selectedNutrients, selectedGender, selectedAge })
+      }}
+    />
+  )
+}
