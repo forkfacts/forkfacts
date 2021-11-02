@@ -7,11 +7,18 @@ import { NutrientFilter } from "../NutrientFilter"
 import { FocusableElement } from "@chakra-ui/utils"
 import { FilterModal } from "../FilterModal"
 
+export interface AgeProps {
+  index: number
+  start: number
+  end?: number
+  ageUnit: "month" | "year"
+}
 interface TableFiltersProps {
   allNutrients: string[]
+  allAges: AgeProps[]
   selectedNutrients: string[]
   selectedGender: "Female" | "Male"
-  selectedAge: { start: number; end?: number }
+  selectedAge: AgeProps
   onDone: (changes: UserSelectionProps) => void
 }
 
@@ -21,6 +28,7 @@ export type UserSelectionProps = Pick<
 >
 
 export const TableFilters = ({
+  allAges,
   allNutrients,
   selectedNutrients,
   selectedGender,
@@ -61,9 +69,10 @@ export const TableFilters = ({
         />
       </Flex>
       <FilterModal
+        allAges={allAges}
+        selectedAge={selectedAge}
         allNutrients={allNutrients}
         selectedNutrients={selectedNutrients}
-        selectedAge={selectedAge}
         selectedGender={selectedGender}
         isOpen={focusRef !== undefined}
         onClose={() => setFocusRef(undefined)}

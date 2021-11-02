@@ -18,13 +18,14 @@ import { GenderFilterOptions } from "./GenderFilterOptions"
 import { AgeFilterOptions } from "./AgeFilterOptions"
 import { NutrientFilterOptions } from "./NutrientFilterOptions"
 import { FocusableElement } from "@chakra-ui/utils"
-import { UserSelectionProps } from "../TableFilters"
+import { AgeProps, UserSelectionProps } from "../TableFilters"
 
 interface FilterModalProps {
+  allAges: AgeProps[]
   allNutrients: string[]
   selectedNutrients: string[]
   selectedGender: "Female" | "Male"
-  selectedAge: { start: number; end?: number }
+  selectedAge: AgeProps
   isOpen: boolean
   onClose: () => void
   onDone: (changes: UserSelectionProps) => void
@@ -38,6 +39,7 @@ interface FilterModalProps {
 }
 
 export const FilterModal = ({
+  allAges,
   allNutrients,
   selectedNutrients,
   selectedGender,
@@ -51,7 +53,11 @@ export const FilterModal = ({
   nutrientRef,
   focusRef,
 }: FilterModalProps) => {
-  const [userSelected, setUserSelected] = useState<UserSelectionProps>()
+  const [userSelected, setUserSelected] = useState<UserSelectionProps>({
+    selectedAge,
+    selectedGender,
+    selectedNutrients,
+  })
   const onNutrientsChange = (values: ReactText[]) => {
     setUserSelected(prevState => ({
       ...prevState,
@@ -62,6 +68,12 @@ export const FilterModal = ({
     setUserSelected(prevState => ({
       ...prevState,
       selectedGender,
+    }))
+  }
+  const onAgeChange = (age: AgeProps) => {
+    setUserSelected(prevState => ({
+      ...prevState,
+      selectedAge: age,
     }))
   }
 
@@ -92,24 +104,26 @@ export const FilterModal = ({
             </Flex>
           </ModalHeader>
           <ModalBody>
-            <Box>
-              <NutrientFilterOptions
-                allNutrients={allNutrients}
-                selectedNutrients={selectedNutrients}
-                onChange={onNutrientsChange}
-                focusRef={nutrientRef}
+            <NutrientFilterOptions
+              allNutrients={allNutrients}
+              selectedNutrients={userSelected.selectedNutrients}
+              onChange={onNutrientsChange}
+              focusRef={nutrientRef}
+            />
+            <Divider my={4} />
+            <Box ref={ageRef} tabIndex={-1}>
+              <AgeFilterOptions
+                allAges={allAges}
+                selectedAge={userSelected.selectedAge}
+                onChange={onAgeChange}
               />
-              <Divider my={4} />
-              <Box ref={ageRef} tabIndex={-1}>
-                <AgeFilterOptions />
-              </Box>
-              <Divider my={4} />
-              <Box ref={genderRef} tabIndex={-1}>
-                <GenderFilterOptions
-                  selectedGender={selectedGender}
-                  onChange={onGenderChange}
-                />
-              </Box>
+            </Box>
+            <Divider my={4} />
+            <Box ref={genderRef} tabIndex={-1}>
+              <GenderFilterOptions
+                selectedGender={userSelected.selectedGender}
+                onChange={onGenderChange}
+              />
             </Box>
           </ModalBody>
           <ModalFooter>

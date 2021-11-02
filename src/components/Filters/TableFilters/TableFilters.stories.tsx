@@ -1,4 +1,4 @@
-import { TableFilters, UserSelectionProps } from "./index"
+import { AgeProps, TableFilters, UserSelectionProps } from "./index"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 import { action } from "@storybook/addon-actions"
 
@@ -147,16 +147,38 @@ const getRandomlySelectedNutrients = (howMany: number) =>
     .sort(() => 0.5 - Math.random()) // https://stackoverflow.com/a/38571132/379235
     .slice(0, howMany)
 
-const onDone = ({ selectedNutrients, selectedGender }: UserSelectionProps) => {
-  action("Table Filters Change")({ selectedNutrients, selectedGender })
+const allAges: AgeProps[] = [
+  { index: 0, start: 0, end: 6, ageUnit: "month" },
+  { index: 1, start: 7, end: 12, ageUnit: "month" },
+  { index: 2, start: 1, end: 3, ageUnit: "year" },
+  { index: 3, start: 4, end: 8, ageUnit: "year" },
+  { index: 4, start: 9, end: 13, ageUnit: "year" },
+  { index: 5, start: 14, end: 18, ageUnit: "year" },
+  { index: 6, start: 19, end: 30, ageUnit: "year" },
+  { index: 7, start: 31, end: 50, ageUnit: "year" },
+  { index: 8, start: 51, end: 70, ageUnit: "year" },
+  { index: 9, start: 70, ageUnit: "year" },
+]
+
+const onDone = ({
+  selectedNutrients,
+  selectedGender,
+  selectedAge,
+}: UserSelectionProps) => {
+  action("Table Filters Change")({
+    selectedNutrients,
+    selectedGender,
+    selectedAge,
+  })
 }
 
 export const Desktop = () => (
   <TableFilters
+    allAges={allAges}
     allNutrients={nutrients}
     selectedNutrients={getRandomlySelectedNutrients(5)}
     selectedGender={"Male"}
-    selectedAge={{ start: 70 }}
+    selectedAge={allAges[1]}
     onDone={onDone}
   />
 )
