@@ -127,14 +127,19 @@ export const FilterModal = ({
             </Box>
           </ModalBody>
           <ModalFooter>
-            <Button
-              bg="black"
-              color="white"
-              variant="solid"
-              onClick={() => onDone(userSelected)}
-            >
-              Done
-            </Button>
+            <Flex gridGap={6}>
+              <Button variant={"link"} color={"gray.500"} onClick={onClose}>
+                Cancel
+              </Button>
+              <Button
+                bg="black"
+                color="white"
+                variant="solid"
+                onClick={() => onDone(userSelected)}
+              >
+                Done
+              </Button>
+            </Flex>
           </ModalFooter>
         </ModalContent>
       </Modal>
