@@ -1,6 +1,6 @@
 import React from "react"
 import { TriangleDownIcon } from "@chakra-ui/icons"
-import { Button } from "@chakra-ui/react"
+import { Button, Text } from "@chakra-ui/react"
 
 interface NutrientFilterProps {
   selectedNutrients: string[]
@@ -25,8 +25,9 @@ export const NutrientFilter = ({
       size={"sm"}
       colorScheme="black"
       bg={selectedNutrients.length > 0 ? "gray.200" : "white"}
+      flexGrow={1}
     >
-      {getDisplayText(selectedNutrients)}
+      <Text noOfLines={1}>{getDisplayText(selectedNutrients)}</Text>
     </Button>
   )
 }
