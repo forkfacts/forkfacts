@@ -25,7 +25,6 @@ export const NutrientFilter = ({
       size={"sm"}
       colorScheme="black"
       bg={selectedNutrients.length > 0 ? "gray.200" : "white"}
-      flexGrow={1}
     >
       <Text noOfLines={1}>{getDisplayText(selectedNutrients)}</Text>
     </Button>
