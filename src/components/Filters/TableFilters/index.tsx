@@ -1,4 +1,4 @@
-import React, { RefObject, useState } from "react"
+import React, { RefObject, useEffect, useState } from "react"
 import { Flex } from "@chakra-ui/react"
 import { TotalFilter } from "../TotalFilter"
 import { GenderFilter } from "../GenderFilter"
@@ -13,6 +13,7 @@ export interface AgeProps {
   end?: number
   ageUnit: "month" | "year"
 }
+
 interface TableFiltersProps {
   allNutrients: string[]
   allAges: AgeProps[]
@@ -43,16 +44,30 @@ export const TableFilters = ({
     RefObject<HTMLDivElement | FocusableElement> | undefined
   >(undefined)
 
+  const [totalFiltersApplied, setTotalFiltersApplied] = useState<number>(3)
   const handleClick = (ref: RefObject<HTMLDivElement>) => setFocusRef(ref)
   const handleDone = (userSelectedChanges: UserSelectionProps) => {
     setFocusRef(undefined)
     onDone(userSelectedChanges)
   }
 
+  useEffect(() => {
+    /**
+     * 3 because Age, Gender, and Serving filters will always be applied
+     * A user may change them, but they will still apply. Only Nutrients
+     * are something (as far as we know) that a user may or may not want to apply
+     */
+    const totalFiltersApplied = 3 + (selectedNutrients.length > 1 ? 1 : 0)
+    setTotalFiltersApplied(totalFiltersApplied)
+  }, [selectedNutrients])
+
   return (
     <>
       <Flex gridGap={4} bg={"white"} py={4} px={4} grow={1}>
-        <TotalFilter applied={4} onClick={() => handleClick(totalFiltersRef)} />
+        <TotalFilter
+          applied={totalFiltersApplied}
+          onClick={() => handleClick(totalFiltersRef)}
+        />
         <NutrientFilter
           selectedNutrients={selectedNutrients}
           onClick={() => handleClick(nutrientsRef)}
