@@ -2,6 +2,7 @@ import { AgeProps, TableFilters, UserSelectionProps } from "./index"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 import { action } from "@storybook/addon-actions"
 import { useState } from "react"
+import { Tablet } from "../../Header/Header.stories"
 
 export default {
   title: "Components/Filters/TableFilters",
@@ -173,11 +174,11 @@ const onDone = ({
   })
 }
 
-export const Desktop = () => {
+const TableFiltersStory = args => {
   const [userSelected, setUserSelected] = useState<UserSelectionProps>({
-    selectedNutrients: getRandomlySelectedNutrients(5),
-    selectedGender: "Male",
-    selectedAge: allAges[1],
+    selectedNutrients: args.selectedNutrients,
+    selectedGender: args.selectedGender,
+    selectedAge: args.selectedAge,
   })
   return (
     <TableFilters
@@ -201,4 +202,30 @@ export const Desktop = () => {
       }}
     />
   )
+}
+
+export const DesktopWithNutrientsSelected = TableFiltersStory.bind({})
+DesktopWithNutrientsSelected.args = {
+  selectedNutrients: getRandomlySelectedNutrients(5),
+  selectedGender: "Male",
+  selectedAge: allAges[1],
+}
+export const DesktopWithNoNutrientsSelected = TableFiltersStory.bind({})
+
+DesktopWithNoNutrientsSelected.args = {
+  selectedNutrients: [],
+  selectedGender: "Female",
+  selectedAge: allAges[0],
+}
+
+export const MobileWithNutrientsSelected = TableFiltersStory.bind({})
+MobileWithNutrientsSelected.args = {
+  selectedNutrients: getRandomlySelectedNutrients(5),
+  selectedGender: "Male",
+  selectedAge: allAges[1],
+}
+MobileWithNutrientsSelected.parameters = {
+  viewport: {
+    defaultViewport: "pixel",
+  },
 }
