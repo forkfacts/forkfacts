@@ -55,6 +55,8 @@ cd forkfacts && yarn install
 #### Development
 - Run `yarn develop` to start gatsby project locally. This internally runs `gatsby develop` command. This will start project
  on http://localhost:8000
+- Run `yarn storybook` to start storybook. This will run on http://localhost:6006/. (**Note:** You do **not** need database setup
+  in order to run this command). 
 #### Production
 - Run `yarn build` to create production build.
 - Run `gatsby serve` to start production build locally. It will start project on http://localhost:9000/ 
@@ -94,3 +96,6 @@ into the `main` branch, a Github Action is triggered to create a new release.
 
 At this time, we are not running `yarn build` in GitHub CI because we are not sure how much time it would take for the entire data set and if we need
 to externalize our database in the cloud.
+
+# Resources
+[What is `colorScheme` in Chakra-UI](https://github.com/chakra-ui/chakra-ui/discussions/2846#discussioncomment-230531)
