@@ -5,22 +5,16 @@ import {
   USDA,
 } from "../utilities/breadcrumbs"
 import { spaceToDashes } from "../utilities/helpers"
+import { FoundationFood, RDI } from "../../shared/types"
 
 const path = require("path")
 const ff_nutrition_facts = require("../../../src/data/foundation_food_nutrition_facts.json")
-const rdi = require("../../../src/data/rdi.json")
+const rdi: RDI = require("../../../src/data/rdi.json")
 
 interface NutritionFactFnType {
   path: string
   component: string
   context: {}
-}
-
-interface FoundationFoodType {
-  fdcId: number
-  name: string
-  category: string
-  nutrients: [{ name: string; amount: number; unit: "G" | "MG" | "UG" }]
 }
 
 type CreatePageFnProps = {
@@ -33,7 +27,7 @@ const generateFoundationFoodNutritionFactTables = ({
   const template = path.resolve(
     "./src/templates/usda/FoundationFoodNutritionFacts.tsx"
   )
-  ff_nutrition_facts.forEach((food: FoundationFoodType) => {
+  ff_nutrition_facts.forEach((food: FoundationFood) => {
     const pagePath = spaceToDashes(food["name"].toString())
     createPageFunction({
       path: pagePath,
