@@ -1,8 +1,9 @@
 import { Box, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react"
 import React from "react"
+import { Gender } from "../../../shared/types"
 
 interface GenderFilterOptionsProps {
-  selectedGender: "Female" | "Male"
+  selectedGender: Gender
   onChange: (selectGender: string) => void
 }
 

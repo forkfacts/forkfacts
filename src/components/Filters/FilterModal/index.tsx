@@ -19,12 +19,13 @@ import { AgeFilterOptions } from "./AgeFilterOptions"
 import { NutrientFilterOptions } from "./NutrientFilterOptions"
 import { FocusableElement } from "@chakra-ui/utils"
 import { AgeProps, UserSelectionProps } from "../TableFilters"
+import { Gender } from "../../../shared/types"
 
 interface FilterModalProps {
   allAges: AgeProps[]
   allNutrients: string[]
   selectedNutrients: string[]
-  selectedGender: "Female" | "Male"
+  selectedGender: Gender
   selectedAge: AgeProps
   isOpen: boolean
   onClose: () => void
@@ -64,7 +65,7 @@ export const FilterModal = ({
       selectedNutrients: values as string[],
     }))
   }
-  const onGenderChange = (selectedGender: "Female" | "Male") => {
+  const onGenderChange = (selectedGender: Gender) => {
     setUserSelected(prevState => ({
       ...prevState,
       selectedGender,

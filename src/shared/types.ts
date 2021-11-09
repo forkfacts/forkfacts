@@ -41,3 +41,5 @@ export interface UsdaToRdiUnitMapping {
   rdiNutrientTable: string
   usdaToRdiUnitMultiplier: number
 }
+
+export type Gender = "Female" | "Male"
