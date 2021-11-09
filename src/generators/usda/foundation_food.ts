@@ -9,7 +9,7 @@ import { FoundationFood, RDI } from "../../shared/types"
 
 const path = require("path")
 const ff_nutrition_facts = require("../../../src/data/foundation_food_nutrition_facts.json")
-const rdi: RDI = require("../../../src/data/rdi.json")
+const rdis: RDI[] = require("../../../src/data/rdi.json")
 
 interface NutritionFactFnType {
   path: string
@@ -34,7 +34,7 @@ const generateFoundationFoodNutritionFactTables = ({
       component: template,
       context: {
         food,
-        rdi,
+        rdis,
         breadcrumbs: [
           ALL_FOODS,
           USDA,
