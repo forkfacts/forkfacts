@@ -30,6 +30,7 @@ const columns: GridColDef[] = [
   },
   {
     field: "amount",
+    type: "number",
     width: 150,
     renderHeader: (/*params*/) => getHeader("Amount"),
     renderCell: (params: GridRenderCellParams) => {
@@ -37,7 +38,7 @@ const columns: GridColDef[] = [
       return (
         <Flex>
           <Text w={10}>{row.amount}</Text>
-          <Text>{row.amountUnit}</Text>
+          <Text pl={1}>{row.amountUnit}</Text>
         </Flex>
       )
     },
