@@ -1,11 +1,11 @@
 import { Box, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react"
 import React from "react"
-import { AgeProps } from "../TableFilters"
+import { Age } from "../../../shared/types"
 
 interface AgeFilterOptionsProps {
-  allAges: AgeProps[]
-  selectedAge: AgeProps
-  onChange: (age: AgeProps) => void
+  allAges: Age[]
+  selectedAge: Age
+  onChange: (age: Age) => void
 }
 
 export const AgeFilterOptions = ({

@@ -1,15 +1,11 @@
 import React, { useState } from "react"
 import { Box } from "@chakra-ui/react"
-import {
-  AgeProps,
-  TableFilters,
-  TableFiltersProps,
-} from "../Filters/TableFilters"
+import { TableFilters, TableFiltersProps } from "../Filters/TableFilters"
 import { FactTable, FactTableRow } from "../FactTable"
-import { FoundationFood } from "../../shared/types"
+import { Age, FoundationFood } from "../../shared/types"
 
 type NutritionFactTableProps = {
-  allAges: AgeProps[]
+  allAges: Age[]
   food: FoundationFood
 }
 

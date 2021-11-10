@@ -1,9 +1,9 @@
-import { AgeProps, TableFilters, UserSelectionProps } from "./index"
+import { TableFilters, UserSelectionProps } from "./index"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 import { action } from "@storybook/addon-actions"
 import { useState } from "react"
-import { Tablet } from "../../Header/Header.stories"
 import { Nutrient } from "../../../shared/types"
+import { allAges } from "../../../shared/data"
 
 export default {
   title: "Components/Filters/TableFilters",
@@ -109,19 +109,6 @@ const getRandomlySelectedNutrients = (howMany: number) =>
     .slice(0) // https://stackoverflow.com/a/9592758/379235
     .sort(() => 0.5 - Math.random()) // https://stackoverflow.com/a/38571132/379235
     .slice(0, howMany)
-
-const allAges: AgeProps[] = [
-  { index: 0, start: 0, end: 6, ageUnit: "month" },
-  { index: 1, start: 7, end: 12, ageUnit: "month" },
-  { index: 2, start: 1, end: 3, ageUnit: "year" },
-  { index: 3, start: 4, end: 8, ageUnit: "year" },
-  { index: 4, start: 9, end: 13, ageUnit: "year" },
-  { index: 5, start: 14, end: 18, ageUnit: "year" },
-  { index: 6, start: 19, end: 30, ageUnit: "year" },
-  { index: 7, start: 31, end: 50, ageUnit: "year" },
-  { index: 8, start: 51, end: 70, ageUnit: "year" },
-  { index: 9, start: 70, ageUnit: "year" },
-]
 
 const onDone = ({
   selectedNutrients,

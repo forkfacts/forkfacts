@@ -18,7 +18,7 @@ import { GenderFilterOptions } from "./GenderFilterOptions"
 import { AgeFilterOptions } from "./AgeFilterOptions"
 import { NutrientFilterOptions } from "./NutrientFilterOptions"
 import { FocusableElement } from "@chakra-ui/utils"
-import { AgeProps, UserSelectionProps } from "../TableFilters"
+import { Age, UserSelectionProps } from "../TableFilters"
 import { Gender } from "../../../shared/types"
 
 interface FilterModalProps {

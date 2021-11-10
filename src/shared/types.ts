@@ -43,3 +43,9 @@ export interface UsdaToRdiUnitMapping {
 }
 
 export type Gender = "Female" | "Male"
+export interface Age {
+  index: number // todo: revisit this field
+  start: number
+  end?: number
+  ageUnit: "month" | "year"
+}
