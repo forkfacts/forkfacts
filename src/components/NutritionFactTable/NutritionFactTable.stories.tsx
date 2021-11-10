@@ -136,13 +136,4 @@ const onDone = ({
   })
 }
 
-export const Table = () => (
-  <NutritionFactTable
-    food={food}
-    allAges={allAges}
-    selectedNutrients={nutrients.slice(0, 3)}
-    selectedAge={allAges[3]}
-    selectedGender={"Female"}
-    onDone={action("Table Filters Changed")}
-  />
-)
+export const Table = () => <NutritionFactTable food={food} allAges={allAges} />
