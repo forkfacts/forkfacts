@@ -50,10 +50,8 @@ const columns: GridColDef[] = [
     renderCell: (params: GridRenderCellParams) => {
       const row: FactTableRow = params.row as FactTableRow
       return (
-        <Flex>
-          <Text>
-            {row.dailyValue} {row.dailyValue && <>%</>}
-          </Text>
+        <Flex ml={4}>
+          <Text>{row.dailyValue && <>{row.dailyValue} %</>}</Text>
         </Flex>
       )
     },
