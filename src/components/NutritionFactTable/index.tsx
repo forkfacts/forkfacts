@@ -1,6 +1,10 @@
 import React, { useState } from "react"
 import { Box } from "@chakra-ui/react"
-import { TableFilters, TableFiltersProps } from "../Filters/TableFilters"
+import {
+  TableFilters,
+  TableFiltersProps,
+  UserSelectionProps,
+} from "../Filters/TableFilters"
 import { FactTable, FactTableRow } from "../FactTable"
 import { Age, FoundationFood } from "../../shared/types"
 
@@ -34,6 +38,15 @@ export const NutritionFactTable = ({
     dailyValue: 0.0, // todo: change next
   }))
 
+  const onDone = (selection: UserSelectionProps) => {
+    setState(prevState => ({
+      ...prevState,
+      selectedGender: selection.selectedGender,
+      selectedAge: selection.selectedAge,
+      selectedNutrients: selection.selectedNutrients,
+    }))
+  }
+
   if (
     !(
       state.food &&
@@ -53,7 +66,7 @@ export const NutritionFactTable = ({
         selectedNutrients={state.selectedNutrients}
         selectedGender={state.selectedGender}
         selectedAge={state.selectedAge}
-        onDone={() => {}}
+        onDone={onDone}
       />
       <FactTable rows={rows} />
     </Box>
