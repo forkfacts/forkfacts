@@ -11,7 +11,7 @@ import { Age, Gender, Nutrient } from "../../../shared/types"
 export interface TableFiltersProps {
   allNutrients: Nutrient[]
   allAges: Age[]
-  selectedNutrients: string[]
+  selectedNutrients: Nutrient[]
   selectedGender: Gender
   selectedAge: Age
   onDone: (changes: UserSelectionProps) => void
@@ -63,7 +63,7 @@ export const TableFilters = ({
           onClick={() => handleClick(totalFiltersRef)}
         />
         <NutrientFilter
-          selectedNutrients={selectedNutrients}
+          selectedNutrients={selectedNutrients.map(n => n.name)}
           onClick={() => handleClick(nutrientsRef)}
         />
         <GenderFilter
@@ -80,7 +80,7 @@ export const TableFilters = ({
       <FilterModal
         allAges={allAges}
         selectedAge={selectedAge}
-        allNutrients={allNutrients.map(n => n.name)}
+        allNutrients={allNutrients}
         selectedNutrients={selectedNutrients}
         selectedGender={selectedGender}
         isOpen={focusRef !== undefined}

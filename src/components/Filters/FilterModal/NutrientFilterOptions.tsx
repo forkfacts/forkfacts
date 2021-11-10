@@ -12,10 +12,11 @@ import {
 } from "@chakra-ui/react"
 import React, { ReactText, useState } from "react"
 import { CgSearch } from "react-icons/cg"
+import { Nutrient } from "../../../shared/types"
 
 interface NutrientFilterOptionsProps {
-  allNutrients: string[]
-  selectedNutrients: string[]
+  allNutrients: Nutrient[]
+  selectedNutrients: Nutrient[]
   onChange: (selectedNutrients: ReactText[]) => void
   focusRef: React.MutableRefObject<HTMLInputElement | undefined>
 }
@@ -26,10 +27,10 @@ export const NutrientFilterOptions = ({
   onChange,
   focusRef,
 }: NutrientFilterOptionsProps) => {
-  const [searchResults, setSearchResults] = useState<string[]>(allNutrients)
+  const [searchResults, setSearchResults] = useState<Nutrient[]>(allNutrients)
   const onInputChange = (e: React.FormEvent<HTMLInputElement>) => {
     const filtered = allNutrients.filter(nutrient =>
-      nutrient.includes(e.currentTarget.value)
+      nutrient.name.includes(e.currentTarget.value)
     )
     setSearchResults(filtered)
   }
@@ -58,11 +59,14 @@ export const NutrientFilterOptions = ({
         </Flex>
       </Box>
       <Box mt={6}>
-        <CheckboxGroup defaultValue={selectedNutrients} onChange={onChange}>
+        <CheckboxGroup
+          defaultValue={selectedNutrients.map(n => n.name)}
+          onChange={onChange}
+        >
           <Stack>
             {searchResults.map((nutrient, index) => (
-              <Checkbox key={index} value={nutrient}>
-                {nutrient}
+              <Checkbox key={index} value={nutrient.name}>
+                {nutrient.name}
               </Checkbox>
             ))}
           </Stack>
