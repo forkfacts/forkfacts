@@ -65,18 +65,28 @@ export interface FactTableRow {
   amountUnit: string
   dailyValue?: number
 }
+
 interface FactTableProps {
   rows: FactTableRow[]
+  nutrientsFilterApplied?: boolean
 }
-export const FactTable = ({ rows }: FactTableProps) => {
+
+export const FactTable = ({
+  rows,
+  nutrientsFilterApplied = false,
+}: FactTableProps) => {
   const classes = useStyles()
   return (
-    <div style={{ height: 500, width: "100%" }}>
+    <div style={{ display: "flex" }}>
       <DataGrid
-        autoHeight={true}
+        autoHeight={nutrientsFilterApplied}
         rows={rows}
         columns={columns}
         className={classes.root}
+        style={{
+          height: nutrientsFilterApplied ? "auto" : 500,
+          maxHeight: 700,
+        }}
         components={{
           // https://mui.com/api/data-grid/data-grid/#slots-2
           Footer: () => (

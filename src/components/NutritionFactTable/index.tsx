@@ -72,7 +72,10 @@ export const NutritionFactTable = ({
         selectedAge={state.selectedAge}
         onDone={onDone}
       />
-      <FactTable rows={rows} />
+      <FactTable
+        rows={rows}
+        nutrientsFilterApplied={state.selectedNutrients.length > 0}
+      />
     </Box>
   )
 }
