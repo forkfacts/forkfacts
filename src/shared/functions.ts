@@ -1,4 +1,4 @@
-import { Nutrient, RDI, UsdaToRdiUnitMapping } from "./types"
+import { FoundationFood, Nutrient, RDI, UsdaToRdiUnitMapping } from "./types"
 
 const mappings: UsdaToRdiUnitMapping[] = require("../data/usda_rdi_nutrient_mapping.json")
 export const mappingsByNutrient: Map<string, UsdaToRdiUnitMapping> =
@@ -28,4 +28,22 @@ export const getDailyPercentValue = (
   )*/
 
   return ((nutrient.amount * multiplier) / rdi.amount) * 100
+}
+
+export const generateDailyValues = (food: FoundationFood, rdis: RDI[]) => {
+  return food.nutrients
+    .map(nutrient => {
+      const mappedRdi = mappingsByNutrient.get(nutrient.name)
+
+      if (!mappedRdi) return { nutrient }
+
+      const rdisForNutrient = rdis.filter(
+        rdi => rdi.nutrient === mappedRdi.rdiNutrientName
+      )
+      return rdisForNutrient.map(rdi => {
+        const percentDaily = getDailyPercentValue(nutrient, rdi)
+        return { nutrient, rdi, percentDaily }
+      })
+    })
+    .flat()
 }

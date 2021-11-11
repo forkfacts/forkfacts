@@ -49,3 +49,9 @@ export interface Age {
   end?: number
   ageUnit: "month" | "year"
 }
+
+export interface NutrientDailyValue {
+  nutrient: Nutrient
+  rdi?: RDI
+  percentDaily?: number
+}

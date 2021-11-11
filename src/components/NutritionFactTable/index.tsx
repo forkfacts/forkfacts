@@ -27,8 +27,10 @@ export const NutritionFactTable = ({
     food,
     allAges,
     selectedGender: "Female",
-    selectedAge: allAges.filter(age => age.start === 31)[0], // todo: change, make it configurable
-    selectedNutrients: [], // no nutrients selected by default
+    // todo: change, make it configurable
+    selectedAge: allAges.filter(age => age.start === 31)[0],
+    // no nutrients selected by user initially, show all nutrients
+    selectedNutrients: [],
   })
   const getRows: () => FactTableRow[] = () => {
     const nutrients =
