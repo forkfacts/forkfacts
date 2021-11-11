@@ -30,13 +30,20 @@ export const NutritionFactTable = ({
     selectedAge: allAges.filter(age => age.start === 31)[0], // todo: change, make it configurable
     selectedNutrients: [], // no nutrients selected by default
   })
-  const rows: FactTableRow[] = food.nutrients.map((nutrient, index) => ({
-    id: index,
-    nutrient: nutrient.name,
-    amount: nutrient.amount,
-    amountUnit: nutrient.unit.toLowerCase(),
-    dailyValue: 0.0, // todo: change next
-  }))
+  const getRows: () => FactTableRow[] = () => {
+    const nutrients =
+      state.selectedNutrients.length < 1
+        ? food.nutrients
+        : state.selectedNutrients
+    return nutrients.map((nutrient, index) => ({
+      id: index,
+      nutrient: nutrient.name,
+      amount: nutrient.amount,
+      amountUnit: nutrient.unit.toLowerCase(),
+      dailyValue: 0.0, // todo: change next
+    }))
+  }
+  const rows = getRows()
 
   const onDone = (selection: UserSelectionProps) => {
     setState(prevState => ({
@@ -48,13 +55,7 @@ export const NutritionFactTable = ({
   }
 
   if (
-    !(
-      state.food &&
-      state.allAges &&
-      state.selectedAge &&
-      state.selectedNutrients &&
-      state.selectedGender
-    )
+    !(state.food && state.allAges && state.selectedAge && state.selectedGender)
   )
     return null
 
