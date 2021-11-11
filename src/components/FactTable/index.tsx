@@ -37,7 +37,7 @@ const columns: GridColDef[] = [
       const row: FactTableRow = params.row as FactTableRow
       return (
         <Flex>
-          <Text w={10}>{row.amount}</Text>
+          <Text w={100}>{row.amount}</Text>
           <Text pl={1}>{row.amountUnit}</Text>
         </Flex>
       )
