@@ -7,6 +7,7 @@ import {
   Text,
 } from "@chakra-ui/react"
 import { Link } from "gatsby"
+import { ChevronRightIcon } from "@chakra-ui/icons"
 
 interface BreadcrumbProps {
   paths: BreadcrumbType[]
@@ -14,22 +15,12 @@ interface BreadcrumbProps {
 
 export const Breadcrumbs = ({ paths }: BreadcrumbProps) => {
   return (
-    <Breadcrumb>
+    <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.600" />}>
       {paths.map((path, index) => {
         return (
-          /*<span key={index}>
-            {path.url && (
-              <a href={path.url}>
-                <span>
-                  {path.displayName + (index === paths.length - 1 ? "" : " / ")}
-                </span>
-              </a>
-            )}
-            {!path.url && <span>{path.displayName}</span>}
-          </span>*/
           <BreadcrumbItem key={index}>
-            <BreadcrumbLink as={Link} to={path.url}>
-              <Text>{path.displayName}</Text>
+            <BreadcrumbLink as={Link} to={path.url} color={"gray.600"}>
+              <Text fontSize={"sm"}>{path.displayName}</Text>
             </BreadcrumbLink>
           </BreadcrumbItem>
         )
