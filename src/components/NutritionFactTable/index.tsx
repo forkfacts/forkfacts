@@ -7,10 +7,11 @@ import {
 } from "../Filters/TableFilters"
 import { FactTable, FactTableRow } from "../FactTable"
 import { Age, FoundationFood } from "../../shared/types"
+import { allAges as allAgesData } from "../../shared/data"
 
 type NutritionFactTableProps = {
-  allAges: Age[]
   food: FoundationFood
+  allAges?: Age[]
 }
 
 type NutritionFactTableState = Omit<
@@ -21,7 +22,7 @@ type NutritionFactTableState = Omit<
 
 export const NutritionFactTable = ({
   food,
-  allAges,
+  allAges = allAgesData,
 }: NutritionFactTableProps) => {
   const [state, setState] = useState<NutritionFactTableState>({
     food,

@@ -1,8 +1,7 @@
 import { NutritionFactTable } from "./index"
 import { UserSelectionProps } from "../Filters/TableFilters"
 import { action } from "@storybook/addon-actions"
-import { Age, FoundationFood } from "../../shared/types"
-import { allAges } from "../../shared/data"
+import { FoundationFood } from "../../shared/types"
 
 export default {
   title: "Components/Nutrition Fact Table",
@@ -103,4 +102,4 @@ const onDone = ({
   })
 }
 
-export const Table = () => <NutritionFactTable food={food} allAges={allAges} />
+export const Table = () => <NutritionFactTable food={food} />
