@@ -56,3 +56,8 @@ export interface NutrientDailyValue {
   rdi?: RDI
   percentDaily?: number
 }
+
+export interface Breadcrumb {
+  displayName: string
+  url: string
+}

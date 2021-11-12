@@ -1,6 +1,6 @@
 import * as React from "react"
 import { spaceToDashes } from "../../../generators/utilities/helpers"
-import Layout from "../../../components/layout"
+import Layout from "../../../components/Layout"
 import { Box, Text } from "@chakra-ui/react"
 
 interface FoundationFoodType {
@@ -8,14 +8,11 @@ interface FoundationFoodType {
 }
 
 export default ({ pageContext }) => {
-  const { foundationFoodWithCategories } = pageContext
+  const { foundationFoodWithCategories, breadcrumbs } = pageContext
   const ffWithCategoriesTyped =
     foundationFoodWithCategories as FoundationFoodType
   return (
-    <Layout>
-      <Text fontSize={"4xl"} fontWeight={"bold"}>
-        Foundation Food
-      </Text>
+    <Layout pageTitle={"Foundation Food"} breadcrumbs={breadcrumbs}>
       <Text mt={4}>
         These are foods which are chemically analyzed. More to come from USDA
         tables

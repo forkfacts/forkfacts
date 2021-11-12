@@ -2,9 +2,10 @@
 import * as React from "react"
 import { PageProps, Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import Seo from "../components/seo"
 import { Text } from "@chakra-ui/react"
+import { HOME } from "../generators/utilities/breadcrumbs"
 
 type DataProps = {
   site: {
@@ -13,11 +14,20 @@ type DataProps = {
 }
 
 const Index: React.FC<PageProps<DataProps>> = ({ data, path }) => (
-  <Layout>
+  <Layout pageTitle={"ForkFacts"}>
     <Seo title="Using TypeScript" />
-    <Text fontSize={'3xl'} fontWeight={'medium'}>Find nutrition about your food</Text>
-    <Text py={'2vh'} fontWeight={'bold'}>!!The work is in progress!!</Text>
-    <Text fontWeight={'medium'}>In the meantime, check out <a href='/foundation-foods' style={{color: 'blue'}}>Foundation Foods</a></Text>
+    <Text fontSize={"3xl"} fontWeight={"medium"}>
+      Find nutrition about your food
+    </Text>
+    <Text py={"2vh"} fontWeight={"bold"}>
+      !!The work is in progress!!
+    </Text>
+    <Text fontWeight={"medium"}>
+      In the meantime, check out{" "}
+      <a href="/foundation-foods" style={{ color: "blue" }}>
+        Foundation Foods
+      </a>
+    </Text>
   </Layout>
 )
 

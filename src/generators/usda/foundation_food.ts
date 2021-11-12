@@ -70,6 +70,11 @@ const generateFoundationFoodPage = ({
       foundationFoodWithCategories: Object.fromEntries(
         foundationFoodWithCategories
       ),
+      breadcrumbs: [
+        HOME,
+        // USDA, // todo: enable others when we have data from other data sources
+        FOUNDATION_FOOD,
+      ],
     },
   })
 }
