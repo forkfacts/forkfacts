@@ -7,7 +7,7 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+//import { useStaticQuery, graphql } from "gatsby"
 
 import { ChakraProvider } from "@chakra-ui/react"
 import { theme } from "../theme"
@@ -18,7 +18,7 @@ import "@fontsource/inter/700.css"
 import "@fontsource/inter/900.css"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
+  /*const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `)*/
 
   return (
     <ChakraProvider theme={theme}>
@@ -39,15 +39,6 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
       </div>
     </ChakraProvider>
   )
