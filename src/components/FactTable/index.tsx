@@ -1,5 +1,10 @@
 import React from "react"
-import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid"
+import {
+  DataGrid,
+  GridColDef,
+  GridRenderCellParams,
+  GridSortModel,
+} from "@mui/x-data-grid"
 import { Box, Flex, Text } from "@chakra-ui/react"
 import { makeStyles } from "@material-ui/core"
 
@@ -77,6 +82,15 @@ export const FactTable = ({
   nutrientsFilterApplied = false,
 }: FactTableProps) => {
   const classes = useStyles()
+
+  // https://mui.com/components/data-grid/sorting/#basic-sorting
+  const [sortModel, setSortModel] = React.useState<GridSortModel>([
+    {
+      field: "dailyValue",
+      sort: "desc",
+    },
+  ])
+
   return (
     <div style={{ display: "flex" }}>
       <DataGrid
@@ -98,6 +112,8 @@ export const FactTable = ({
             </Box>
           ),
         }}
+        sortModel={sortModel}
+        onSortModelChange={model => setSortModel(model)}
       />
     </div>
   )

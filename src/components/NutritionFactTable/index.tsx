@@ -39,19 +39,6 @@ export const NutritionFactTable = ({
     useState<NutrientDailyValue[]>(nutrientDailyValues)
   const [rows, setRows] = useState<FactTableRow[]>([])
 
-  const getRows: () => FactTableRow[] = () => {
-    const nutrients =
-      state.selectedNutrients.length < 1
-        ? food.nutrients
-        : state.selectedNutrients
-    return nutrients.map((nutrient, index) => ({
-      id: index,
-      nutrient: nutrient.name,
-      amount: nutrient.amount,
-      amountUnit: nutrient.unit.toLowerCase(),
-      dailyValue: 0.0, // todo: change next
-    }))
-  }
   const onDone = (selection: UserSelectionProps) => {
     setState(prevState => ({
       ...prevState,
@@ -64,7 +51,7 @@ export const NutritionFactTable = ({
   useEffect(() => {
     const gender = state.selectedGender
     const age = state.selectedAge
-
+    // todo: move this logic in ts file so that we can write tests
     const rdisForGenderAge = nutrientDailyValues.filter(value => {
       /**
        * If the nutrient does not have associated RDI,
@@ -83,6 +70,7 @@ export const NutritionFactTable = ({
   }, [state.selectedGender, state.selectedAge])
 
   useEffect(() => {
+    // todo: move this logic in ts file so that we can write tests
     const nutrients =
       state.selectedNutrients.length < 1
         ? food.nutrients
