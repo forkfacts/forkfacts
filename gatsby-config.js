@@ -29,14 +29,6 @@ module.exports = {
         icon: `src/images/forkfacts.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: "gatsby-source-pg",
-      options: {
-        connectionString: "postgres://forkfacts:forkfacts@127.0.0.1/ffidb",
-        schema: "public",
-        refetchInterval: 60, // Refetch data every 60 seconds
-      },
-    },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
