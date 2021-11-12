@@ -9,7 +9,7 @@ interface GenderFilterProps {
 }
 
 export const GenderFilter = ({
-  selectedGender = "Female",
+  selectedGender = "Females",
   onClick,
 }: GenderFilterProps) => {
   return (

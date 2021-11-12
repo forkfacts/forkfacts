@@ -13,13 +13,14 @@ export interface Nutrient {
 }
 
 export interface RDI {
-  applicableFor:
-    | "infants"
-    | "children"
-    | "males"
-    | "females"
-    | "pregnancy"
-    | "lactation"
+  // todo: handle other gender later
+  applicableFor: "males" | "females"
+  //| "infants"
+  //| "children"
+  // | "males"
+  // | "females"
+  //| "pregnancy"
+  //| "lactation"
   ageStart: number
   ageEnd?: number
   ageUnit: "month" | "year"
@@ -42,7 +43,7 @@ export interface UsdaToRdiUnitMapping {
   usdaToRdiUnitMultiplier: number
 }
 
-export type Gender = "Female" | "Male"
+export type Gender = "Females" | "Males"
 export interface Age {
   index: number // todo: revisit this field
   start: number

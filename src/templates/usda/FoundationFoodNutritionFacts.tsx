@@ -14,7 +14,7 @@ export default ({ pageContext }) => {
   return (
     <Layout>
       <Breadcrumbs paths={breadcrumbs} />
-      <NutritionFactTable food={thisFood} />
+      <NutritionFactTable food={thisFood} nutrientDailyValues={values} />
     </Layout>
   )
 }

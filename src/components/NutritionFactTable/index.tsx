@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Box } from "@chakra-ui/react"
 import {
   TableFilters,
@@ -6,33 +6,38 @@ import {
   UserSelectionProps,
 } from "../Filters/TableFilters"
 import { FactTable, FactTableRow } from "../FactTable"
-import { Age, FoundationFood } from "../../shared/types"
+import { Age, FoundationFood, NutrientDailyValue } from "../../shared/types"
 import { allAges as allAgesData } from "../../shared/data"
 
 type NutritionFactTableProps = {
   food: FoundationFood
   allAges?: Age[]
+  nutrientDailyValues: NutrientDailyValue[]
 }
 
 type NutritionFactTableState = Omit<
   TableFiltersProps,
   "allNutrients" | "onDone"
 > &
-  NutritionFactTableProps
+  Omit<NutritionFactTableProps, "nutrientDailyValues">
 
 export const NutritionFactTable = ({
   food,
   allAges = allAgesData,
+  nutrientDailyValues,
 }: NutritionFactTableProps) => {
   const [state, setState] = useState<NutritionFactTableState>({
     food,
     allAges,
-    selectedGender: "Female",
+    selectedGender: "Females",
     // todo: change, make it configurable
     selectedAge: allAges.filter(age => age.start === 31)[0],
     // no nutrients selected by user initially, show all nutrients
     selectedNutrients: [],
   })
+  const [nutrientDailyValuesSelected, setNutrientDailyValuesSelected] =
+    useState<NutrientDailyValue[]>(nutrientDailyValues)
+
   const getRows: () => FactTableRow[] = () => {
     const nutrients =
       state.selectedNutrients.length < 1
@@ -56,6 +61,28 @@ export const NutritionFactTable = ({
       selectedNutrients: selection.selectedNutrients,
     }))
   }
+
+  useEffect(() => {
+    const gender = state.selectedGender
+    const age = state.selectedAge
+
+    const rdisForGenderAge = nutrientDailyValues.filter(value => {
+      /**
+       * If the nutrient does not have associated RDI,
+       * we do not include it in selected result
+       */
+      if (!value.rdi) return false
+      const ageMatches =
+        value.rdi.ageStart === age.start &&
+        value.rdi.ageEnd === age.end &&
+        value.rdi.ageUnit === age.ageUnit
+      // todo: make gender types same as Gender for RDI as well? remove lowercase comparison
+      const genderMatches = value.rdi.applicableFor === gender.toLowerCase()
+      return ageMatches && genderMatches
+    })
+    //console.log({ rdisForGenderAge })
+    setNutrientDailyValuesSelected(rdisForGenderAge)
+  }, [state.selectedGender, state.selectedAge])
 
   if (
     !(state.food && state.allAges && state.selectedAge && state.selectedGender)

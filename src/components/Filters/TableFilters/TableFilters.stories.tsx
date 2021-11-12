@@ -155,21 +155,21 @@ const TableFiltersStory = args => {
 export const DesktopWithNutrientsSelected = TableFiltersStory.bind({})
 DesktopWithNutrientsSelected.args = {
   selectedNutrients: getRandomlySelectedNutrients(5),
-  selectedGender: "Male",
+  selectedGender: "Males",
   selectedAge: allAges[1],
 }
 export const DesktopWithNoNutrientsSelected = TableFiltersStory.bind({})
 
 DesktopWithNoNutrientsSelected.args = {
   selectedNutrients: [],
-  selectedGender: "Female",
+  selectedGender: "Females",
   selectedAge: allAges[0],
 }
 
 export const MobileWithNutrientsSelected = TableFiltersStory.bind({})
 MobileWithNutrientsSelected.args = {
   selectedNutrients: getRandomlySelectedNutrients(5),
-  selectedGender: "Male",
+  selectedGender: "Males",
   selectedAge: allAges[1],
 }
 MobileWithNutrientsSelected.parameters = {
