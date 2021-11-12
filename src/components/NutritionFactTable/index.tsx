@@ -79,7 +79,6 @@ export const NutritionFactTable = ({
       const genderMatches = value.rdi.applicableFor === gender.toLowerCase()
       return ageMatches && genderMatches
     })
-    console.log({ rdisForGenderAge })
     setNutrientDailyValuesSelected(rdisForGenderAge)
   }, [state.selectedGender, state.selectedAge])
 
