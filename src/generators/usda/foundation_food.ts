@@ -1,5 +1,5 @@
 import {
-  ALL_FOODS,
+  HOME,
   createBreadcrumb,
   FOUNDATION_FOOD,
   USDA,
@@ -36,8 +36,8 @@ const generateFoundationFoodNutritionFactTables = ({
         food,
         rdis,
         breadcrumbs: [
-          ALL_FOODS,
-          USDA,
+          HOME,
+          // USDA, // todo: enable others when we have data from other data sources
           FOUNDATION_FOOD,
           createBreadcrumb(FOUNDATION_FOOD, food.category),
         ],

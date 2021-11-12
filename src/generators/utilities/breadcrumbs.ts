@@ -7,12 +7,13 @@ export type BreadcrumbType = {
 
 //todo : URLs must change to correct locations
 
-export const ALL_FOODS: BreadcrumbType = {
-  displayName: "All Foods",
-  url: "https://google.com",
+export const HOME: BreadcrumbType = {
+  displayName: "Home",
+  url: "/",
 }
 export const USDA: BreadcrumbType = {
   displayName: "USDA",
+  // todo: create a basic page explaining the data
   url: "https://fdc.nal.usda.gov/",
 }
 
