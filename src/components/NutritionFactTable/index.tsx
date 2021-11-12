@@ -37,6 +37,7 @@ export const NutritionFactTable = ({
   })
   const [nutrientDailyValuesSelected, setNutrientDailyValuesSelected] =
     useState<NutrientDailyValue[]>(nutrientDailyValues)
+  const [rows, setRows] = useState<FactTableRow[]>([])
 
   const getRows: () => FactTableRow[] = () => {
     const nutrients =
@@ -51,8 +52,6 @@ export const NutritionFactTable = ({
       dailyValue: 0.0, // todo: change next
     }))
   }
-  const rows = getRows()
-
   const onDone = (selection: UserSelectionProps) => {
     setState(prevState => ({
       ...prevState,
@@ -80,9 +79,31 @@ export const NutritionFactTable = ({
       const genderMatches = value.rdi.applicableFor === gender.toLowerCase()
       return ageMatches && genderMatches
     })
-    //console.log({ rdisForGenderAge })
+    console.log({ rdisForGenderAge })
     setNutrientDailyValuesSelected(rdisForGenderAge)
   }, [state.selectedGender, state.selectedAge])
+
+  useEffect(() => {
+    const nutrients =
+      state.selectedNutrients.length < 1
+        ? food.nutrients
+        : state.selectedNutrients
+    const nutrientsWithDailyValues = nutrients.map((nutrient, index) => {
+      const nutrientWithDailyValue = nutrientDailyValues.filter(
+        value =>
+          value.nutrient.name === nutrient.name &&
+          value.nutrient.unit === nutrient.unit
+      )[0]
+      return {
+        id: index,
+        nutrient: nutrient.name,
+        amount: nutrient.amount,
+        amountUnit: nutrient.unit.toLowerCase(),
+        dailyValue: nutrientWithDailyValue?.percentDaily,
+      }
+    })
+    setRows(nutrientsWithDailyValues)
+  }, [state.selectedNutrients, nutrientDailyValuesSelected])
 
   if (
     !(state.food && state.allAges && state.selectedAge && state.selectedGender)

@@ -1,7 +1,5 @@
 import { NutritionFactTable } from "./index"
-import { UserSelectionProps } from "../Filters/TableFilters"
-import { action } from "@storybook/addon-actions"
-import { FoundationFood } from "../../shared/types"
+import { FoundationFood, NutrientDailyValue } from "../../shared/types"
 
 export default {
   title: "Components/Nutrition Fact Table",
@@ -90,16 +88,189 @@ const food: FoundationFood = {
   ],
 }
 
-const onDone = ({
-  selectedNutrients,
-  selectedGender,
-  selectedAge,
-}: UserSelectionProps) => {
-  action("Table Filters Change")({
-    selectedNutrients,
-    selectedGender,
-    selectedAge,
-  })
-}
+const nutrientDailyValues: NutrientDailyValue[] = [
+  {
+    nutrient: {
+      name: "MUFA 22:1 c",
+      amount: 83.9,
+      unit: "G",
+    },
+    rdi: {
+      applicableFor: "females",
+      ageStart: 0,
+      ageEnd: 6,
+      ageUnit: "month",
+      importTable: "Vitamins",
+      nutrient: "MUFA 22:1 c",
+      amount: 0.7,
+      nutrientUnit: "L",
+    },
+    percentDaily: 11.985714285714288,
+  },
+  {
+    nutrient: {
+      name: "Total fat (NLEA)",
+      amount: 83.9,
+      unit: "G",
+    },
+    rdi: {
+      applicableFor: "females",
+      ageStart: 6,
+      ageEnd: 12,
+      ageUnit: "month",
+      importTable: "Vitamins",
+      nutrient: "Fat",
+      amount: 0.8,
+      nutrientUnit: "L",
+    },
+    percentDaily: 10.487499999999999,
+  },
+  {
+    nutrient: {
+      name: "Zinc, Zn",
+      amount: 83.9,
+      unit: "G",
+    },
+    rdi: {
+      applicableFor: "males",
+      ageStart: 1,
+      ageEnd: 3,
+      ageUnit: "year",
+      importTable: "Vitamins",
+      nutrient: "Zinc",
+      amount: 1.3,
+      nutrientUnit: "L",
+    },
+    percentDaily: 6.453846153846154,
+  },
+  {
+    nutrient: {
+      name: "Choline, free",
+      amount: 83.9,
+      unit: "G",
+    },
+    rdi: {
+      applicableFor: "males",
+      ageStart: 4,
+      ageEnd: 8,
+      ageUnit: "year",
+      importTable: "Vitamins",
+      nutrient: "Choline",
+      amount: 1.7,
+      nutrientUnit: "L",
+    },
+    percentDaily: 4.935294117647059,
+  },
+  {
+    nutrient: {
+      name: "Sodium, Na",
+      amount: 83.9,
+      unit: "G",
+    },
+    rdi: {
+      applicableFor: "males",
+      ageStart: 9,
+      ageEnd: 13,
+      ageUnit: "year",
+      importTable: "Vitamins",
+      nutrient: "Sodium",
+      amount: 2.4,
+      nutrientUnit: "L",
+    },
+    percentDaily: 3.4958333333333336,
+  },
+  {
+    nutrient: {
+      name: "Folate, total",
+      amount: 83.9,
+      unit: "G",
+    },
+    rdi: {
+      applicableFor: "males",
+      ageStart: 14,
+      ageEnd: 18,
+      ageUnit: "year",
+      importTable: "Vitamins",
+      nutrient: "Folate",
+      amount: 3.3,
+      nutrientUnit: "L",
+    },
+    percentDaily: 2.5424242424242425,
+  },
+  {
+    nutrient: {
+      name: "Manganese, Mn",
+      amount: 83.9,
+      unit: "G",
+    },
+    rdi: {
+      applicableFor: "males",
+      ageStart: 19,
+      ageEnd: 30,
+      ageUnit: "year",
+      importTable: "Vitamins",
+      nutrient: "Manganese",
+      amount: 3.7,
+      nutrientUnit: "L",
+    },
+    percentDaily: 2.2675675675675673,
+  },
+  {
+    nutrient: {
+      name: "Vitamin A, RAE",
+      amount: 83.9,
+      unit: "G",
+    },
+    rdi: {
+      applicableFor: "males",
+      ageStart: 31,
+      ageEnd: 50,
+      ageUnit: "year",
+      importTable: "Vitamins",
+      nutrient: "Vitamin A",
+      amount: 3.7,
+      nutrientUnit: "L",
+    },
+    percentDaily: 2.2675675675675673,
+  },
+  {
+    nutrient: {
+      name: "Copper, Cu",
+      amount: 83.9,
+      unit: "G",
+    },
+    rdi: {
+      applicableFor: "males",
+      ageStart: 51,
+      ageEnd: 70,
+      ageUnit: "year",
+      importTable: "Vitamins",
+      nutrient: "Copper",
+      amount: 3.7,
+      nutrientUnit: "L",
+    },
+    percentDaily: 2.2675675675675673,
+  },
+  {
+    nutrient: {
+      name: "Water",
+      amount: 83.9,
+      unit: "G",
+    },
+    rdi: {
+      applicableFor: "males",
+      ageStart: 70,
+      ageEnd: null,
+      ageUnit: "year",
+      importTable: "Vitamins",
+      nutrient: "Total Water",
+      amount: 3.7,
+      nutrientUnit: "L",
+    },
+    percentDaily: 2.2675675675675673,
+  },
+]
 
-export const Table = () => <NutritionFactTable food={food} />
+export const Table = () => (
+  <NutritionFactTable food={food} nutrientDailyValues={nutrientDailyValues} />
+)

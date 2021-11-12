@@ -49,9 +49,10 @@ const columns: GridColDef[] = [
     renderHeader: (/*params*/) => getHeader("% Daily Value"),
     renderCell: (params: GridRenderCellParams) => {
       const row: FactTableRow = params.row as FactTableRow
+      // todo: shall we move .toFixed(2) up?
       return (
         <Flex ml={4}>
-          <Text>{row.dailyValue && <>{row.dailyValue} %</>}</Text>
+          <Text>{row.dailyValue && <>{row.dailyValue.toFixed(2)} %</>}</Text>
         </Flex>
       )
     },
