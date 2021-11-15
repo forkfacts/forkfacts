@@ -22,7 +22,7 @@ import { Breadcrumb } from "../shared/types"
 import { Breadcrumbs } from "./Breadcrumb"
 
 interface LayoutProps {
-  pageTitle: string
+  pageTitle?: string
   breadcrumbs?: Breadcrumb[]
   children: ReactNode
 }
@@ -49,9 +49,11 @@ const Layout = ({ pageTitle, breadcrumbs, children }: LayoutProps) => {
       >
         <Box gridGap={6} mt={6}>
           {breadcrumbs && <Breadcrumbs paths={breadcrumbs} />}
-          <Text my={6} fontSize={"2xl"} fontWeight={"bold"}>
-            {pageTitle}
-          </Text>
+          {pageTitle && (
+            <Text my={6} fontSize={"2xl"} fontWeight={"bold"}>
+              {pageTitle}
+            </Text>
+          )}
         </Box>
         <main>{children}</main>
       </div>

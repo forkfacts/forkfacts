@@ -1,11 +1,9 @@
-// If you don't want to use TypeScript you can delete this file!
 import * as React from "react"
-import { PageProps, Link, graphql } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 
 import Layout from "../components/Layout"
 import Seo from "../components/seo"
-import { Text } from "@chakra-ui/react"
-import { HOME } from "../generators/utilities/breadcrumbs"
+import { Center, Text } from "@chakra-ui/react"
 
 type DataProps = {
   site: {
@@ -14,20 +12,37 @@ type DataProps = {
 }
 
 const Index: React.FC<PageProps<DataProps>> = ({ data, path }) => (
-  <Layout pageTitle={"ForkFacts"}>
-    <Seo title="Using TypeScript" />
-    <Text fontSize={"3xl"} fontWeight={"medium"}>
-      Find nutrition about your food
-    </Text>
-    <Text py={"2vh"} fontWeight={"bold"}>
-      !!The work is in progress!!
-    </Text>
-    <Text fontWeight={"medium"}>
-      In the meantime, check out{" "}
-      <a href="/foundation-foods" style={{ color: "blue" }}>
-        Foundation Foods
-      </a>
-    </Text>
+  <Layout>
+    <Seo title="ForkFacts" />
+    <div
+      style={{
+        display: "grid",
+        gridTemplateRows: "repeat(3, 1fr)",
+        gridTemplateColumns: "repeat(1, 1fr)",
+      }}
+    >
+      <Text
+        fontSize={"5xl"}
+        fontWeight={"extrabold"}
+        style={{ gridRowStart: 1 }}
+      >
+        Democratizing Nutrition information
+      </Text>
+      <Text fontSize={"3xl"} style={{ gridRowStart: 2 }}>
+        <i>... one food at a time</i>
+      </Text>
+      <Center bg="gray.100" color="white" style={{ gridRowStart: 3 }} p={4}>
+        <Text color={"black"}>
+          We are a small team working hard to provide <b>fact-based</b>{" "}
+          nutrition information for every possible food out there. Check out
+          nutrition information for{" "}
+          <a href="/foundation-foods" style={{ color: "blue" }}>
+            some foods
+          </a>{" "}
+          here. Come visit us in some time for more information and news.
+        </Text>
+      </Center>
+    </div>
   </Layout>
 )
 
