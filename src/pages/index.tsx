@@ -3,7 +3,7 @@ import { graphql, PageProps } from "gatsby"
 
 import Layout from "../components/Layout"
 import Seo from "../components/seo"
-import { Center, Text } from "@chakra-ui/react"
+import { Box, Center, Text } from "@chakra-ui/react"
 
 type DataProps = {
   site: {
@@ -14,7 +14,7 @@ type DataProps = {
 const Index: React.FC<PageProps<DataProps>> = ({ data, path }) => (
   <Layout>
     <Seo title="ForkFacts" />
-    <div
+    <Box
       style={{
         display: "grid",
         gridTemplateRows: "repeat(3, 1fr)",
@@ -22,13 +22,13 @@ const Index: React.FC<PageProps<DataProps>> = ({ data, path }) => (
       }}
     >
       <Text
-        fontSize={"5xl"}
+        fontSize={"4xl"}
         fontWeight={"extrabold"}
         style={{ gridRowStart: 1 }}
       >
         Democratizing Nutrition information
       </Text>
-      <Text fontSize={"3xl"} style={{ gridRowStart: 2 }}>
+      <Text fontSize={"2xl"} style={{ gridRowStart: 2 }}>
         <i>... one food at a time</i>
       </Text>
       <Center bg="gray.100" color="white" style={{ gridRowStart: 3 }} p={4}>
@@ -42,7 +42,7 @@ const Index: React.FC<PageProps<DataProps>> = ({ data, path }) => (
           here. Come visit us in some time for more information and news.
         </Text>
       </Center>
-    </div>
+    </Box>
   </Layout>
 )
 

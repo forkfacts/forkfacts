@@ -6,18 +6,15 @@
  */
 
 import * as React from "react"
-import PropTypes from "prop-types"
+import { ReactNode } from "react"
 //import { useStaticQuery, graphql } from "gatsby"
-
-import { ChakraProvider, Text } from "@chakra-ui/react"
+import { Box, ChakraProvider, Text } from "@chakra-ui/react"
 import { theme } from "../theme"
 import { Header } from "./Header"
 import "@fontsource/inter/400.css"
 import "@fontsource/inter/500.css"
 import "@fontsource/inter/700.css"
 import "@fontsource/inter/900.css"
-import { ReactNode } from "react"
-import { Box } from "@material-ui/core"
 import { Breadcrumb } from "../shared/types"
 import { Breadcrumbs } from "./Breadcrumb"
 
