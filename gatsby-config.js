@@ -42,6 +42,6 @@ module.exports = {
     // `gatsby-plugin-offline`,
 
     // https://www.gatsbyjs.com/docs/reference/release-notes/v3.0/#gatsby-plugin-gatsby-cloud-v1--v2
-    `gatsby-plugin-gatsby-cloud`,
+    // `gatsby-plugin-gatsby-cloud`,
   ],
 }
