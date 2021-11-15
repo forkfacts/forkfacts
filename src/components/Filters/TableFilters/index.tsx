@@ -6,20 +6,14 @@ import { AgeFilter } from "../AgeFilter"
 import { NutrientFilter } from "../NutrientFilter"
 import { FocusableElement } from "@chakra-ui/utils"
 import { FilterModal } from "../FilterModal"
+import { Age, Gender, Nutrient } from "../../../shared/types"
 
-export interface AgeProps {
-  index: number
-  start: number
-  end?: number
-  ageUnit: "month" | "year"
-}
-
-interface TableFiltersProps {
-  allNutrients: string[]
-  allAges: AgeProps[]
-  selectedNutrients: string[]
-  selectedGender: "Female" | "Male"
-  selectedAge: AgeProps
+export interface TableFiltersProps {
+  allNutrients: Nutrient[]
+  allAges: Age[]
+  selectedNutrients: Nutrient[]
+  selectedGender: Gender
+  selectedAge: Age
   onDone: (changes: UserSelectionProps) => void
 }
 
@@ -69,7 +63,7 @@ export const TableFilters = ({
           onClick={() => handleClick(totalFiltersRef)}
         />
         <NutrientFilter
-          selectedNutrients={selectedNutrients}
+          selectedNutrients={selectedNutrients.map(n => n.name)}
           onClick={() => handleClick(nutrientsRef)}
         />
         <GenderFilter

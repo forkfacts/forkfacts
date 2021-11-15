@@ -1,5 +1,10 @@
 import React from "react"
-import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid"
+import {
+  DataGrid,
+  GridColDef,
+  GridRenderCellParams,
+  GridSortModel,
+} from "@mui/x-data-grid"
 import { Box, Flex, Text } from "@chakra-ui/react"
 import { makeStyles } from "@material-ui/core"
 
@@ -30,14 +35,15 @@ const columns: GridColDef[] = [
   },
   {
     field: "amount",
+    type: "number",
     width: 150,
     renderHeader: (/*params*/) => getHeader("Amount"),
     renderCell: (params: GridRenderCellParams) => {
       const row: FactTableRow = params.row as FactTableRow
       return (
         <Flex>
-          <Text w={10}>{row.amount}</Text>
-          <Text>{row.amountUnit}</Text>
+          <Text w={100}>{row.amount}</Text>
+          <Text pl={1}>{row.amountUnit}</Text>
         </Flex>
       )
     },
@@ -48,11 +54,10 @@ const columns: GridColDef[] = [
     renderHeader: (/*params*/) => getHeader("% Daily Value"),
     renderCell: (params: GridRenderCellParams) => {
       const row: FactTableRow = params.row as FactTableRow
+      // todo: shall we move .toFixed(2) up?
       return (
-        <Flex>
-          <Text>
-            {row.dailyValue} {row.dailyValue && <>%</>}
-          </Text>
+        <Flex ml={4}>
+          <Text>{row.dailyValue && <>{row.dailyValue.toFixed(2)} %</>}</Text>
         </Flex>
       )
     },
@@ -66,18 +71,37 @@ export interface FactTableRow {
   amountUnit: string
   dailyValue?: number
 }
+
 interface FactTableProps {
   rows: FactTableRow[]
+  nutrientsFilterApplied?: boolean
 }
-export const FactTable = ({ rows }: FactTableProps) => {
+
+export const FactTable = ({
+  rows,
+  nutrientsFilterApplied = false,
+}: FactTableProps) => {
   const classes = useStyles()
+
+  // https://mui.com/components/data-grid/sorting/#basic-sorting
+  const [sortModel, setSortModel] = React.useState<GridSortModel>([
+    {
+      field: "dailyValue",
+      sort: "desc",
+    },
+  ])
+
   return (
-    <div style={{ height: 500, width: "100%" }}>
+    <div style={{ display: "flex" }}>
       <DataGrid
-        autoHeight={true}
+        autoHeight={nutrientsFilterApplied}
         rows={rows}
         columns={columns}
         className={classes.root}
+        style={{
+          height: nutrientsFilterApplied ? "auto" : 500,
+          maxHeight: 700,
+        }}
         components={{
           // https://mui.com/api/data-grid/data-grid/#slots-2
           Footer: () => (
@@ -88,6 +112,8 @@ export const FactTable = ({ rows }: FactTableProps) => {
             </Box>
           ),
         }}
+        sortModel={sortModel}
+        onSortModelChange={model => setSortModel(model)}
       />
     </div>
   )

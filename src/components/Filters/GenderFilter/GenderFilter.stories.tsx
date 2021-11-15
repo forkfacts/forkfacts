@@ -12,14 +12,14 @@ export const NoGenderSelected = () => (
 
 export const MaleSelected = () => (
   <GenderFilter
-    selectedGender={"Male"}
+    selectedGender={"Males"}
     onClick={action("Gender Selector Clicked")}
   />
 )
 
 export const FemaleSelected = () => (
   <GenderFilter
-    selectedGender={"Female"}
+    selectedGender={"Females"}
     onClick={action("Gender Selector Clicked")}
   />
 )

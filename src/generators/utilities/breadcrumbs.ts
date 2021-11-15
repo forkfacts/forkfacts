@@ -1,28 +1,24 @@
 import { spaceToDashes } from "./helpers"
-
-export type BreadcrumbType = {
-  displayName: string
-  url: string
-}
+import { Breadcrumb } from "../../shared/types"
 
 //todo : URLs must change to correct locations
-
-export const ALL_FOODS: BreadcrumbType = {
-  displayName: "All Foods",
-  url: "https://google.com",
+export const HOME: Breadcrumb = {
+  displayName: "Home",
+  url: "/",
 }
-export const USDA: BreadcrumbType = {
+export const USDA: Breadcrumb = {
   displayName: "USDA",
+  // todo: create a basic page explaining the data
   url: "https://fdc.nal.usda.gov/",
 }
 
-export const FOUNDATION_FOOD: BreadcrumbType = {
+export const FOUNDATION_FOOD: Breadcrumb = {
   displayName: "Foundation Food",
   url: "/foundation-foods",
 }
 
 export const createBreadcrumb = (
-  parentBreadcrumb: BreadcrumbType,
+  parentBreadcrumb: Breadcrumb,
   name: string
 ) => {
   return {

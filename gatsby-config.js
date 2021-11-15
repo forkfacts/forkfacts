@@ -29,14 +29,6 @@ module.exports = {
         icon: `src/images/forkfacts.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: "gatsby-source-pg",
-      options: {
-        connectionString: "postgres://forkfacts:forkfacts@127.0.0.1/ffidb",
-        schema: "public",
-        refetchInterval: 60, // Refetch data every 60 seconds
-      },
-    },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -48,5 +40,8 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+
+    // https://www.gatsbyjs.com/docs/reference/release-notes/v3.0/#gatsby-plugin-gatsby-cloud-v1--v2
+    `gatsby-plugin-gatsby-cloud`,
   ],
 }

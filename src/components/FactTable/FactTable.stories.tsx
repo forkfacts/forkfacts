@@ -41,6 +41,27 @@ const rows: FactTableRow[] = [
     amountUnit: "mg",
     dailyValue: 7.0,
   },
+  {
+    id: 6,
+    nutrient: "MUFA 22:1 n-9",
+    amount: 196,
+    amountUnit: "g",
+    dailyValue: 15.01,
+  },
+  {
+    id: 7,
+    nutrient: "MUFA 24:1 c",
+    amount: 2.3,
+    amountUnit: "g",
+    dailyValue: 0.23,
+  },
+  {
+    id: 8,
+    nutrient: "Carotene, beta",
+    amount: 300,
+    amountUnit: "mg",
+    dailyValue: 67.0,
+  },
 ]
 
 export const Desktop = () => <FactTable rows={rows} />

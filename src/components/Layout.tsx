@@ -7,18 +7,27 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+//import { useStaticQuery, graphql } from "gatsby"
 
-import { ChakraProvider } from "@chakra-ui/react"
+import { ChakraProvider, Text } from "@chakra-ui/react"
 import { theme } from "../theme"
 import { Header } from "./Header"
 import "@fontsource/inter/400.css"
 import "@fontsource/inter/500.css"
 import "@fontsource/inter/700.css"
 import "@fontsource/inter/900.css"
+import { ReactNode } from "react"
+import { Box } from "@material-ui/core"
+import { Breadcrumb } from "../shared/types"
+import { Breadcrumbs } from "./Breadcrumb"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
+interface LayoutProps {
+  pageTitle?: string
+  breadcrumbs?: Breadcrumb[]
+  children: ReactNode
+}
+const Layout = ({ pageTitle, breadcrumbs, children }: LayoutProps) => {
+  /*const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
@@ -26,7 +35,7 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `)*/
 
   return (
     <ChakraProvider theme={theme}>
@@ -38,23 +47,18 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
+        <Box gridGap={6} mt={6}>
+          {breadcrumbs && <Breadcrumbs paths={breadcrumbs} />}
+          {pageTitle && (
+            <Text my={6} fontSize={"2xl"} fontWeight={"bold"}>
+              {pageTitle}
+            </Text>
+          )}
+        </Box>
         <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
       </div>
     </ChakraProvider>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

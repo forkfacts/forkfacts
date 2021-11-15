@@ -1,5 +1,5 @@
 import { Breadcrumbs } from "./index"
-import { BreadcrumbType } from "../../generators/utilities/breadcrumbs"
+import { Breadcrumb } from "../../shared/types"
 
 export default {
   title: "Components/Breadcrumb",
@@ -7,7 +7,7 @@ export default {
 }
 
 export const Trail = () => {
-  const paths: BreadcrumbType[] = [
+  const paths: Breadcrumb[] = [
     { displayName: "USDA", url: "/#" },
     {
       displayName: "Legumes and Legume Products",
