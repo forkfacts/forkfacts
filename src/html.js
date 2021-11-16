@@ -16,6 +16,7 @@ export default function HTML(props) {
           data-domain="forkfacts.app"
           src="https://plausible.io/js/plausible.js"
         ></script>
+        <meta name="yandex-verification" content="77e4a308c69c5510" />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
