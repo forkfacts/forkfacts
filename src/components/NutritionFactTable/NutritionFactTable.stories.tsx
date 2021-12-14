@@ -1,5 +1,5 @@
 import { NutritionFactTable } from "./index"
-import { FoundationFood, NutrientDailyValue } from "../../shared/types"
+import { FoundationFood, NutrientRdi } from "../../shared/types"
 
 export default {
   title: "Components/Nutrition Fact Table",
@@ -88,7 +88,7 @@ const food: FoundationFood = {
   ],
 }
 
-const nutrientDailyValues: NutrientDailyValue[] = [
+const nutrientDailyValues: NutrientRdi[] = [
   {
     nutrient: {
       name: "MUFA 22:1 c",
@@ -272,5 +272,5 @@ const nutrientDailyValues: NutrientDailyValue[] = [
 ]
 
 export const Table = () => (
-  <NutritionFactTable food={food} nutrientDailyValues={nutrientDailyValues} />
+  <NutritionFactTable food={food} nutrientRdis={nutrientDailyValues} />
 )

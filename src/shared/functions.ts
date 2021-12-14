@@ -1,4 +1,10 @@
-import { FoundationFood, Nutrient, RDI, UsdaToRdiUnitMapping } from "./types"
+import {
+  FoundationFood,
+  Nutrient,
+  NutrientRdi,
+  RDI,
+  UsdaToRdiUnitMapping,
+} from "./types"
 
 const mappings: UsdaToRdiUnitMapping[] = require("../data/usda_rdi_nutrient_mapping.json")
 export const mappingsByNutrient: Map<string, UsdaToRdiUnitMapping> =
@@ -7,7 +13,7 @@ export const mappingsByNutrient: Map<string, UsdaToRdiUnitMapping> =
     return acc
   }, new Map<string, UsdaToRdiUnitMapping>())
 
-export const getDailyPercentValue = (
+export const getNutrientRdiPercent = (
   nutrient: Nutrient,
   rdi: RDI
 ): number | undefined => {
@@ -17,31 +23,43 @@ export const getDailyPercentValue = (
   const multiplier = mappingsByNutrient.get(
     nutrient.name
   ).usdaToRdiUnitMultiplier
+  return ((nutrient.amount * multiplier) / rdi.amount) * 100
 
   /*console.log(
     nutrient.name,
     rdi.nutrient,
+    rdi.applicableFor,
+    rdi.ageStart,
     nutrient.amount,
     multiplier,
     rdi.amount,
-    ((nutrient.amount * multiplier) / rdi.amount) * 100
-  )*/
+    rdiPercent
+  )
 
-  return ((nutrient.amount * multiplier) / rdi.amount) * 100
+  return rdiPercent
+   */
 }
 
-export const generateDailyValues = (food: FoundationFood, rdis: RDI[]) => {
+/*
+ Given a food, return the NutrientDailyValues
+ Not all Nutrients will have daily values as per data provided by NIH,
+ so we need to keep that into account here
+ */
+export const generateRdiForFood = (
+  food: FoundationFood,
+  rdis: RDI[]
+): NutrientRdi[] => {
   return food.nutrients
     .map(nutrient => {
       const mappedRdi = mappingsByNutrient.get(nutrient.name)
 
       if (!mappedRdi) return { nutrient }
 
-      const rdisForNutrient = rdis.filter(
+      const nutrientRdisForGenderAge = rdis.filter(
         rdi => rdi.nutrient === mappedRdi.rdiNutrientName
       )
-      return rdisForNutrient.map(rdi => {
-        const percentDaily = getDailyPercentValue(nutrient, rdi)
+      return nutrientRdisForGenderAge.map(rdi => {
+        const percentDaily = getNutrientRdiPercent(nutrient, rdi)
         return { nutrient, rdi, percentDaily }
       })
     })
