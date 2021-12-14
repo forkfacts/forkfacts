@@ -35,14 +35,8 @@ export const NutritionFactTable = ({
     // no nutrients selected by user initially, show all nutrients
     selectedNutrients: [],
   })
-  /*const [nutrientRdisForAgeGender, setNutrientRdisForAgeGender] =
-    useState<NutrientRdi[]>(nutrientRdis)*/
-  const [rows, setRows] = useState<FactTableRow[]>([])
 
-  /*console.log({
-    state,
-    nutrientDailyValuesForAgeGender: nutrientRdisForAgeGender,
-  })*/
+  const [rows, setRows] = useState<FactTableRow[]>([])
 
   const onDone = (selection: UserSelectionProps) => {
     setState(prevState => ({
@@ -52,33 +46,6 @@ export const NutritionFactTable = ({
       selectedNutrients: selection.selectedNutrients,
     }))
   }
-
-  /*useEffect(() => {
-    const getRdisForGenderAge = (gender: Gender, age: Age) => {
-      // todo: move this logic in ts file so that we can write tests
-      return nutrientRdis.filter(value => {
-        /!**
-         * If the nutrient does not have associated RDI,
-         * we do not include it in selected result
-         *!/
-        if (!value.rdi) return false
-        const ageMatches =
-          value.rdi.ageStart === age.start &&
-          value.rdi.ageEnd === age.end &&
-          value.rdi.ageUnit === age.ageUnit
-        // todo: make gender types same as Gender for RDI as well? remove lowercase comparison
-        const genderMatches = value.rdi.applicableFor === gender.toLowerCase()
-        return ageMatches && genderMatches
-      })
-    }
-    const gender = state.selectedGender
-    const age = state.selectedAge
-    const rdisForGenderAge = getRdisForGenderAge(gender, age)
-
-    console.log(`nutrientRDIs for ${gender}, ${age.start}-${age.end}`)
-    console.log({ rdisForGenderAge })
-    setNutrientRdisForAgeGender(rdisForGenderAge)
-  }, [state.selectedGender, state.selectedAge])*/
 
   useEffect(() => {
     const gender = state.selectedGender

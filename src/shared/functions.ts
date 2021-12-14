@@ -23,9 +23,9 @@ export const getNutrientRdiPercent = (
   const multiplier = mappingsByNutrient.get(
     nutrient.name
   ).usdaToRdiUnitMultiplier
-  const rdiPercent = ((nutrient.amount * multiplier) / rdi.amount) * 100
+  return ((nutrient.amount * multiplier) / rdi.amount) * 100
 
-  console.log(
+  /*console.log(
     nutrient.name,
     rdi.nutrient,
     rdi.applicableFor,
@@ -37,6 +37,7 @@ export const getNutrientRdiPercent = (
   )
 
   return rdiPercent
+   */
 }
 
 /*
