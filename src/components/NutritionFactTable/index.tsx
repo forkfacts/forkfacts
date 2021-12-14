@@ -6,25 +6,25 @@ import {
   UserSelectionProps,
 } from "../Filters/TableFilters"
 import { FactTable, FactTableRow } from "../FactTable"
-import { Age, FoundationFood, NutrientDailyValue } from "../../shared/types"
+import { Age, FoundationFood, NutrientRdi } from "../../shared/types"
 import { allAges as allAgesData } from "../../shared/data"
 
 type NutritionFactTableProps = {
   food: FoundationFood
   allAges?: Age[]
-  nutrientDailyValues: NutrientDailyValue[]
+  nutrientRdis: NutrientRdi[]
 }
 
 type NutritionFactTableState = Omit<
   TableFiltersProps,
   "allNutrients" | "onDone"
 > &
-  Omit<NutritionFactTableProps, "nutrientDailyValues">
+  Omit<NutritionFactTableProps, "nutrientRdis">
 
 export const NutritionFactTable = ({
   food,
   allAges = allAgesData,
-  nutrientDailyValues,
+  nutrientRdis,
 }: NutritionFactTableProps) => {
   const [state, setState] = useState<NutritionFactTableState>({
     food,
@@ -35,9 +35,14 @@ export const NutritionFactTable = ({
     // no nutrients selected by user initially, show all nutrients
     selectedNutrients: [],
   })
-  const [nutrientDailyValuesSelected, setNutrientDailyValuesSelected] =
-    useState<NutrientDailyValue[]>(nutrientDailyValues)
+  /*const [nutrientRdisForAgeGender, setNutrientRdisForAgeGender] =
+    useState<NutrientRdi[]>(nutrientRdis)*/
   const [rows, setRows] = useState<FactTableRow[]>([])
+
+  /*console.log({
+    state,
+    nutrientDailyValuesForAgeGender: nutrientRdisForAgeGender,
+  })*/
 
   const onDone = (selection: UserSelectionProps) => {
     setState(prevState => ({
@@ -48,49 +53,71 @@ export const NutritionFactTable = ({
     }))
   }
 
+  /*useEffect(() => {
+    const getRdisForGenderAge = (gender: Gender, age: Age) => {
+      // todo: move this logic in ts file so that we can write tests
+      return nutrientRdis.filter(value => {
+        /!**
+         * If the nutrient does not have associated RDI,
+         * we do not include it in selected result
+         *!/
+        if (!value.rdi) return false
+        const ageMatches =
+          value.rdi.ageStart === age.start &&
+          value.rdi.ageEnd === age.end &&
+          value.rdi.ageUnit === age.ageUnit
+        // todo: make gender types same as Gender for RDI as well? remove lowercase comparison
+        const genderMatches = value.rdi.applicableFor === gender.toLowerCase()
+        return ageMatches && genderMatches
+      })
+    }
+    const gender = state.selectedGender
+    const age = state.selectedAge
+    const rdisForGenderAge = getRdisForGenderAge(gender, age)
+
+    console.log(`nutrientRDIs for ${gender}, ${age.start}-${age.end}`)
+    console.log({ rdisForGenderAge })
+    setNutrientRdisForAgeGender(rdisForGenderAge)
+  }, [state.selectedGender, state.selectedAge])*/
+
   useEffect(() => {
     const gender = state.selectedGender
     const age = state.selectedAge
-    // todo: move this logic in ts file so that we can write tests
-    const rdisForGenderAge = nutrientDailyValues.filter(value => {
-      /**
-       * If the nutrient does not have associated RDI,
-       * we do not include it in selected result
-       */
-      if (!value.rdi) return false
-      const ageMatches =
-        value.rdi.ageStart === age.start &&
-        value.rdi.ageEnd === age.end &&
-        value.rdi.ageUnit === age.ageUnit
-      // todo: make gender types same as Gender for RDI as well? remove lowercase comparison
-      const genderMatches = value.rdi.applicableFor === gender.toLowerCase()
-      return ageMatches && genderMatches
-    })
-    setNutrientDailyValuesSelected(rdisForGenderAge)
-  }, [state.selectedGender, state.selectedAge])
 
-  useEffect(() => {
-    // todo: move this logic in ts file so that we can write tests
     const nutrients =
       state.selectedNutrients.length < 1
         ? food.nutrients
         : state.selectedNutrients
-    const nutrientsWithDailyValues = nutrients.map((nutrient, index) => {
-      const nutrientWithDailyValue = nutrientDailyValues.filter(
-        value =>
-          value.nutrient.name === nutrient.name &&
-          value.nutrient.unit === nutrient.unit
-      )[0]
-      return {
+
+    // todo: move this logic in ts file so that we can write tests
+    const nutrientsWithRdis = nutrients.map((nutrient, index) => {
+      const getPercentDaily = () => {
+        const nutrientWithRdi = nutrientRdis.filter(
+          nutrientRdi =>
+            nutrientRdi.nutrient.name === nutrient.name &&
+            nutrientRdi.nutrient.unit === nutrient.unit &&
+            age.start === nutrientRdi?.rdi?.ageStart &&
+            age.end === nutrientRdi?.rdi?.ageEnd &&
+            age.ageUnit === nutrientRdi?.rdi.ageUnit &&
+            gender.toLowerCase() === nutrientRdi?.rdi.applicableFor
+        )[0]
+
+        /* a nutrient may not have an associated RDI */
+        if (!nutrientWithRdi || !nutrientWithRdi.rdi) return undefined
+        return nutrientWithRdi.percentDaily
+      }
+
+      const factTableRow: FactTableRow = {
         id: index,
         nutrient: nutrient.name,
         amount: nutrient.amount,
         amountUnit: nutrient.unit.toLowerCase(),
-        dailyValue: nutrientWithDailyValue?.percentDaily,
+        dailyValue: getPercentDaily(),
       }
+      return factTableRow
     })
-    setRows(nutrientsWithDailyValues)
-  }, [state.selectedNutrients, nutrientDailyValuesSelected])
+    setRows(nutrientsWithRdis)
+  }, [state.selectedAge, state.selectedGender, state.selectedNutrients])
 
   if (
     !(state.food && state.allAges && state.selectedAge && state.selectedGender)
