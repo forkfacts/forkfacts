@@ -4526,7 +4526,7 @@
     "ageUnit": "year",
     "importTable": "Vitamins",
     "nutrient": "Vitamin B12",
-`    "amount": 2.4,
+    "amount": 2.4,
     "nutrientUnit": "UG"
   },
   {
