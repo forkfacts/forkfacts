@@ -1,6 +1,6 @@
 import React from "react"
 import { TriangleDownIcon } from "@chakra-ui/icons"
-import { Button } from "@chakra-ui/react"
+import { Button, Text } from "@chakra-ui/react"
 import { Gender } from "../../../shared/types"
 
 interface GenderFilterProps {
@@ -21,7 +21,7 @@ export const GenderFilter = ({
       colorScheme="black"
       bg={"gray.200"}
     >
-      {selectedGender}
+      <Text noOfLines={1}>{selectedGender}</Text>
     </Button>
   )
 }
