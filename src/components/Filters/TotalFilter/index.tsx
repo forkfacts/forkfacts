@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, Icon } from "@chakra-ui/react"
+import { Button, Icon, Text } from "@chakra-ui/react"
 import { RiEqualizerFill } from "react-icons/ri"
 
 interface TotalFilterProps {
@@ -17,7 +17,7 @@ export const TotalFilter = ({ applied, onClick }: TotalFilterProps) => {
       colorScheme="black"
       bg={"gray.200"}
     >
-      {applied}
+      <Text noOfLines={1}>{applied}</Text>
     </Button>
   )
 }
