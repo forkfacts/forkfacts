@@ -31,7 +31,7 @@ const columns: GridColDef[] = [
   {
     field: "nutrient",
     flex: 1,
-    minWidth: 200,
+    minWidth: 300,
     renderHeader: (/*params*/) => getHeader("Nutrient"),
     renderCell: (params: GridRenderCellParams) => {
       const row: FactTableRow = params.row as FactTableRow
