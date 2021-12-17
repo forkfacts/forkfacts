@@ -55,6 +55,22 @@ const columns: GridColDef[] = [
     },
   },
   {
+    field: "rdi",
+    type: "number",
+    sortable: false,
+    width: 200,
+    renderHeader: (/*params*/) => getHeader("RDI"),
+    renderCell: (params: GridRenderCellParams) => {
+      const row: FactTableRow = params.row as FactTableRow
+      return row.rdiAmount ? (
+        <Flex>
+          <Text>{row.rdiAmount}</Text>
+          <Text pl={1}>{row.amountUnit}</Text>
+        </Flex>
+      ) : null
+    },
+  },
+  {
     field: "dailyValue",
     width: 200,
     renderHeader: (/*params*/) => getHeader("% Daily Value"),
@@ -74,6 +90,7 @@ export interface FactTableRow {
   id: number
   nutrient: string
   amount: number
+  rdiAmount?: number
   amountUnit: string
   dailyValue?: number
 }
