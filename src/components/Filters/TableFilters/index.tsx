@@ -1,5 +1,5 @@
 import React, { RefObject, useEffect, useState } from "react"
-import { Flex } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
 import { TotalFilter } from "../TotalFilter"
 import { GenderFilter } from "../GenderFilter"
 import { AgeFilter } from "../AgeFilter"
@@ -57,26 +57,34 @@ export const TableFilters = ({
 
   return (
     <>
-      <Flex gridGap={4} bg={"white"} py={4} px={4} grow={1}>
-        <TotalFilter
-          applied={totalFiltersApplied}
-          onClick={() => handleClick(totalFiltersRef)}
-        />
-        <NutrientFilter
-          selectedNutrients={selectedNutrients.map(n => n.name)}
-          onClick={() => handleClick(nutrientsRef)}
-        />
-        <GenderFilter
-          selectedGender={selectedGender}
-          onClick={() => handleClick(genderRef)}
-        />
-        <AgeFilter
-          startAge={selectedAge.start}
-          endAge={selectedAge.end}
-          ageUnit={"year"}
-          onClick={() => handleClick(ageRef)}
-        />
-      </Flex>
+      <Box bg={"white"} py={4} whiteSpace={"nowrap"} overflowX={"scroll"}>
+        <Box display={"inline-block"} pr={2}>
+          <TotalFilter
+            applied={totalFiltersApplied}
+            onClick={() => handleClick(totalFiltersRef)}
+          />
+        </Box>
+        <Box display={"inline-block"} px={2}>
+          <NutrientFilter
+            selectedNutrients={selectedNutrients.map(n => n.name)}
+            onClick={() => handleClick(nutrientsRef)}
+          />
+        </Box>
+        <Box display={"inline-block"} px={2}>
+          <GenderFilter
+            selectedGender={selectedGender}
+            onClick={() => handleClick(genderRef)}
+          />
+        </Box>
+        <Box display={"inline-block"} pl={2}>
+          <AgeFilter
+            startAge={selectedAge.start}
+            endAge={selectedAge.end}
+            ageUnit={"year"}
+            onClick={() => handleClick(ageRef)}
+          />
+        </Box>
+      </Box>
       <FilterModal
         allAges={allAges}
         selectedAge={selectedAge}
