@@ -22,7 +22,7 @@ export const Desktop = () => <Header />
 export const Mobile = () => <Header />
 Mobile.parameters = {
   viewport: {
-    defaultViewport: "pixel",
+    defaultViewport: "iphone5",
   },
 }
 
