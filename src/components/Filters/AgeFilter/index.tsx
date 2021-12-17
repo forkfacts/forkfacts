@@ -1,6 +1,6 @@
 import React from "react"
 import { TriangleDownIcon } from "@chakra-ui/icons"
-import { Button } from "@chakra-ui/react"
+import { Button, Text } from "@chakra-ui/react"
 
 interface AgeFilterProps {
   startAge: number
@@ -27,7 +27,7 @@ export const AgeFilter = ({
       colorScheme="black"
       bg={"gray.200"}
     >
-      {displayText}
+      <Text noOfLines={1}>{displayText}</Text>
     </Button>
   )
 }
