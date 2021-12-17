@@ -104,10 +104,10 @@ const nutrients: Nutrient[] = [
   { name: "Energy", amount: 2590, unit: "kJ" },
 ]
 
-const getRandomlySelectedNutrients = (howMany: number) =>
+const getNutrients = (howMany: number) =>
   nutrients
     .slice(0) // https://stackoverflow.com/a/9592758/379235
-    .sort(() => 0.5 - Math.random()) // https://stackoverflow.com/a/38571132/379235
+    //.sort(() => 0.5 - Math.random()) // https://stackoverflow.com/a/38571132/379235
     .slice(0, howMany)
 
 const onDone = ({
@@ -154,7 +154,7 @@ const TableFiltersStory = args => {
 
 export const DesktopWithNutrientsSelected = TableFiltersStory.bind({})
 DesktopWithNutrientsSelected.args = {
-  selectedNutrients: getRandomlySelectedNutrients(5),
+  selectedNutrients: getNutrients(5),
   selectedGender: "Males",
   selectedAge: allAges[1],
 }
@@ -168,7 +168,7 @@ DesktopWithNoNutrientsSelected.args = {
 
 export const MobileWithNutrientsSelected = TableFiltersStory.bind({})
 MobileWithNutrientsSelected.args = {
-  selectedNutrients: getRandomlySelectedNutrients(5),
+  selectedNutrients: getNutrients(5),
   selectedGender: "Males",
   selectedAge: allAges[1],
 }
