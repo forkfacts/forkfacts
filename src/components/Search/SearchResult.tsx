@@ -5,7 +5,6 @@ export function SearchResult({ hit, components }) {
     <a
       href={hit.url}
       className="aa-ItemLink"
-      onClick={() => console.log(hit.url)}
     >
       <div className="aa-ItemContent">
         <div className="aa-ItemTitle">

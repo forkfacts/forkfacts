@@ -17,7 +17,6 @@ import "@fontsource/inter/700.css"
 import "@fontsource/inter/900.css"
 import { Breadcrumb } from "../shared/types"
 import { Breadcrumbs } from "./Breadcrumb"
-import Search from "./Search"
 
 interface LayoutProps {
   pageTitle?: string
@@ -38,7 +37,6 @@ const Layout = ({ pageTitle, breadcrumbs, children }: LayoutProps) => {
   return (
     <ChakraProvider theme={theme}>
       <Header />
-      <Search/>
       <div
         style={{
           margin: `0 auto`,
