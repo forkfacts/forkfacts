@@ -1,0 +1,17 @@
+import React from "react";
+
+export function SearchResult({ hit, components }) {
+  return (
+    <a
+      href={hit.url}
+      className="aa-ItemLink"
+      onClick={() => console.log(hit.url)}
+    >
+      <div className="aa-ItemContent">
+        <div className="aa-ItemTitle">
+          <components.Highlight hit={hit} attribute="name" />
+        </div>
+      </div>
+    </a>
+  );
+}
