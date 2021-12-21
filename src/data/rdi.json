@@ -1,458 +1,8 @@
 [
   {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Calcium",
-    "amount": 200,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Chromium",
-    "amount": 0.2,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Copper",
-    "amount": 200,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Fluoride",
-    "amount": 0.01,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Iodine",
-    "amount": 110,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Iron",
-    "amount": 0.27,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Magnesium",
-    "amount": 30,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Manganese",
-    "amount": 0.003,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Molybdenum",
-    "amount": 2,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Phosphorus",
-    "amount": 100,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Selenium",
-    "amount": 15,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Zinc",
-    "amount": 2,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Potassium",
-    "amount": 400,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Sodium",
-    "amount": 110,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 0,
-    "ageEnd": 6,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Chloride",
-    "amount": 0.18,
-    "nutrientUnit": "G"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Calcium",
-    "amount": 260,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Chromium",
-    "amount": 5.5,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Copper",
-    "amount": 220,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Fluoride",
-    "amount": 0.5,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Iodine",
-    "amount": 130,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Iron",
-    "amount": 11,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Magnesium",
-    "amount": 75,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Manganese",
-    "amount": 0.6,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Molybdenum",
-    "amount": 3,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Phosphorus",
-    "amount": 275,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Selenium",
-    "amount": 20,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Zinc",
-    "amount": 3,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Potassium",
-    "amount": 860,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Sodium",
-    "amount": 370,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "infants",
-    "ageStart": 7,
-    "ageEnd": 12,
-    "ageUnit": "month",
-    "importTable": "Elements",
-    "nutrient": "Chloride",
-    "amount": 0.57,
-    "nutrientUnit": "G"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Calcium",
-    "amount": 700,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Chromium",
-    "amount": 11,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Copper",
-    "amount": 340,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Fluoride",
-    "amount": 0.7,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Iodine",
-    "amount": 90,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Iron",
-    "amount": 7,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Magnesium",
-    "amount": 80,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Manganese",
-    "amount": 1.2,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Molybdenum",
-    "amount": 17,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Phosphorus",
-    "amount": 460,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Selenium",
-    "amount": 20,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Zinc",
-    "amount": 3,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Potassium",
-    "amount": 2000,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Sodium",
-    "amount": 800,
-    "nutrientUnit": "MG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 1,
-    "ageEnd": 3,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Chloride",
-    "amount": 1.5,
-    "nutrientUnit": "G"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 4,
-    "ageEnd": 8,
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
     "ageUnit": "year",
     "importTable": "Elements",
     "nutrient": "Calcium",
@@ -460,43 +10,353 @@
     "nutrientUnit": "MG"
   },
   {
-    "applicableFor": "children",
-    "ageStart": 4,
-    "ageEnd": 8,
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
     "ageUnit": "year",
     "importTable": "Elements",
     "nutrient": "Chromium",
+    "amount": 25,
+    "nutrientUnit": "UG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Elements",
+    "nutrient": "Copper",
+    "amount": 900,
+    "nutrientUnit": "UG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Elements",
+    "nutrient": "Fluoride",
+    "amount": 3,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Elements",
+    "nutrient": "Iodine",
+    "amount": 150,
+    "nutrientUnit": "UG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Elements",
+    "nutrient": "Iron",
+    "amount": 18,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Elements",
+    "nutrient": "Magnesium",
+    "amount": 320,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Elements",
+    "nutrient": "Manganese",
+    "amount": 1.8,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Elements",
+    "nutrient": "Molybdenum",
+    "amount": 45,
+    "nutrientUnit": "UG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Elements",
+    "nutrient": "Phosphorus",
+    "amount": 700,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Elements",
+    "nutrient": "Selenium",
+    "amount": 55,
+    "nutrientUnit": "UG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Elements",
+    "nutrient": "Zinc",
+    "amount": 8,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Elements",
+    "nutrient": "Potassium",
+    "amount": 2600,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Elements",
+    "nutrient": "Sodium",
+    "amount": 1500,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Elements",
+    "nutrient": "Chloride",
+    "amount": 2.3,
+    "nutrientUnit": "G"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Vitamins",
+    "nutrient": "Vitamin A",
+    "amount": 700,
+    "nutrientUnit": "UG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Vitamins",
+    "nutrient": "Vitamin C",
+    "amount": 75,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Vitamins",
+    "nutrient": "Vitamin D",
     "amount": 15,
     "nutrientUnit": "UG"
   },
   {
-    "applicableFor": "children",
-    "ageStart": 4,
-    "ageEnd": 8,
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
     "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Copper",
-    "amount": 440,
-    "nutrientUnit": "UG"
-  },
-  {
-    "applicableFor": "children",
-    "ageStart": 4,
-    "ageEnd": 8,
-    "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Fluoride",
-    "amount": 1,
+    "importTable": "Vitamins",
+    "nutrient": "Vitamin E",
+    "amount": 15,
     "nutrientUnit": "MG"
   },
   {
-    "applicableFor": "children",
-    "ageStart": 4,
-    "ageEnd": 8,
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
     "ageUnit": "year",
-    "importTable": "Elements",
-    "nutrient": "Iodine",
+    "importTable": "Vitamins",
+    "nutrient": "Vitamin K",
     "amount": 90,
     "nutrientUnit": "UG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Vitamins",
+    "nutrient": "Thiamin",
+    "amount": 1.1,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Vitamins",
+    "nutrient": "Riboflavin",
+    "amount": 1.1,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Vitamins",
+    "nutrient": "Niacin",
+    "amount": 14,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Vitamins",
+    "nutrient": "Vitamin B6",
+    "amount": 1.3,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Vitamins",
+    "nutrient": "Folate",
+    "amount": 400,
+    "nutrientUnit": "UG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Vitamins",
+    "nutrient": "Vitamin B12",
+    "amount": 2.4,
+    "nutrientUnit": "UG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Vitamins",
+    "nutrient": "Pantothenic Acid",
+    "amount": 5,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Vitamins",
+    "nutrient": "Biotin",
+    "amount": 30,
+    "nutrientUnit": "UG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Vitamins",
+    "nutrient": "Choline",
+    "amount": 425,
+    "nutrientUnit": "MG"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Total Water & Macronutrients",
+    "nutrient": "Total Water",
+    "amount": 2.7,
+    "nutrientUnit": "L"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Total Water & Macronutrients",
+    "nutrient": "Carbohydrate",
+    "amount": 130,
+    "nutrientUnit": "G"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Total Water & Macronutrients",
+    "nutrient": "Total Fiber",
+    "amount": 25,
+    "nutrientUnit": "G"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Total Water & Macronutrients",
+    "nutrient": "Fat",
+    "amount": -1,
+    "nutrientUnit": "G"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Total Water & Macronutrients",
+    "nutrient": "Linoleic Acid",
+    "amount": 12,
+    "nutrientUnit": "G"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Total Water & Macronutrients",
+    "nutrient": "α-Linolenic Acid",
+    "amount": 1.1,
+    "nutrientUnit": "G"
+  },
+  {
+    "applicableFor": "females",
+    "ageStart": 31,
+    "ageEnd": 50,
+    "ageUnit": "year",
+    "importTable": "Total Water & Macronutrients",
+    "nutrient": "Protein",
+    "amount": 46,
+    "nutrientUnit": "G"
   }
 ]
