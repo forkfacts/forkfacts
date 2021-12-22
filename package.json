@@ -45,6 +45,7 @@
     "@storybook/addon-viewport": "^6.3.12",
     "@storybook/react": "^6.3.12",
     "babel-loader": "^8.2.2",
+    "husky": "^7.0.4",
     "prettier": "2.4.1",
     "semantic-release": "^18.0.0",
     "storybook-addon-gatsby": "^0.0.2",
@@ -58,7 +59,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format": "prettier --config .prettierrc  'src/**/*.{ts,tsx,js,jsx,json,md}' --write",
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
@@ -66,7 +67,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "semantic-release": "semantic-release",
-    "prettify": "prettier --config .prettierrc 'src/**/*.{ts,tsx}' --write"
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
