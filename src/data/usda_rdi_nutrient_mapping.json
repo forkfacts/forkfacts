@@ -98,5 +98,235 @@
     "rdiNutrientUnit": "mg",
     "rdiNutrientTable": "Elements",
     "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 11,
+    "usdaNutrientId": 1103,
+    "usdaNutrientName": "Selenium, Se",
+    "usdaNutrientUnit": "UG",
+    "rdiNutrientName": "Selenium",
+    "rdiNutrientUnit": "ug",
+    "rdiNutrientTable": "Elements",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 12,
+    "usdaNutrientId": 1095,
+    "usdaNutrientName": "Zinc, Zn",
+    "usdaNutrientUnit": "MG",
+    "rdiNutrientName": "Zinc",
+    "rdiNutrientUnit": "mg",
+    "rdiNutrientTable": "Elements",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 13,
+    "usdaNutrientId": 1092,
+    "usdaNutrientName": "Potassium, K",
+    "usdaNutrientUnit": "MG",
+    "rdiNutrientName": "Potassium",
+    "rdiNutrientUnit": "mg",
+    "rdiNutrientTable": "Elements",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 14,
+    "usdaNutrientId": 1093,
+    "usdaNutrientName": "Sodium, Na",
+    "usdaNutrientUnit": "MG",
+    "rdiNutrientName": "Sodium",
+    "rdiNutrientUnit": "mg",
+    "rdiNutrientTable": "Elements",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 16,
+    "usdaNutrientId": 1106,
+    "usdaNutrientName": "Vitamin A, RAE",
+    "usdaNutrientUnit": "UG",
+    "rdiNutrientName": "Vitamin A",
+    "rdiNutrientUnit": "ug",
+    "rdiNutrientTable": "Vitamins",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 17,
+    "usdaNutrientId": 1162,
+    "usdaNutrientName": "Vitamin C, total ascorbic acid",
+    "usdaNutrientUnit": "MG",
+    "rdiNutrientName": "Vitamin C",
+    "rdiNutrientUnit": "mg",
+    "rdiNutrientTable": "Vitamins",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 18,
+    "usdaNutrientId": 1114,
+    "usdaNutrientName": "Vitamin D (D2 + D3)",
+    "usdaNutrientUnit": "UG",
+    "rdiNutrientName": "Vitamin D",
+    "rdiNutrientUnit": "ug",
+    "rdiNutrientTable": "Vitamins",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 19,
+    "usdaNutrientId": 1109,
+    "usdaNutrientName": "Vitamin E (alpha-tocopherol)",
+    "usdaNutrientUnit": "MG",
+    "rdiNutrientName": "Vitamin E",
+    "rdiNutrientUnit": "mg",
+    "rdiNutrientTable": "Vitamins",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 20,
+    "usdaNutrientId": 1185,
+    "usdaNutrientName": "Vitamin K (phylloquinone)",
+    "usdaNutrientUnit": "UG",
+    "rdiNutrientName": "Vitamin K",
+    "rdiNutrientUnit": "ug",
+    "rdiNutrientTable": "Vitamins",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 21,
+    "usdaNutrientId": 1165,
+    "usdaNutrientName": "Thiamin",
+    "usdaNutrientUnit": "MG",
+    "rdiNutrientName": "Thiamin",
+    "rdiNutrientUnit": "mg",
+    "rdiNutrientTable": "Vitamins",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 22,
+    "usdaNutrientId": 1166,
+    "usdaNutrientName": "Riboflavin",
+    "usdaNutrientUnit": "MG",
+    "rdiNutrientName": "Riboflavin",
+    "rdiNutrientUnit": "mg",
+    "rdiNutrientTable": "Vitamins",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 23,
+    "usdaNutrientId": 1167,
+    "usdaNutrientName": "Niacin",
+    "usdaNutrientUnit": "MG",
+    "rdiNutrientName": "Niacin",
+    "rdiNutrientUnit": "mg",
+    "rdiNutrientTable": "Vitamins",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 24,
+    "usdaNutrientId": 1175,
+    "usdaNutrientName": "Vitamin B-6",
+    "usdaNutrientUnit": "MG",
+    "rdiNutrientName": "Vitamin B6",
+    "rdiNutrientUnit": "mg",
+    "rdiNutrientTable": "Vitamins",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 25,
+    "usdaNutrientId": 1177,
+    "usdaNutrientName": "Folate, total",
+    "usdaNutrientUnit": "UG",
+    "rdiNutrientName": "Folate",
+    "rdiNutrientUnit": "ug",
+    "rdiNutrientTable": "Vitamins",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 26,
+    "usdaNutrientId": 1178,
+    "usdaNutrientName": "Vitamin B-12",
+    "usdaNutrientUnit": "UG",
+    "rdiNutrientName": "Vitamin B12",
+    "rdiNutrientUnit": "ug",
+    "rdiNutrientTable": "Vitamins",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 27,
+    "usdaNutrientId": 1170,
+    "usdaNutrientName": "Pantothenic acid",
+    "usdaNutrientUnit": "MG",
+    "rdiNutrientName": "Panthothenic Acid",
+    "rdiNutrientUnit": "mg",
+    "rdiNutrientTable": "Vitamins",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 28,
+    "usdaNutrientId": 1176,
+    "usdaNutrientName": "Biotin",
+    "usdaNutrientUnit": "UG",
+    "rdiNutrientName": "Biotin",
+    "rdiNutrientUnit": "ug",
+    "rdiNutrientTable": "Vitamins",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 29,
+    "usdaNutrientId": 1180,
+    "usdaNutrientName": "Choline, total",
+    "usdaNutrientUnit": "MG",
+    "rdiNutrientName": "Choline",
+    "rdiNutrientUnit": "mg",
+    "rdiNutrientTable": "Vitamins",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 30,
+    "usdaNutrientId": 1051,
+    "usdaNutrientName": "Water",
+    "usdaNutrientUnit": "G",
+    "rdiNutrientName": "Total Water",
+    "rdiNutrientUnit": "L",
+    "rdiNutrientTable": "Total Water & Macronutrients",
+    "usdaToRdiUnitMultiplier": 0.001
+  },
+  {
+    "id": 31,
+    "usdaNutrientId": 1005,
+    "usdaNutrientName": "Carbohydrate, by difference",
+    "usdaNutrientUnit": "G",
+    "rdiNutrientName": "Carbohydrate",
+    "rdiNutrientUnit": "g",
+    "rdiNutrientTable": "Total Water & Macronutrients",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 32,
+    "usdaNutrientId": 1079,
+    "usdaNutrientName": "Fiber, total dietary",
+    "usdaNutrientUnit": "G",
+    "rdiNutrientName": "Total Fiber",
+    "rdiNutrientUnit": "g",
+    "rdiNutrientTable": "Total Water & Macronutrients",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 33,
+    "usdaNutrientId": 1004,
+    "usdaNutrientName": "Total lipid (fat)",
+    "usdaNutrientUnit": "G",
+    "rdiNutrientName": "Fat",
+    "rdiNutrientUnit": "g",
+    "rdiNutrientTable": "Total Water & Macronutrients",
+    "usdaToRdiUnitMultiplier": 1
+  },
+  {
+    "id": 36,
+    "usdaNutrientId": 1003,
+    "usdaNutrientName": "Protein",
+    "usdaNutrientUnit": "G",
+    "rdiNutrientName": "Protein",
+    "rdiNutrientUnit": "g",
+    "rdiNutrientTable": "Total Water & Macronutrients",
+    "usdaToRdiUnitMultiplier": 1
   }
 ]

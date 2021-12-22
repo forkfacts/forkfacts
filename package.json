@@ -63,7 +63,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "semantic-release": "semantic-release",
-    "release-build": "NODE_ENV=production ts-node src/shared/downloadRemoteFiles.ts"
+    "release-build": "NODE_ENV=production ts-node src/shared/downloadRemoteFiles.ts && yarn build"
   },
   "repository": {
     "type": "git",
