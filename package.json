@@ -65,7 +65,8 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "prettify": "prettier --config .prettierrc 'src/**/*.{ts,tsx}' --write"
   },
   "repository": {
     "type": "git",

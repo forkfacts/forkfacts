@@ -1,33 +1,43 @@
 import React from "react"
-import { Box, Text, useBreakpoint } from "@chakra-ui/react"
+import { Box, HStack, Text, useBreakpoint } from "@chakra-ui/react"
 import { ReactComponent as Logo } from "../../images/svg/logo.svg"
 import { ResponsiveBreakpoint } from "../utils"
-// import { navigate } from "gatsby"
+import { navigate } from "gatsby"
 import Search from "../Search"
 
 export const Header = () => {
   const breakpoint = useBreakpoint() as ResponsiveBreakpoint
+  const sm = breakpoint === "sm"
+  const base = breakpoint === "base"
   return (
-    <div style={{
-      display: "grid",
-      gridTemplateColumns: (breakpoint !== "base" && breakpoint !== "sm")?"1fr 5fr 1fr": "1fr 5fr",
-      gridGap:  (breakpoint !== "base" && breakpoint !== "sm")?"30px": "2px",
-      padding: "15px"
-    }}>
-      <Box style={{
-        display: "grid",
-        gridTemplateColumns: (breakpoint !== "base" && breakpoint !== "sm")?"24px 100px": "24px",
-        gridGap:  (breakpoint !== "base" && breakpoint !== "sm")?"10px": "0px",
-        alignItems: "center"
-      }}>
-      <Logo height={24} width={24} />
-      {breakpoint !== "base" && breakpoint !== "sm" && (
-        <Text fontSize={"xl"} fontWeight={"black"}>
-          forkfacts
-        </Text>
-      )}
+    <HStack spacing={sm || base ? 4 : 10} px={sm || base ? 2 : 4}>
+      {sm || (base && <ForkfactsLogo size={32} />)}
+      {!base && !sm && <LogoWithName />}
+      <Box w="100%">
+        <Search />
       </Box>
-      <Search />
-    </div>
+    </HStack>
+  )
+}
+
+const LogoWithName = () => {
+  return (
+    <HStack spacing="16px">
+      <ForkfactsLogo size={24} />
+      <Text fontSize={"xl"} fontWeight={"black"}>
+        forkfacts
+      </Text>
+    </HStack>
+  )
+}
+
+const ForkfactsLogo = ({ size }: { size: number }) => {
+  return (
+    <Logo
+      height={size}
+      width={size}
+      onClick={() => navigate("/")}
+      style={{ cursor: "pointer" }}
+    />
   )
 }

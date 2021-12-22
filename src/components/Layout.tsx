@@ -36,7 +36,9 @@ const Layout = ({ pageTitle, breadcrumbs, children }: LayoutProps) => {
 
   return (
     <ChakraProvider theme={theme}>
-      <Header />
+      <Box p={4}>
+        <Header />
+      </Box>
       <div
         style={{
           margin: `0 auto`,
@@ -57,5 +59,4 @@ const Layout = ({ pageTitle, breadcrumbs, children }: LayoutProps) => {
     </ChakraProvider>
   )
 }
-
 export default Layout
