@@ -62,7 +62,8 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "release-build": "NODE_ENV=production ts-node src/shared/downloadRemoteFiles.ts"
   },
   "repository": {
     "type": "git",
