@@ -5,7 +5,7 @@ import {
   USDA,
 } from "../utilities/breadcrumbs"
 import { spaceToDashes } from "../utilities/helpers"
-import { FoundationFood, RDI } from "../../shared/types"
+import { FoundationFood, RDI, SearchIndex } from "../../shared/types"
 
 const path = require("path")
 const ff_nutrition_facts = require("../../../src/data/foundation_food_nutrition_facts.json")
@@ -27,8 +27,10 @@ const generateFoundationFoodNutritionFactTables = ({
   const template = path.resolve(
     "./src/templates/usda/FoundationFoodNutritionFacts.tsx"
   )
+  let ffSearchIndex: SearchIndex = []
   ff_nutrition_facts.forEach((food: FoundationFood) => {
     const pagePath = spaceToDashes(food["name"].toString())
+
     createPageFunction({
       path: pagePath,
       component: template,
@@ -43,7 +45,15 @@ const generateFoundationFoodNutritionFactTables = ({
         ],
       },
     })
+    ffSearchIndex.push({
+      name: food.name,
+      category: food.category,
+      url: `/${pagePath}`,
+    })
   })
+  console.log(
+    `Length: ${ffSearchIndex.length}, ${JSON.stringify(ffSearchIndex)}`
+  )
 }
 
 type FoundationFoodPageProps = CreatePageFnProps & {
