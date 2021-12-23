@@ -1,3 +1,6 @@
 .root {
-    --aa-primary-color-rgb: 113,128,150; /* changed this one*/
+    --aa-primary-color-rgb: 113,128,150;
+}
+li[aria-selected="true"] {
+    background-color: #E2E8F0 !important; /*Gray 200*/
 }

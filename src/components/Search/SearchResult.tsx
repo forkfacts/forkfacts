@@ -1,4 +1,5 @@
 import React from "react"
+import "./autocomplete.css"
 
 export function SearchResult({ hit, components }) {
   return (
