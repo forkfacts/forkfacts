@@ -2,10 +2,10 @@ import {
   HOME,
   createBreadcrumb,
   FOUNDATION_FOOD,
-  USDA,
 } from "../utilities/breadcrumbs"
 import { spaceToDashes } from "../utilities/helpers"
 import { FoundationFood, RDI, SearchIndex } from "../../shared/types"
+import { writeJsonToFile } from "../../shared/functions"
 
 const path = require("path")
 const ff_nutrition_facts = require("../../../src/data/foundation_food_nutrition_facts.json")
@@ -51,9 +51,7 @@ const generateFoundationFoodNutritionFactTables = ({
       url: `/${pagePath}`,
     })
   })
-  console.log(
-    `Length: ${ffSearchIndex.length}, ${JSON.stringify(ffSearchIndex)}`
-  )
+  writeJsonToFile("ff_search_index.json", ffSearchIndex)
 }
 
 type FoundationFoodPageProps = CreatePageFnProps & {

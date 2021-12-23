@@ -5,6 +5,7 @@ import {
   RDI,
   UsdaToRdiUnitMapping,
 } from "./types"
+import fs from "fs"
 
 const mappings: UsdaToRdiUnitMapping[] = require("../data/usda_rdi_nutrient_mapping.json")
 export const mappingsByNutrient: Map<string, UsdaToRdiUnitMapping> =
@@ -64,4 +65,11 @@ export const generateRdiForFood = (
       })
     })
     .flat()
+}
+
+export const writeJsonToFile = (fileName, jsonData) => {
+  fs.writeFile(`.raw/${fileName}`, JSON.stringify(jsonData), err => {
+    if (err) throw err
+    console.log(`Done writing to file ${fileName}`)
+  })
 }
