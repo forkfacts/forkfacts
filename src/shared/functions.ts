@@ -7,6 +7,7 @@ import {
 } from "./types"
 import fs from "fs"
 
+const ARTIFACT_PATH = ".raw"
 const mappings: UsdaToRdiUnitMapping[] = require("../data/usda_rdi_nutrient_mapping.json")
 export const mappingsByNutrient: Map<string, UsdaToRdiUnitMapping> =
   mappings.reduce((acc, mapping) => {
@@ -68,8 +69,13 @@ export const generateRdiForFood = (
 }
 
 export const writeJsonToFile = (fileName, jsonData) => {
-  fs.writeFile(`.raw/${fileName}`, JSON.stringify(jsonData), err => {
-    if (err) throw err
-    console.log(`Done writing to file ${fileName}`)
-  })
+  if (!fs.existsSync(ARTIFACT_PATH)) fs.mkdirSync(ARTIFACT_PATH)
+  fs.writeFile(
+    `${ARTIFACT_PATH}/${fileName}`,
+    JSON.stringify(jsonData),
+    err => {
+      if (err) throw err
+      console.log(`Done writing to file ${fileName}`)
+    }
+  )
 }
