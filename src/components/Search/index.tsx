@@ -10,6 +10,7 @@ const appId = process.env.GATSBY_SEARCH_APP_ID
 const apiKey = process.env.GATSBY_SEARCH_API_KEY
 const searchClient = algoliasearch(appId, apiKey)
 function App() {
+  if (!(appId && apiKey)) return null
   return (
     <div className="root">
       <Autocomplete
