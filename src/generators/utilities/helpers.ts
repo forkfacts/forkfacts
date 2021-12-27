@@ -4,4 +4,12 @@
  * Watch https://www.youtube.com/watch?v=AQcSFsQyct8 to learn more
  * @param name
  */
-export const spaceToDashes = (name: string) => name.toLowerCase().replace(/[^\w]+/g, "-")
+export const spaceToDashes = (name: string) => {
+  const pathname = name
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w]+/g, "-")
+  return pathname.endsWith("-")
+    ? pathname.substr(0, pathname.length - 1)
+    : pathname
+}

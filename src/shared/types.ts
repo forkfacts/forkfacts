@@ -61,3 +61,11 @@ export interface Breadcrumb {
   displayName: string
   url: string
 }
+
+export type SearchIndex = SearchIndexEntry[]
+
+export interface SearchIndexEntry {
+  name: string
+  category: string
+  url: string
+}
