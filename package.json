@@ -68,7 +68,6 @@
     "build-storybook": "build-storybook",
     "semantic-release": "semantic-release",
     "prepare": "husky install",
-    "install-release": "yum install wget && yarn install",
     "release-build": "NODE_ENV=production ts-node src/shared/downloadRemoteFiles.ts && yarn build && git restore -s@ -SW  -- src/data"
   },
   "repository": {
