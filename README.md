@@ -103,6 +103,11 @@ sharing it with others around you. People who trust you are more inclined to try
 We hope that everyone around us has fact-based nutrition information. The decision is on the individual, but sharing the
 information is a collective community effort, so please help us spread the word.
 
+### Submit new ideas
+The aim for this project is to provide value to community. We believe that best ideas come from everywhere, so we 
+ask you to help us by letting us know your use cases when looking for nutrition related information.
+Please use our pre-defined [template](https://github.com/forkfacts/forkfacts/issues/new/choose) to provide information.
+
 ### File an issue
 If you think you've found an issue, please create an issue using a pre-defined [template](https://github.com/forkfacts/forkfacts/issues/new/choose).
 Please follow the structure and give as much information as possible. This will help us triage, reproduce the issue faster.
@@ -139,6 +144,12 @@ In you Algolia Dashboard, you will find these keys under your [project](https://
 
 Follow from [these steps](#install-dependencies) and you will see the search UI when your
 application starts.
+
+# Notes
+1. We are using both [Chakra-UI](https://chakra-ui.com/) and [Material-UI](https://mui.com) in the project. However, the usage of Material-UI is restricted
+in [FactTable](./src/components/FactTable) for its [DataGrid](https://mui.com/components/data-grid/getting-started/) component. For the rest of the project, we are leveraging Chakra-UI. In case, you are
+developing a new component, please use Chakra-UI for the development. If you see the need to use Material-UI, please
+consult with @deekshasharma or @hhimanshu.
 
 # Resources
 [What is `colorScheme` in Chakra-UI](https://github.com/chakra-ui/chakra-ui/discussions/2846#discussioncomment-230531)
