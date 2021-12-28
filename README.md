@@ -85,7 +85,7 @@ do in a cycle, and create a milestone. All our milestones are available [here](h
 We try to keep the name of milestone from the list of herbs available [here](https://www.britannica.com/topic/list-of-herbs-and-spices-2024392)
 
 
-We are using [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/) to release the project. The feature braches
+We are using [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/) to release the project. The feature branches
 are worked upon based on the `develop` branch. The code reviews (PRs) are opened against `develop` branch. Once a PR
 is merged, it goes into the `develop` branch. 
 
@@ -98,7 +98,7 @@ As soon as a PR is merged into the `main` branch, a [Github Action](.github/work
 ## Contribute
 There are many ways to contribute.
 ### Spread the word!
-If you think this project has give you information that could help you lead a healthy eating lifestyle, please consider
+If you think this project has given you information that could help you lead a healthy eating lifestyle, please consider
 sharing it with others around you. People who trust you are more inclined to try out new things.
 We hope that everyone around us has fact-based nutrition information. The decision is on the individual, but sharing the
 information is a collective community effort, so please help us spread the word.
