@@ -76,16 +76,17 @@ const columns: GridColDef[] = [
     renderHeader: (/*params*/) => getHeader("RDI"),
     renderCell: (params: GridRenderCellParams) => {
       const row: FactTableRow = params.row as FactTableRow
+      let rdiAmount = row?.rdiAmount && row?.rdiAmount > 0 ? row?.rdiAmount : ""
+      let rdiUnit = rdiAmount
+        ? row?.rdiUnit?.toLowerCase() === "ug"
+          ? "µg"
+          : row?.rdiUnit?.toLowerCase()
+        : ""
+
       return row.rdiAmount ? (
         <Flex>
-          <Text>
-            {row?.rdiAmount && row.rdiAmount > 0 ? row?.rdiAmount : ""}
-          </Text>
-          <Text pl={1}>
-            {row?.rdiUnit?.toLowerCase() === "ug"
-              ? "µg"
-              : row?.rdiUnit?.toLowerCase()}
-          </Text>
+          <Text>{rdiAmount}</Text>
+          <Text pl={1}>{rdiUnit}</Text>
         </Flex>
       ) : null
     },
