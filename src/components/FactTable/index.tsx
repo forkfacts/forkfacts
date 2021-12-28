@@ -63,7 +63,7 @@ const columns: GridColDef[] = [
       return (
         <Flex>
           <Text>{row.amount}</Text>
-          <Text pl={1}>{row.amountUnit}</Text>
+          <Text pl={1}>{row.amountUnit === "ug" ? "µg" : row.amountUnit}</Text>
         </Flex>
       )
     },
@@ -78,8 +78,12 @@ const columns: GridColDef[] = [
       const row: FactTableRow = params.row as FactTableRow
       return row.rdiAmount ? (
         <Flex>
-          <Text>{row.rdiAmount}</Text>
-          <Text pl={1}>{row.amountUnit}</Text>
+          <Text>{row?.rdiAmount}</Text>
+          <Text pl={1}>
+            {row?.rdiUnit?.toLowerCase() === "ug"
+              ? "µg"
+              : row?.rdiUnit?.toLowerCase()}
+          </Text>
         </Flex>
       ) : null
     },
@@ -91,6 +95,7 @@ export interface FactTableRow {
   nutrient: string
   amount: number
   rdiAmount?: number
+  rdiUnit?: string
   amountUnit: string
   dailyValue?: number
 }
