@@ -78,13 +78,36 @@ The entire project is managed using GitHub Projects (beta). Currently, the issue
 4. Once you are done with the work, assign your PR to a reviewer.
 
 ## Release
-We are using [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/) to release the project. The feature braches
+We are using a version of [6 weeks cycle](https://3.basecamp-help.com/article/35-the-six-week-cycle). However, we may not
+always run for 6 weeks depending upon the time and bandwidth available. But we do run a cycle. We prioritize what we can
+do in a cycle, and create a milestone. All our milestones are available [here](https://github.com/forkfacts/forkfacts/milestones).
+
+We try to keep the name of milestone from the list of herbs available [here](https://www.britannica.com/topic/list-of-herbs-and-spices-2024392)
+
+
+We are using [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/) to release the project. The feature branches
 are worked upon based on the `develop` branch. The code reviews (PRs) are opened against `develop` branch. Once a PR
 is merged, it goes into the `develop` branch. 
 
-From time to time, we open a PR from `develop` to `main` branch.
-At this time, we create a new realase automatically using [semantic-release](https://semantic-release.gitbook.io/semantic-release/). 
+From time to time, we open a PR from `develop` to `main` branch. Currently, we do not wait for a cycle to complete
+in order to merge to `main`. We prefer to merge to `main` (hence a release) as soon as we are happy with the quality of work.
+
+At this time, we create a new release automatically using [semantic-release](https://semantic-release.gitbook.io/semantic-release/). 
 As soon as a PR is merged into the `main` branch, a [Github Action](.github/workflows/release.yml) is triggered to create a new release.
+
+## Contribute
+There are many ways to contribute.
+### Spread the word!
+If you think this project has given you information that could help you lead a healthy eating lifestyle, please consider
+sharing it with others around you. People who trust you are more inclined to try out new things.
+We hope that everyone around us has fact-based nutrition information. The decision is on the individual, but sharing the
+information is a collective community effort, so please help us spread the word.
+
+### File an issue
+If you think you've found an issue, please create an issue using a pre-defined [template](https://github.com/forkfacts/forkfacts/issues/new/choose).
+Please follow the structure and give as much information as possible. This will help us triage, reproduce the issue faster.
+
+> More methods of contributions are coming soon
 
 ## How to?
 ### Enable search on the project
