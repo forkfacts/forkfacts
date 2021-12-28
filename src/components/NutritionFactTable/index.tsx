@@ -58,17 +58,17 @@ export const NutritionFactTable = ({
 
     // todo: move this logic in ts file so that we can write tests
     const nutrientsWithRdis = nutrients.map((nutrient, index) => {
-      const getPercentDaily = () => {
-        const nutrientWithRdi = nutrientRdis.filter(
-          nutrientRdi =>
-            nutrientRdi.nutrient.name === nutrient.name &&
-            nutrientRdi.nutrient.unit === nutrient.unit &&
-            age.start === nutrientRdi?.rdi?.ageStart &&
-            age.end === nutrientRdi?.rdi?.ageEnd &&
-            age.ageUnit === nutrientRdi?.rdi.ageUnit &&
-            gender.toLowerCase() === nutrientRdi?.rdi.applicableFor
-        )[0]
+      const nutrientWithRdi = nutrientRdis.filter(
+        nutrientRdi =>
+          nutrientRdi.nutrient.name === nutrient.name &&
+          nutrientRdi.nutrient.unit === nutrient.unit &&
+          age.start === nutrientRdi?.rdi?.ageStart &&
+          age.end === nutrientRdi?.rdi?.ageEnd &&
+          age.ageUnit === nutrientRdi?.rdi.ageUnit &&
+          gender.toLowerCase() === nutrientRdi?.rdi.applicableFor
+      )[0]
 
+      const getPercentDaily = () => {
         /* a nutrient may not have an associated RDI */
         if (!nutrientWithRdi || !nutrientWithRdi.rdi) return undefined
         return nutrientWithRdi.percentDaily
@@ -80,6 +80,8 @@ export const NutritionFactTable = ({
         amount: nutrient.amount,
         amountUnit: nutrient.unit.toLowerCase(),
         dailyValue: getPercentDaily(),
+        rdiAmount: nutrientWithRdi?.rdi?.amount,
+        rdiUnit: nutrientWithRdi?.rdi?.nutrientUnit,
       }
       return factTableRow
     })

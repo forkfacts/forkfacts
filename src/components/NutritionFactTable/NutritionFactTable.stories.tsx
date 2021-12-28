@@ -1,9 +1,16 @@
 import { NutritionFactTable } from "./index"
 import { FoundationFood, NutrientRdi } from "../../shared/types"
+import React from "react"
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 
 export default {
   title: "Components/Nutrition Fact Table",
   component: NutritionFactTable,
+  parameters: {
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+    },
+  },
 }
 
 const food: FoundationFood = {
@@ -274,3 +281,21 @@ const nutrientDailyValues: NutrientRdi[] = [
 export const Table = () => (
   <NutritionFactTable food={food} nutrientRdis={nutrientDailyValues} />
 )
+
+export const Mobile = () => (
+  <NutritionFactTable food={food} nutrientRdis={nutrientDailyValues} />
+)
+Mobile.parameters = {
+  viewport: {
+    defaultViewport: "iphone5",
+  },
+}
+
+export const Tablet = () => (
+  <NutritionFactTable food={food} nutrientRdis={nutrientDailyValues} />
+)
+Tablet.parameters = {
+  viewport: {
+    defaultViewport: "ipad",
+  },
+}

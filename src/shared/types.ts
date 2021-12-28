@@ -24,7 +24,7 @@ export interface RDI {
   ageStart: number
   ageEnd?: number
   ageUnit: "month" | "year"
-  importTable: "Elements" | "Vitamins"
+  importTable: "Elements" | "Vitamins" | "Total Water & Macronutrients"
   nutrient: string
   amount: number
   // todo: can we make units typed? How many different units we may have?

@@ -174,6 +174,6 @@ MobileWithNutrientsSelected.args = {
 }
 MobileWithNutrientsSelected.parameters = {
   viewport: {
-    defaultViewport: "pixel",
+    defaultViewport: "iphone5",
   },
 }

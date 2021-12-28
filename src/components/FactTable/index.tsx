@@ -31,26 +31,16 @@ const columns: GridColDef[] = [
   {
     field: "nutrient",
     flex: 1,
+    minWidth: 220,
     renderHeader: (/*params*/) => getHeader("Nutrient"),
-  },
-  {
-    field: "amount",
-    type: "number",
-    width: 150,
-    renderHeader: (/*params*/) => getHeader("Amount"),
     renderCell: (params: GridRenderCellParams) => {
       const row: FactTableRow = params.row as FactTableRow
-      return (
-        <Flex>
-          <Text w={100}>{row.amount}</Text>
-          <Text pl={1}>{row.amountUnit}</Text>
-        </Flex>
-      )
+      return <Text flexWrap={"wrap"}>{row.nutrient}</Text>
     },
   },
   {
     field: "dailyValue",
-    flex: 1,
+    width: 155,
     renderHeader: (/*params*/) => getHeader("% Daily Value"),
     renderCell: (params: GridRenderCellParams) => {
       const row: FactTableRow = params.row as FactTableRow
@@ -62,12 +52,53 @@ const columns: GridColDef[] = [
       )
     },
   },
+  {
+    field: "amount",
+    width: 100,
+    type: "number",
+    sortable: false,
+    renderHeader: (/*params*/) => getHeader("Amount"),
+    renderCell: (params: GridRenderCellParams) => {
+      const row: FactTableRow = params.row as FactTableRow
+      return (
+        <Flex>
+          <Text>{row.amount}</Text>
+          <Text pl={1}>{row.amountUnit === "ug" ? "µg" : row.amountUnit}</Text>
+        </Flex>
+      )
+    },
+  },
+  {
+    field: "rdi",
+    width: 100,
+    type: "number",
+    sortable: false,
+    renderHeader: (/*params*/) => getHeader("RDI"),
+    renderCell: (params: GridRenderCellParams) => {
+      const row: FactTableRow = params.row as FactTableRow
+      let rdiAmount = row?.rdiAmount && row?.rdiAmount > 0 ? row?.rdiAmount : ""
+      let rdiUnit = rdiAmount
+        ? row?.rdiUnit?.toLowerCase() === "ug"
+          ? "µg"
+          : row?.rdiUnit?.toLowerCase()
+        : ""
+
+      return row.rdiAmount ? (
+        <Flex>
+          <Text>{rdiAmount}</Text>
+          <Text pl={1}>{rdiUnit}</Text>
+        </Flex>
+      ) : null
+    },
+  },
 ]
 
 export interface FactTableRow {
   id: number
   nutrient: string
   amount: number
+  rdiAmount?: number
+  rdiUnit?: string
   amountUnit: string
   dailyValue?: number
 }
@@ -92,29 +123,29 @@ export const FactTable = ({
   ])
 
   return (
-    <div style={{ display: "flex" }}>
-      <DataGrid
-        autoHeight={nutrientsFilterApplied}
-        rows={rows}
-        columns={columns}
-        className={classes.root}
-        style={{
-          height: nutrientsFilterApplied ? "auto" : 500,
-          maxHeight: 700,
-        }}
-        components={{
-          // https://mui.com/api/data-grid/data-grid/#slots-2
-          Footer: () => (
-            <Box py={4} pl={3}>
-              <Text fontSize={"xs"} color={"gray.500"}>
-                {rows.length} Nutrients
-              </Text>
-            </Box>
-          ),
-        }}
-        sortModel={sortModel}
-        onSortModelChange={model => setSortModel(model)}
-      />
+    <div style={{ height: 500, width: "100%" }}>
+      <div style={{ display: "flex", height: "100%" }}>
+        <div style={{ flexGrow: 1 }}>
+          <DataGrid
+            autoHeight={nutrientsFilterApplied}
+            rows={rows}
+            columns={columns}
+            className={classes.root}
+            components={{
+              // https://mui.com/api/data-grid/data-grid/#slots-2
+              Footer: () => (
+                <Box py={4} pl={3}>
+                  <Text fontSize={"xs"} color={"gray.700"}>
+                    {rows.length} Nutrients
+                  </Text>
+                </Box>
+              ),
+            }}
+            sortModel={sortModel}
+            onSortModelChange={model => setSortModel(model)}
+          />
+        </div>
+      </div>
     </div>
   )
 }
