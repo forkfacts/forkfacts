@@ -31,7 +31,7 @@ const columns: GridColDef[] = [
   {
     field: "nutrient",
     flex: 1,
-    minWidth: 300,
+    minWidth: 220,
     renderHeader: (/*params*/) => getHeader("Nutrient"),
     renderCell: (params: GridRenderCellParams) => {
       const row: FactTableRow = params.row as FactTableRow
@@ -40,7 +40,7 @@ const columns: GridColDef[] = [
   },
   {
     field: "dailyValue",
-    width: 200,
+    width: 155,
     renderHeader: (/*params*/) => getHeader("% Daily Value"),
     renderCell: (params: GridRenderCellParams) => {
       const row: FactTableRow = params.row as FactTableRow
@@ -54,9 +54,9 @@ const columns: GridColDef[] = [
   },
   {
     field: "amount",
+    width: 100,
     type: "number",
     sortable: false,
-    width: 200,
     renderHeader: (/*params*/) => getHeader("Amount"),
     renderCell: (params: GridRenderCellParams) => {
       const row: FactTableRow = params.row as FactTableRow
@@ -70,9 +70,9 @@ const columns: GridColDef[] = [
   },
   {
     field: "rdi",
+    width: 100,
     type: "number",
     sortable: false,
-    width: 200,
     renderHeader: (/*params*/) => getHeader("RDI"),
     renderCell: (params: GridRenderCellParams) => {
       const row: FactTableRow = params.row as FactTableRow
@@ -115,30 +115,28 @@ export const FactTable = ({
   ])
 
   return (
-    <div style={{ display: "flex" }}>
-      <div style={{ flexGrow: 1 }}>
-        <DataGrid
-          autoHeight={nutrientsFilterApplied}
-          rows={rows}
-          columns={columns}
-          className={classes.root}
-          style={{
-            height: nutrientsFilterApplied ? "auto" : 500,
-            maxHeight: 700,
-          }}
-          components={{
-            // https://mui.com/api/data-grid/data-grid/#slots-2
-            Footer: () => (
-              <Box py={4} pl={3}>
-                <Text fontSize={"xs"} color={"gray.700"}>
-                  {rows.length} Nutrients
-                </Text>
-              </Box>
-            ),
-          }}
-          sortModel={sortModel}
-          onSortModelChange={model => setSortModel(model)}
-        />
+    <div style={{ height: 500, width: "100%" }}>
+      <div style={{ display: "flex", height: "100%" }}>
+        <div style={{ flexGrow: 1 }}>
+          <DataGrid
+            autoHeight={nutrientsFilterApplied}
+            rows={rows}
+            columns={columns}
+            className={classes.root}
+            components={{
+              // https://mui.com/api/data-grid/data-grid/#slots-2
+              Footer: () => (
+                <Box py={4} pl={3}>
+                  <Text fontSize={"xs"} color={"gray.700"}>
+                    {rows.length} Nutrients
+                  </Text>
+                </Box>
+              ),
+            }}
+            sortModel={sortModel}
+            onSortModelChange={model => setSortModel(model)}
+          />
+        </div>
       </div>
     </div>
   )
