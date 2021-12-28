@@ -39,6 +39,20 @@ const columns: GridColDef[] = [
     },
   },
   {
+    field: "dailyValue",
+    width: 200,
+    renderHeader: (/*params*/) => getHeader("% Daily Value"),
+    renderCell: (params: GridRenderCellParams) => {
+      const row: FactTableRow = params.row as FactTableRow
+      // todo: shall we move .toFixed(2) up?
+      return (
+        <Flex ml={4}>
+          <Text>{row.dailyValue && <>{row.dailyValue.toFixed(2)} %</>}</Text>
+        </Flex>
+      )
+    },
+  },
+  {
     field: "amount",
     type: "number",
     sortable: false,
@@ -68,20 +82,6 @@ const columns: GridColDef[] = [
           <Text pl={1}>{row.amountUnit}</Text>
         </Flex>
       ) : null
-    },
-  },
-  {
-    field: "dailyValue",
-    width: 200,
-    renderHeader: (/*params*/) => getHeader("% Daily Value"),
-    renderCell: (params: GridRenderCellParams) => {
-      const row: FactTableRow = params.row as FactTableRow
-      // todo: shall we move .toFixed(2) up?
-      return (
-        <Flex ml={4}>
-          <Text>{row.dailyValue && <>{row.dailyValue.toFixed(2)} %</>}</Text>
-        </Flex>
-      )
     },
   },
 ]
