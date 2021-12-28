@@ -78,7 +78,9 @@ const columns: GridColDef[] = [
       const row: FactTableRow = params.row as FactTableRow
       return row.rdiAmount ? (
         <Flex>
-          <Text>{row?.rdiAmount}</Text>
+          <Text>
+            {row?.rdiAmount && row.rdiAmount > 0 ? row?.rdiAmount : ""}
+          </Text>
           <Text pl={1}>
             {row?.rdiUnit?.toLowerCase() === "ug"
               ? "µg"
