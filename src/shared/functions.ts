@@ -1,5 +1,5 @@
 import {
-  FoundationFood,
+  FoundationOrSrFood,
   Nutrient,
   NutrientRdi,
   RDI,
@@ -48,7 +48,7 @@ export const getNutrientRdiPercent = (
  so we need to keep that into account here
  */
 export const generateRdiForFood = (
-  food: FoundationFood,
+  food: FoundationOrSrFood,
   rdis: RDI[]
 ): NutrientRdi[] => {
   return food.nutrients

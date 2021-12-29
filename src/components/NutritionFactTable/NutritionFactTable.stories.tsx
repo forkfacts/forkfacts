@@ -1,5 +1,5 @@
 import { NutritionFactTable } from "./index"
-import { FoundationFood, NutrientRdi } from "../../shared/types"
+import { FoundationOrSrFood, NutrientRdi } from "../../shared/types"
 import React from "react"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 
@@ -13,7 +13,7 @@ export default {
   },
 }
 
-const food: FoundationFood = {
+const food: FoundationOrSrFood = {
   fdcId: 323294,
   name: "Nuts, almonds, dry roasted, with salt added",
   category: "Nut and Seed Products",

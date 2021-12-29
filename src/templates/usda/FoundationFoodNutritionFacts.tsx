@@ -1,12 +1,12 @@
 import * as React from "react"
-import { FoundationFood, NutrientRdi, RDI } from "../../shared/types"
+import { FoundationOrSrFood, NutrientRdi, RDI } from "../../shared/types"
 import { generateRdiForFood } from "../../shared/functions"
 import { NutritionFactTable } from "../../components/NutritionFactTable"
 import Layout from "../../components/Layout"
 
 export default ({ pageContext }) => {
   const { food, rdis, breadcrumbs } = pageContext
-  const thisFood = food as FoundationFood
+  const thisFood = food as FoundationOrSrFood
   const allRdis = rdis as RDI[]
   const nutrientRdis: NutrientRdi[] = generateRdiForFood(thisFood, allRdis)
 

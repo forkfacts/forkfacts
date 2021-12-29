@@ -1,5 +1,5 @@
 import { GatsbyNode } from "gatsby"
-import { FoundationFood } from "../shared/types"
+import { FoundationOrSrFood } from "../shared/types"
 
 const {
   generateFoundationFoodNutritionFactTables,
@@ -24,7 +24,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       }
     }
   `)
-  let dataElements: FoundationFood[] = (data as any)[
+  let dataElements: FoundationOrSrFood[] = (data as any)[
     "allFoundationFoodNutritionFactsJson"
   ]["nodes"]
   let foodWithCategories = dataElements.map(

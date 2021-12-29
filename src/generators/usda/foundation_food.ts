@@ -4,11 +4,12 @@ import {
   FOUNDATION_FOOD,
 } from "../utilities/breadcrumbs"
 import { spaceToDashes } from "../utilities/helpers"
-import { FoundationFood, RDI, SearchIndex } from "../../shared/types"
+import { FoundationOrSrFood, RDI, SearchIndex } from "../../shared/types"
 import { writeJsonToFile } from "../../shared/functions"
 
 const path = require("path")
 const ff_nutrition_facts = require("../../../src/data/foundation_food_nutrition_facts.json")
+const sr_legacy_nutrition_facts = require("../../../src/data/sr_legacy_food_nutrition_facts.json")
 const rdis: RDI[] = require("../../../src/data/rdi.json")
 
 interface NutritionFactFnType {
@@ -24,34 +25,16 @@ type CreatePageFnProps = {
 const generateFoundationFoodNutritionFactTables = ({
   createPageFunction,
 }: CreatePageFnProps) => {
-  const template = path.resolve(
-    "./src/templates/usda/FoundationFoodNutritionFacts.tsx"
-  )
-  let ffSearchIndex: SearchIndex = []
-  ff_nutrition_facts.forEach((food: FoundationFood) => {
-    const pagePath = spaceToDashes(food["name"].toString())
-
-    createPageFunction({
-      path: pagePath,
-      component: template,
-      context: {
-        food,
-        rdis,
-        breadcrumbs: [
-          HOME,
-          // USDA, // todo: enable others when we have data from other data sources
-          FOUNDATION_FOOD,
-          createBreadcrumb(FOUNDATION_FOOD, food.category),
-        ],
-      },
-    })
-    ffSearchIndex.push({
-      name: food.name,
-      category: food.category,
-      url: `/${pagePath}`,
-    })
+  createFoodPages({
+    createPageFunction,
+    foods: ff_nutrition_facts,
+    indexFileName: "ff_search_index",
   })
-  writeJsonToFile("ff_search_index.json", ffSearchIndex)
+  createFoodPages({
+    createPageFunction,
+    foods: sr_legacy_nutrition_facts,
+    indexFileName: "sr_search_index",
+  })
 }
 
 type FoundationFoodPageProps = CreatePageFnProps & {
@@ -85,6 +68,45 @@ const generateFoundationFoodPage = ({
       ],
     },
   })
+}
+
+type FoodPageType = CreatePageFnProps & {
+  foods: FoundationOrSrFood[]
+  indexFileName: string
+}
+
+const createFoodPages = ({
+  createPageFunction,
+  foods,
+  indexFileName,
+}: FoodPageType) => {
+  let ffSearchIndex: SearchIndex = []
+  const template = path.resolve(
+    "./src/templates/usda/FoundationFoodNutritionFacts.tsx"
+  )
+  foods.forEach((food: FoundationOrSrFood) => {
+    const pagePath = spaceToDashes(food["name"].toString())
+
+    createPageFunction({
+      path: pagePath,
+      component: template,
+      context: {
+        food,
+        rdis,
+        breadcrumbs: [
+          HOME,
+          FOUNDATION_FOOD,
+          createBreadcrumb(FOUNDATION_FOOD, food.category),
+        ],
+      },
+    })
+    ffSearchIndex.push({
+      name: food.name,
+      category: food.category,
+      url: `/${pagePath}`,
+    })
+  })
+  writeJsonToFile(`${indexFileName}.json`, ffSearchIndex)
 }
 
 module.exports = {

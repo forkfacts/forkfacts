@@ -1,4 +1,4 @@
-export interface FoundationFood {
+export interface FoundationOrSrFood {
   fdcId: number
   name: string
   category: string

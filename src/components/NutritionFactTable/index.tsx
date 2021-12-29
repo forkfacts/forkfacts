@@ -6,11 +6,11 @@ import {
   UserSelectionProps,
 } from "../Filters/TableFilters"
 import { FactTable, FactTableRow } from "../FactTable"
-import { Age, FoundationFood, NutrientRdi } from "../../shared/types"
+import { Age, FoundationOrSrFood, NutrientRdi } from "../../shared/types"
 import { allAges as allAgesData } from "../../shared/data"
 
 type NutritionFactTableProps = {
-  food: FoundationFood
+  food: FoundationOrSrFood
   allAges?: Age[]
   nutrientRdis: NutrientRdi[]
 }
