@@ -1,8 +1,4 @@
-import {
-  HOME,
-  createBreadcrumb,
-  FOUNDATION_FOOD,
-} from "../utilities/breadcrumbs"
+import { HOME, createBreadcrumb, FOODS } from "../utilities/breadcrumbs"
 import { spaceToDashes } from "../utilities/helpers"
 import { FoundationOrSrFood, RDI, SearchIndex } from "../../shared/types"
 import { writeJsonToFile } from "../../shared/functions"
@@ -45,7 +41,7 @@ const generateFFAndSRPage = ({
   data,
 }: FoundationFoodPageProps) => {
   const template = path.resolve(
-    "./src/templates/usda/food_sources/FoundationFood.tsx"
+    "./src/templates/usda/food_sources/FoundationSrFood.tsx"
   )
   const foundationFoodWithCategories = data.reduce((acc, node) => {
     const foods = acc.has(node.category)
@@ -55,17 +51,13 @@ const generateFFAndSRPage = ({
     return acc
   }, new Map<string, string[]>())
   createPageFunction({
-    path: "foundation-foods",
+    path: FOODS.url,
     component: template,
     context: {
       foundationFoodWithCategories: Object.fromEntries(
         foundationFoodWithCategories
       ),
-      breadcrumbs: [
-        HOME,
-        // USDA, // todo: enable others when we have data from other data sources
-        FOUNDATION_FOOD,
-      ],
+      breadcrumbs: [HOME, FOODS],
     },
   })
 }
@@ -93,11 +85,7 @@ const createFoodPages = ({
       context: {
         food,
         rdis,
-        breadcrumbs: [
-          HOME,
-          FOUNDATION_FOOD,
-          createBreadcrumb(FOUNDATION_FOOD, food.category),
-        ],
+        breadcrumbs: [HOME, FOODS, createBreadcrumb(FOODS, food.category)],
       },
     })
     ffSearchIndex.push({

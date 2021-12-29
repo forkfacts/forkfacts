@@ -36,7 +36,7 @@ const Index: React.FC<PageProps<DataProps>> = ({ data, path }) => (
           We are a small team working hard to provide <b>fact-based</b>{" "}
           nutrition information for every possible food out there. Check out
           nutrition information for{" "}
-          <a href="/foundation-foods" style={{ color: "blue" }}>
+          <a href="/foods" style={{ color: "blue" }}>
             some foods
           </a>{" "}
           here. Come visit us in some time for more information and news.
