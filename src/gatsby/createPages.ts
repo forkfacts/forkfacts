@@ -3,8 +3,8 @@ import { FoundationOrSrFood } from "../shared/types"
 
 const {
   generateNutritionFactTables,
-  generateFoundationFoodPage,
-} = require("../generators/usda/foundation_food")
+  generateFFAndSRPage,
+} = require("../generators/usda/foundation_sr_food")
 
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
@@ -22,15 +22,26 @@ export const createPages: GatsbyNode["createPages"] = async ({
           category
         }
       }
+      allSrLegacyFoodNutritionFactsJson {
+        nodes {
+          name
+          category
+        }
+      }
     }
   `)
-  let dataElements: FoundationOrSrFood[] = (data as any)[
+
+  let foundationFoods: FoundationOrSrFood[] = (data as any)[
     "allFoundationFoodNutritionFactsJson"
   ]["nodes"]
-  let foodWithCategories = dataElements.map(
+  let srFoods: FoundationOrSrFood[] = (data as any)[
+    "allSrLegacyFoodNutritionFactsJson"
+  ]["nodes"]
+
+  let foodWithCategories = [...foundationFoods, ...srFoods].map(
     (element: { name: string; category: string }) => ({ ...element })
   )
-  generateFoundationFoodPage({
+  generateFFAndSRPage({
     createPageFunction: createPage,
     data: foodWithCategories,
   })

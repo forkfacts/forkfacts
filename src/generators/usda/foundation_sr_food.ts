@@ -40,7 +40,7 @@ const generateNutritionFactTables = ({
 type FoundationFoodPageProps = CreatePageFnProps & {
   data: [{ name: string; category: string }]
 }
-const generateFoundationFoodPage = ({
+const generateFFAndSRPage = ({
   createPageFunction,
   data,
 }: FoundationFoodPageProps) => {
@@ -111,5 +111,5 @@ const createFoodPages = ({
 
 module.exports = {
   generateNutritionFactTables,
-  generateFoundationFoodPage,
+  generateFFAndSRPage,
 }
