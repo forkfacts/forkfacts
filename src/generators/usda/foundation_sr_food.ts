@@ -22,7 +22,7 @@ type CreatePageFnProps = {
   createPageFunction: (fnType: NutritionFactFnType) => void
 }
 
-const generateFoundationFoodNutritionFactTables = ({
+const generateNutritionFactTables = ({
   createPageFunction,
 }: CreatePageFnProps) => {
   createFoodPages({
@@ -110,6 +110,6 @@ const createFoodPages = ({
 }
 
 module.exports = {
-  generateFoundationFoodNutritionFactTables,
+  generateNutritionFactTables,
   generateFoundationFoodPage,
 }

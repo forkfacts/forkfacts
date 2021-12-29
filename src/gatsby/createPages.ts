@@ -2,7 +2,7 @@ import { GatsbyNode } from "gatsby"
 import { FoundationOrSrFood } from "../shared/types"
 
 const {
-  generateFoundationFoodNutritionFactTables,
+  generateNutritionFactTables,
   generateFoundationFoodPage,
 } = require("../generators/usda/foundation_food")
 
@@ -12,7 +12,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 }) => {
   const { createPage } = actions
 
-  generateFoundationFoodNutritionFactTables({ createPageFunction: createPage })
+  generateNutritionFactTables({ createPageFunction: createPage })
 
   const { data } = await graphql(`
     query {
