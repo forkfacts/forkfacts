@@ -1,12 +1,12 @@
-import React from "react"
-import { TriangleDownIcon } from "@chakra-ui/icons"
-import { Button, Text } from "@chakra-ui/react"
+import React from "react";
+import { TriangleDownIcon } from "@chakra-ui/icons";
+import { Button, Text } from "@chakra-ui/react";
 
 interface AgeFilterProps {
-  startAge: number
-  endAge?: number
-  ageUnit: "month" | "year"
-  onClick: () => void
+  startAge: number;
+  endAge?: number;
+  ageUnit: "month" | "year";
+  onClick: () => void;
 }
 
 export const AgeFilter = ({
@@ -17,7 +17,7 @@ export const AgeFilter = ({
 }: AgeFilterProps) => {
   const displayText = endAge
     ? `${startAge} - ${endAge} ${ageUnit}`
-    : `${startAge} ${ageUnit} and above`
+    : `${startAge} ${ageUnit} and above`;
   return (
     <Button
       rightIcon={<TriangleDownIcon />}
@@ -29,5 +29,5 @@ export const AgeFilter = ({
     >
       <Text noOfLines={1}>{displayText}</Text>
     </Button>
-  )
-}
+  );
+};

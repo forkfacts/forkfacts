@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from "react"
-import { Box } from "@chakra-ui/react"
+import React, { useEffect, useState } from "react";
+import { Box } from "@chakra-ui/react";
 import {
   TableFilters,
   TableFiltersProps,
   UserSelectionProps,
-} from "../Filters/TableFilters"
-import { FactTable, FactTableRow } from "../FactTable"
-import { Age, FoundationFood, NutrientRdi } from "../../shared/types"
-import { allAges as allAgesData } from "../../shared/data"
+} from "../Filters/TableFilters";
+import { FactTable, FactTableRow } from "../FactTable";
+import { Age, FoundationOrSrFood, NutrientRdi } from "../../shared/types";
+import { allAges as allAgesData } from "../../shared/data";
 
 type NutritionFactTableProps = {
-  food: FoundationFood
-  allAges?: Age[]
-  nutrientRdis: NutrientRdi[]
-}
+  food: FoundationOrSrFood;
+  allAges?: Age[];
+  nutrientRdis: NutrientRdi[];
+};
 
 type NutritionFactTableState = Omit<
   TableFiltersProps,
   "allNutrients" | "onDone"
 > &
-  Omit<NutritionFactTableProps, "nutrientRdis">
+  Omit<NutritionFactTableProps, "nutrientRdis">;
 
 export const NutritionFactTable = ({
   food,
@@ -34,9 +34,9 @@ export const NutritionFactTable = ({
     selectedAge: allAges.filter(age => age.start === 31)[0],
     // no nutrients selected by user initially, show all nutrients
     selectedNutrients: [],
-  })
+  });
 
-  const [rows, setRows] = useState<FactTableRow[]>([])
+  const [rows, setRows] = useState<FactTableRow[]>([]);
 
   const onDone = (selection: UserSelectionProps) => {
     setState(prevState => ({
@@ -44,17 +44,17 @@ export const NutritionFactTable = ({
       selectedGender: selection.selectedGender,
       selectedAge: selection.selectedAge,
       selectedNutrients: selection.selectedNutrients,
-    }))
-  }
+    }));
+  };
 
   useEffect(() => {
-    const gender = state.selectedGender
-    const age = state.selectedAge
+    const gender = state.selectedGender;
+    const age = state.selectedAge;
 
     const nutrients =
       state.selectedNutrients.length < 1
         ? food.nutrients
-        : state.selectedNutrients
+        : state.selectedNutrients;
 
     // todo: move this logic in ts file so that we can write tests
     const nutrientsWithRdis = nutrients.map((nutrient, index) => {
@@ -66,13 +66,13 @@ export const NutritionFactTable = ({
           age.end === nutrientRdi?.rdi?.ageEnd &&
           age.ageUnit === nutrientRdi?.rdi.ageUnit &&
           gender.toLowerCase() === nutrientRdi?.rdi.applicableFor
-      )[0]
+      )[0];
 
       const getPercentDaily = () => {
         /* a nutrient may not have an associated RDI */
-        if (!nutrientWithRdi || !nutrientWithRdi.rdi) return undefined
-        return nutrientWithRdi.percentDaily
-      }
+        if (!nutrientWithRdi || !nutrientWithRdi.rdi) return undefined;
+        return nutrientWithRdi.percentDaily;
+      };
 
       const factTableRow: FactTableRow = {
         id: index,
@@ -82,16 +82,16 @@ export const NutritionFactTable = ({
         dailyValue: getPercentDaily(),
         rdiAmount: nutrientWithRdi?.rdi?.amount,
         rdiUnit: nutrientWithRdi?.rdi?.nutrientUnit,
-      }
-      return factTableRow
-    })
-    setRows(nutrientsWithRdis)
-  }, [state.selectedAge, state.selectedGender, state.selectedNutrients])
+      };
+      return factTableRow;
+    });
+    setRows(nutrientsWithRdis);
+  }, [state.selectedAge, state.selectedGender, state.selectedNutrients]);
 
   if (
     !(state.food && state.allAges && state.selectedAge && state.selectedGender)
   )
-    return null
+    return null;
 
   return (
     <Box>
@@ -108,5 +108,5 @@ export const NutritionFactTable = ({
         nutrientsFilterApplied={state.selectedNutrients.length > 0}
       />
     </Box>
-  )
-}
+  );
+};

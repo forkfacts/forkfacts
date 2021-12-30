@@ -1,1 +1,1 @@
-export const SOCIAL_USERNAME = "theforkfacts"
+export const SOCIAL_USERNAME = "theforkfacts";

@@ -1,26 +1,26 @@
-import React, { RefObject, useEffect, useState } from "react"
-import { Box } from "@chakra-ui/react"
-import { TotalFilter } from "../TotalFilter"
-import { GenderFilter } from "../GenderFilter"
-import { AgeFilter } from "../AgeFilter"
-import { NutrientFilter } from "../NutrientFilter"
-import { FocusableElement } from "@chakra-ui/utils"
-import { FilterModal } from "../FilterModal"
-import { Age, Gender, Nutrient } from "../../../shared/types"
+import React, { RefObject, useEffect, useState } from "react";
+import { Box } from "@chakra-ui/react";
+import { TotalFilter } from "../TotalFilter";
+import { GenderFilter } from "../GenderFilter";
+import { AgeFilter } from "../AgeFilter";
+import { NutrientFilter } from "../NutrientFilter";
+import { FocusableElement } from "@chakra-ui/utils";
+import { FilterModal } from "../FilterModal";
+import { Age, Gender, Nutrient } from "../../../shared/types";
 
 export interface TableFiltersProps {
-  allNutrients: Nutrient[]
-  allAges: Age[]
-  selectedNutrients: Nutrient[]
-  selectedGender: Gender
-  selectedAge: Age
-  onDone: (changes: UserSelectionProps) => void
+  allNutrients: Nutrient[];
+  allAges: Age[];
+  selectedNutrients: Nutrient[];
+  selectedGender: Gender;
+  selectedAge: Age;
+  onDone: (changes: UserSelectionProps) => void;
 }
 
 export type UserSelectionProps = Pick<
   TableFiltersProps,
   "selectedNutrients" | "selectedAge" | "selectedGender"
->
+>;
 
 export const TableFilters = ({
   allAges,
@@ -30,20 +30,20 @@ export const TableFilters = ({
   selectedAge,
   onDone,
 }: TableFiltersProps) => {
-  const totalFiltersRef = React.useRef<HTMLDivElement>(null)
-  const genderRef = React.useRef<HTMLDivElement>(null)
-  const ageRef = React.useRef<HTMLDivElement>(null)
-  const nutrientsRef = React.useRef<HTMLInputElement>(null)
+  const totalFiltersRef = React.useRef<HTMLDivElement>(null);
+  const genderRef = React.useRef<HTMLDivElement>(null);
+  const ageRef = React.useRef<HTMLDivElement>(null);
+  const nutrientsRef = React.useRef<HTMLInputElement>(null);
   const [focusRef, setFocusRef] = useState<
     RefObject<HTMLDivElement | FocusableElement> | undefined
-  >(undefined)
+  >(undefined);
 
-  const [totalFiltersApplied, setTotalFiltersApplied] = useState<number>(3)
-  const handleClick = (ref: RefObject<HTMLDivElement>) => setFocusRef(ref)
+  const [totalFiltersApplied, setTotalFiltersApplied] = useState<number>(3);
+  const handleClick = (ref: RefObject<HTMLDivElement>) => setFocusRef(ref);
   const handleDone = (userSelectedChanges: UserSelectionProps) => {
-    setFocusRef(undefined)
-    onDone(userSelectedChanges)
-  }
+    setFocusRef(undefined);
+    onDone(userSelectedChanges);
+  };
 
   useEffect(() => {
     /**
@@ -51,9 +51,9 @@ export const TableFilters = ({
      * A user may change them, but they will still apply. Only Nutrients
      * are something (as far as we know) that a user may or may not want to apply
      */
-    const totalFiltersApplied = 3 + (selectedNutrients.length > 1 ? 1 : 0)
-    setTotalFiltersApplied(totalFiltersApplied)
-  }, [selectedNutrients])
+    const totalFiltersApplied = 3 + (selectedNutrients.length > 1 ? 1 : 0);
+    setTotalFiltersApplied(totalFiltersApplied);
+  }, [selectedNutrients]);
 
   return (
     <>
@@ -101,5 +101,5 @@ export const TableFilters = ({
         focusRef={focusRef}
       />
     </>
-  )
-}
+  );
+};

@@ -1,5 +1,5 @@
-import React from "react"
-import "./autocomplete.css"
+import React from "react";
+import "./autocomplete.css";
 
 export function SearchResult({ hit, components }) {
   return (
@@ -10,5 +10,5 @@ export function SearchResult({ hit, components }) {
         </div>
       </div>
     </a>
-  )
+  );
 }

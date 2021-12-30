@@ -1,11 +1,11 @@
-import React from "react"
-import { TriangleDownIcon } from "@chakra-ui/icons"
-import { Button, Text } from "@chakra-ui/react"
-import { Gender } from "../../../shared/types"
+import React from "react";
+import { TriangleDownIcon } from "@chakra-ui/icons";
+import { Button, Text } from "@chakra-ui/react";
+import { Gender } from "../../../shared/types";
 
 interface GenderFilterProps {
-  selectedGender?: Gender
-  onClick: () => void
+  selectedGender?: Gender;
+  onClick: () => void;
 }
 
 export const GenderFilter = ({
@@ -23,5 +23,5 @@ export const GenderFilter = ({
     >
       <Text noOfLines={1}>{selectedGender}</Text>
     </Button>
-  )
-}
+  );
+};

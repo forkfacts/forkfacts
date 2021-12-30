@@ -1,15 +1,15 @@
-import * as React from "react"
-import { graphql, PageProps } from "gatsby"
+import * as React from "react";
+import { graphql, PageProps } from "gatsby";
 
-import Layout from "../components/Layout"
-import Seo from "../components/seo"
-import { Box, Center, Text } from "@chakra-ui/react"
+import Layout from "../components/Layout";
+import Seo from "../components/seo";
+import { Box, Center, Text } from "@chakra-ui/react";
 
 type DataProps = {
   site: {
-    buildTime: string
-  }
-}
+    buildTime: string;
+  };
+};
 
 const Index: React.FC<PageProps<DataProps>> = ({ data, path }) => (
   <Layout>
@@ -36,7 +36,7 @@ const Index: React.FC<PageProps<DataProps>> = ({ data, path }) => (
           We are a small team working hard to provide <b>fact-based</b>{" "}
           nutrition information for every possible food out there. Check out
           nutrition information for{" "}
-          <a href="/foundation-foods" style={{ color: "blue" }}>
+          <a href="/foods" style={{ color: "blue" }}>
             some foods
           </a>{" "}
           here. Come visit us in some time for more information and news.
@@ -44,9 +44,9 @@ const Index: React.FC<PageProps<DataProps>> = ({ data, path }) => (
       </Center>
     </Box>
   </Layout>
-)
+);
 
-export default Index
+export default Index;
 
 export const query = graphql`
   {
@@ -54,4 +54,4 @@ export const query = graphql`
       buildTime(formatString: "YYYY-MM-DD hh:mm a z")
     }
   }
-`
+`;

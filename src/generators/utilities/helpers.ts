@@ -8,8 +8,8 @@ export const spaceToDashes = (name: string) => {
   const pathname = name
     .toLowerCase()
     .trim()
-    .replace(/[^\w]+/g, "-")
+    .replace(/[^\w]+/g, "-");
   return pathname.endsWith("-")
     ? pathname.substr(0, pathname.length - 1)
-    : pathname
-}
+    : pathname;
+};

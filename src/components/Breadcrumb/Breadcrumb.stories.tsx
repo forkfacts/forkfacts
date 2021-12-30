@@ -1,10 +1,10 @@
-import { Breadcrumbs } from "./index"
-import { Breadcrumb } from "../../shared/types"
+import { Breadcrumbs } from "./index";
+import { Breadcrumb } from "../../shared/types";
 
 export default {
   title: "Components/Breadcrumb",
   component: Breadcrumbs,
-}
+};
 
 export const Trail = () => {
   const paths: Breadcrumb[] = [
@@ -13,6 +13,6 @@ export const Trail = () => {
       displayName: "Legumes and Legume Products",
       url: "/#",
     },
-  ]
-  return <Breadcrumbs paths={paths} />
-}
+  ];
+  return <Breadcrumbs paths={paths} />;
+};

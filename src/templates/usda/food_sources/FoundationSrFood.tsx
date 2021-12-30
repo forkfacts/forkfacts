@@ -1,26 +1,23 @@
-import * as React from "react"
-import { spaceToDashes } from "../../../generators/utilities/helpers"
-import Layout from "../../../components/Layout"
-import { Box, Text } from "@chakra-ui/react"
+import * as React from "react";
+import { spaceToDashes } from "../../../generators/utilities/helpers";
+import Layout from "../../../components/Layout";
+import { Box, Text } from "@chakra-ui/react";
 
-interface FoundationFoodType {
-  [category: string]: string[]
+interface FoundationSrFoodType {
+  [category: string]: string[];
 }
 
 export default ({ pageContext }) => {
-  const { foundationFoodWithCategories, breadcrumbs } = pageContext
+  const { foundationFoodWithCategories, breadcrumbs } = pageContext;
   const ffWithCategoriesTyped =
-    foundationFoodWithCategories as FoundationFoodType
+    foundationFoodWithCategories as FoundationSrFoodType;
   return (
-    <Layout pageTitle={"Foundation Food"} breadcrumbs={breadcrumbs}>
-      <Text mt={4}>
-        These are foods which are chemically analyzed. More to come from USDA
-        tables
-      </Text>
+    <Layout pageTitle={"All Foods"} breadcrumbs={breadcrumbs}>
+      <Text mt={4}>Following foods are chemically analyzed by USDA.</Text>
       <Box mt={4}>
         {Object.entries(ffWithCategoriesTyped).map(
           ([category, foods], index) => {
-            const id = spaceToDashes(category)
+            const id = spaceToDashes(category);
             return (
               <Box my={5}>
                 <section id={id} key={index}>
@@ -39,10 +36,10 @@ export default ({ pageContext }) => {
                   ))}
                 </section>
               </Box>
-            )
+            );
           }
         )}
       </Box>
     </Layout>
-  )
-}
+  );
+};
