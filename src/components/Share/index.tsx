@@ -1,5 +1,5 @@
-import React from "react"
-import { Box, Flex, Text, useBreakpoint } from "@chakra-ui/react"
+import React from "react";
+import { Box, Flex, Text, useBreakpoint } from "@chakra-ui/react";
 import {
   EmailIcon,
   EmailShareButton,
@@ -9,20 +9,20 @@ import {
   TwitterShareButton,
   WhatsappIcon,
   WhatsappShareButton,
-} from "react-share"
-import { SOCIAL_USERNAME } from "./shareConstants"
-import { ResponsiveBreakpoint } from "../utils"
+} from "react-share";
+import { SOCIAL_USERNAME } from "./shareConstants";
+import { ResponsiveBreakpoint } from "../utils";
 
 interface ShareProps {
-  headline: string
-  url: string
-  title: string
-  twitterHashTags: string[]
-  facebookHashTag: string
-  emailBody: string
+  headline: string;
+  url: string;
+  title: string;
+  twitterHashTags: string[];
+  facebookHashTag: string;
+  emailBody: string;
 }
 
-const iconProps = { size: 32, round: true, fill: "black" }
+const iconProps = { size: 32, round: true, fill: "black" };
 
 export const Share = ({
   headline,
@@ -32,7 +32,7 @@ export const Share = ({
   facebookHashTag,
   emailBody,
 }: ShareProps) => {
-  const breakpoint = useBreakpoint() as ResponsiveBreakpoint
+  const breakpoint = useBreakpoint() as ResponsiveBreakpoint;
   return (
     <Flex
       borderRadius={4}
@@ -99,5 +99,5 @@ export const Share = ({
         />
       </Flex>
     </Flex>
-  )
-}
+  );
+};

@@ -1,10 +1,10 @@
-import { ServingFilter } from "./index"
-import { action } from "@storybook/addon-actions"
+import { ServingFilter } from "./index";
+import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Components/Filters/ServingFilter",
   component: ServingFilter,
-}
+};
 
 export const OneTablespoon = () => (
   <ServingFilter
@@ -12,7 +12,7 @@ export const OneTablespoon = () => (
     unit={"tablespoon"}
     onClick={action("Serving Selector Clicked")}
   />
-)
+);
 
 export const OneHundredMG = () => (
   <ServingFilter
@@ -20,7 +20,7 @@ export const OneHundredMG = () => (
     unit={"mg"}
     onClick={action("Serving Selector Clicked")}
   />
-)
+);
 
 export const ThirteenPointSixGrams = () => (
   <ServingFilter
@@ -28,4 +28,4 @@ export const ThirteenPointSixGrams = () => (
     unit={"g"}
     onClick={action("Serving Selector Clicked")}
   />
-)
+);

@@ -1,5 +1,5 @@
-import { Share } from "./index"
-import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
+import { Share } from "./index";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 export default {
   title: "Components/Share",
@@ -9,7 +9,7 @@ export default {
       viewports: INITIAL_VIEWPORTS,
     },
   },
-}
+};
 
 export const Desktop = () => (
   <Share
@@ -20,7 +20,7 @@ export const Desktop = () => (
     facebookHashTag={"nutrition"}
     emailBody={"Hey, I think you will care about this information"}
   />
-)
+);
 
 export const Mobile = () => (
   <Share
@@ -31,12 +31,12 @@ export const Mobile = () => (
     facebookHashTag={"nutrition"}
     emailBody={"Hey, I think you will care about this information"}
   />
-)
+);
 Mobile.parameters = {
   viewport: {
     defaultViewport: "pixel",
   },
-}
+};
 
 export const Tablet = () => (
   <Share
@@ -47,9 +47,9 @@ export const Tablet = () => (
     facebookHashTag={"nutrition"}
     emailBody={"Hey, I think you will care about this information"}
   />
-)
+);
 Tablet.parameters = {
   viewport: {
     defaultViewport: "ipad",
   },
-}
+};

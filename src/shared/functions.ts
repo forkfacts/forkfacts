@@ -1,31 +1,32 @@
 import {
-  FoundationFood,
+  FoundationOrSrFood,
   Nutrient,
   NutrientRdi,
   RDI,
   UsdaToRdiUnitMapping,
-} from "./types"
-import fs from "fs"
+} from "./types";
+import fs from "fs";
 
-const ARTIFACT_PATH = ".raw"
-const mappings: UsdaToRdiUnitMapping[] = require("../data/usda_rdi_nutrient_mapping.json")
+const ARTIFACT_PATH = ".raw";
+const mappings: UsdaToRdiUnitMapping[] = require("../data/usda_rdi_nutrient_mapping.json");
 export const mappingsByNutrient: Map<string, UsdaToRdiUnitMapping> =
   mappings.reduce((acc, mapping) => {
-    acc.set(mapping.usdaNutrientName, mapping)
-    return acc
-  }, new Map<string, UsdaToRdiUnitMapping>())
+    acc.set(mapping.usdaNutrientName, mapping);
+    return acc;
+  }, new Map<string, UsdaToRdiUnitMapping>());
 
 export const getNutrientRdiPercent = (
   nutrient: Nutrient,
   rdi: RDI
 ): number | undefined => {
   // rdi value of < 0 means that there is no data provided by NIH
-  if (!mappingsByNutrient.has(nutrient.name) || rdi.amount < 0) return undefined
+  if (!mappingsByNutrient.has(nutrient.name) || rdi.amount < 0)
+    return undefined;
 
   const multiplier = mappingsByNutrient.get(
     nutrient.name
-  ).usdaToRdiUnitMultiplier
-  return ((nutrient.amount * multiplier) / rdi.amount) * 100
+  ).usdaToRdiUnitMultiplier;
+  return ((nutrient.amount * multiplier) / rdi.amount) * 100;
 
   /*console.log(
     nutrient.name,
@@ -40,7 +41,7 @@ export const getNutrientRdiPercent = (
 
   return rdiPercent
    */
-}
+};
 
 /*
  Given a food, return the NutrientDailyValues
@@ -48,34 +49,34 @@ export const getNutrientRdiPercent = (
  so we need to keep that into account here
  */
 export const generateRdiForFood = (
-  food: FoundationFood,
+  food: FoundationOrSrFood,
   rdis: RDI[]
 ): NutrientRdi[] => {
   return food.nutrients
     .map(nutrient => {
-      const mappedRdi = mappingsByNutrient.get(nutrient.name)
+      const mappedRdi = mappingsByNutrient.get(nutrient.name);
 
-      if (!mappedRdi) return { nutrient }
+      if (!mappedRdi) return { nutrient };
 
       const nutrientRdisForGenderAge = rdis.filter(
         rdi => rdi.nutrient === mappedRdi.rdiNutrientName
-      )
+      );
       return nutrientRdisForGenderAge.map(rdi => {
-        const percentDaily = getNutrientRdiPercent(nutrient, rdi)
-        return { nutrient, rdi, percentDaily }
-      })
+        const percentDaily = getNutrientRdiPercent(nutrient, rdi);
+        return { nutrient, rdi, percentDaily };
+      });
     })
-    .flat()
-}
+    .flat();
+};
 
 export const writeJsonToFile = (fileName, jsonData) => {
-  if (!fs.existsSync(ARTIFACT_PATH)) fs.mkdirSync(ARTIFACT_PATH)
+  if (!fs.existsSync(ARTIFACT_PATH)) fs.mkdirSync(ARTIFACT_PATH);
   fs.writeFile(
     `${ARTIFACT_PATH}/${fileName}`,
     JSON.stringify(jsonData),
     err => {
-      if (err) throw err
-      console.log(`Done writing to file ${fileName}`)
+      if (err) throw err;
+      console.log(`Done writing to file ${fileName}`);
     }
-  )
-}
+  );
+};

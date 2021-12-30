@@ -1,11 +1,11 @@
-import { Box, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react"
-import React from "react"
-import { Age } from "../../../shared/types"
+import { Box, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react";
+import React from "react";
+import { Age } from "../../../shared/types";
 
 interface AgeFilterOptionsProps {
-  allAges: Age[]
-  selectedAge: Age
-  onChange: (age: Age) => void
+  allAges: Age[];
+  selectedAge: Age;
+  onChange: (age: Age) => void;
 }
 
 export const AgeFilterOptions = ({
@@ -22,8 +22,8 @@ export const AgeFilterOptions = ({
         onChange={selectedIndex => {
           const selectedAge = allAges.filter(
             age => age.index === parseInt(selectedIndex)
-          )[0]
-          onChange(selectedAge)
+          )[0];
+          onChange(selectedAge);
         }}
         value={selectedAge.index}
         mt={6}
@@ -37,5 +37,5 @@ export const AgeFilterOptions = ({
         </Stack>
       </RadioGroup>
     </Box>
-  )
-}
+  );
+};

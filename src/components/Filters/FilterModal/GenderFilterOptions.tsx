@@ -1,10 +1,10 @@
-import { Box, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react"
-import React from "react"
-import { Gender } from "../../../shared/types"
+import { Box, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react";
+import React from "react";
+import { Gender } from "../../../shared/types";
 
 interface GenderFilterOptionsProps {
-  selectedGender: Gender
-  onChange: (selectGender: string) => void
+  selectedGender: Gender;
+  onChange: (selectGender: string) => void;
 }
 
 export const GenderFilterOptions = ({
@@ -23,5 +23,5 @@ export const GenderFilterOptions = ({
         </Stack>
       </RadioGroup>
     </Box>
-  )
-}
+  );
+};

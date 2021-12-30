@@ -1,6 +1,6 @@
-import React from "react"
-import { Header } from "./index"
-import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
+import React from "react";
+import { Header } from "./index";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 // INITIAL_VIEWPORTS values come from https://github.com/storybookjs/storybook/blob/master/addons/viewport/src/defaults.ts#L135
 
@@ -15,20 +15,20 @@ export default {
       default: "gray300",
     },
   },
-}
+};
 
-export const Desktop = () => <Header />
+export const Desktop = () => <Header />;
 
-export const Mobile = () => <Header />
+export const Mobile = () => <Header />;
 Mobile.parameters = {
   viewport: {
     defaultViewport: "iphone5",
   },
-}
+};
 
-export const Tablet = () => <Header />
+export const Tablet = () => <Header />;
 Tablet.parameters = {
   viewport: {
     defaultViewport: "ipad",
   },
-}
+};

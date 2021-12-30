@@ -1,10 +1,10 @@
-import React from "react"
-import { TriangleDownIcon } from "@chakra-ui/icons"
-import { Button, Text } from "@chakra-ui/react"
+import React from "react";
+import { TriangleDownIcon } from "@chakra-ui/icons";
+import { Button, Text } from "@chakra-ui/react";
 
 interface NutrientFilterProps {
-  selectedNutrients: string[]
-  onClick: () => void
+  selectedNutrients: string[];
+  onClick: () => void;
 }
 
 export const NutrientFilter = ({
@@ -12,10 +12,10 @@ export const NutrientFilter = ({
   onClick,
 }: NutrientFilterProps) => {
   const getDisplayText = (items?: string[]) => {
-    if (!items || items.length == 0) return "All Nutrients"
-    if (items.length === 1) return items[0]
-    return `${items[0]} + ${items.length - 1}`
-  }
+    if (!items || items.length == 0) return "All Nutrients";
+    if (items.length === 1) return items[0];
+    return `${items[0]} + ${items.length - 1}`;
+  };
 
   return (
     <Button
@@ -28,5 +28,5 @@ export const NutrientFilter = ({
     >
       <Text noOfLines={1}>{getDisplayText(selectedNutrients)}</Text>
     </Button>
-  )
-}
+  );
+};

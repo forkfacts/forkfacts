@@ -1,9 +1,9 @@
-import { TableFilters, UserSelectionProps } from "./index"
-import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
-import { action } from "@storybook/addon-actions"
-import { useState } from "react"
-import { Nutrient } from "../../../shared/types"
-import { allAges } from "../../../shared/data"
+import { TableFilters, UserSelectionProps } from "./index";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import { action } from "@storybook/addon-actions";
+import { useState } from "react";
+import { Nutrient } from "../../../shared/types";
+import { allAges } from "../../../shared/data";
 
 export default {
   title: "Components/Filters/TableFilters",
@@ -16,7 +16,7 @@ export default {
       default: "gray100",
     },
   },
-}
+};
 
 /**
  * https://fdc.nal.usda.gov/fdc-app.html#/food-details/171706/nutrients
@@ -102,13 +102,13 @@ const nutrients: Nutrient[] = [
   { name: "PUFA 18:2 CLAs", amount: 0.006, unit: "G" },
   { name: "PUFA 2:5 c", amount: 0.002, unit: "G" },
   { name: "Energy", amount: 2590, unit: "kJ" },
-]
+];
 
 const getNutrients = (howMany: number) =>
   nutrients
     .slice(0) // https://stackoverflow.com/a/9592758/379235
     //.sort(() => 0.5 - Math.random()) // https://stackoverflow.com/a/38571132/379235
-    .slice(0, howMany)
+    .slice(0, howMany);
 
 const onDone = ({
   selectedNutrients,
@@ -119,15 +119,15 @@ const onDone = ({
     selectedNutrients,
     selectedGender,
     selectedAge,
-  })
-}
+  });
+};
 
 const TableFiltersStory = args => {
   const [userSelected, setUserSelected] = useState<UserSelectionProps>({
     selectedNutrients: args.selectedNutrients,
     selectedGender: args.selectedGender,
     selectedAge: args.selectedAge,
-  })
+  });
   return (
     <TableFilters
       allAges={allAges}
@@ -145,35 +145,35 @@ const TableFiltersStory = args => {
           selectedNutrients,
           selectedGender,
           selectedAge,
-        }))
-        onDone({ selectedNutrients, selectedGender, selectedAge })
+        }));
+        onDone({ selectedNutrients, selectedGender, selectedAge });
       }}
     />
-  )
-}
+  );
+};
 
-export const DesktopWithNutrientsSelected = TableFiltersStory.bind({})
+export const DesktopWithNutrientsSelected = TableFiltersStory.bind({});
 DesktopWithNutrientsSelected.args = {
   selectedNutrients: getNutrients(5),
   selectedGender: "Males",
   selectedAge: allAges[1],
-}
-export const DesktopWithNoNutrientsSelected = TableFiltersStory.bind({})
+};
+export const DesktopWithNoNutrientsSelected = TableFiltersStory.bind({});
 
 DesktopWithNoNutrientsSelected.args = {
   selectedNutrients: [],
   selectedGender: "Females",
   selectedAge: allAges[0],
-}
+};
 
-export const MobileWithNutrientsSelected = TableFiltersStory.bind({})
+export const MobileWithNutrientsSelected = TableFiltersStory.bind({});
 MobileWithNutrientsSelected.args = {
   selectedNutrients: getNutrients(5),
   selectedGender: "Males",
   selectedAge: allAges[1],
-}
+};
 MobileWithNutrientsSelected.parameters = {
   viewport: {
     defaultViewport: "iphone5",
   },
-}
+};
