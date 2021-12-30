@@ -9,6 +9,8 @@ import "@algolia/autocomplete-theme-classic";
 const appId = process.env.GATSBY_SEARCH_APP_ID;
 const apiKey = process.env.GATSBY_SEARCH_API_KEY;
 const searchClient = algoliasearch(appId, apiKey);
+const INDEX_NAMES = ["ff_index", "sr_index"];
+
 function App() {
   if (!(appId && apiKey)) return null;
   return (
@@ -22,12 +24,7 @@ function App() {
             getItems() {
               return getAlgoliaResults({
                 searchClient,
-                queries: [
-                  {
-                    indexName: "ff_index",
-                    query,
-                  },
-                ],
+                queries: INDEX_NAMES.map(indexName => ({ indexName, query })),
               });
             },
             templates: {
