@@ -1,6 +1,6 @@
-import { FactTable, FactTableRow } from "./index"
-import React from "react"
-import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
+import { FactTable, FactTableRow } from "./index";
+import React from "react";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 export default {
   title: "Components/FactTable",
@@ -10,7 +10,7 @@ export default {
       viewports: INITIAL_VIEWPORTS,
     },
   },
-}
+};
 
 const rows: FactTableRow[] = [
   {
@@ -75,20 +75,20 @@ const rows: FactTableRow[] = [
     amountUnit: "mg",
     dailyValue: 67.0,
   },
-]
+];
 
-export const Desktop = () => <FactTable rows={rows} />
+export const Desktop = () => <FactTable rows={rows} />;
 
-export const Mobile = () => <FactTable rows={rows} />
+export const Mobile = () => <FactTable rows={rows} />;
 Mobile.parameters = {
   viewport: {
     defaultViewport: "iphone5",
   },
-}
+};
 
-export const Tablet = () => <FactTable rows={rows} />
+export const Tablet = () => <FactTable rows={rows} />;
 Tablet.parameters = {
   viewport: {
     defaultViewport: "ipad",
   },
-}
+};

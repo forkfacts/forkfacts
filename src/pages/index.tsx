@@ -1,15 +1,15 @@
-import * as React from "react"
-import { graphql, PageProps } from "gatsby"
+import * as React from "react";
+import { graphql, PageProps } from "gatsby";
 
-import Layout from "../components/Layout"
-import Seo from "../components/seo"
-import { Box, Center, Text } from "@chakra-ui/react"
+import Layout from "../components/Layout";
+import Seo from "../components/seo";
+import { Box, Center, Text } from "@chakra-ui/react";
 
 type DataProps = {
   site: {
-    buildTime: string
-  }
-}
+    buildTime: string;
+  };
+};
 
 const Index: React.FC<PageProps<DataProps>> = ({ data, path }) => (
   <Layout>
@@ -44,9 +44,9 @@ const Index: React.FC<PageProps<DataProps>> = ({ data, path }) => (
       </Center>
     </Box>
   </Layout>
-)
+);
 
-export default Index
+export default Index;
 
 export const query = graphql`
   {
@@ -54,4 +54,4 @@ export const query = graphql`
       buildTime(formatString: "YYYY-MM-DD hh:mm a z")
     }
   }
-`
+`;

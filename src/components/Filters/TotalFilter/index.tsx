@@ -1,10 +1,10 @@
-import React from "react"
-import { Button, Icon, Text } from "@chakra-ui/react"
-import { RiEqualizerFill } from "react-icons/ri"
+import React from "react";
+import { Button, Icon, Text } from "@chakra-ui/react";
+import { RiEqualizerFill } from "react-icons/ri";
 
 interface TotalFilterProps {
-  applied: number
-  onClick: () => void
+  applied: number;
+  onClick: () => void;
 }
 
 export const TotalFilter = ({ applied, onClick }: TotalFilterProps) => {
@@ -19,5 +19,5 @@ export const TotalFilter = ({ applied, onClick }: TotalFilterProps) => {
     >
       <Text noOfLines={1}>{applied}</Text>
     </Button>
-  )
-}
+  );
+};

@@ -1,10 +1,10 @@
-import { AgeFilter } from "./index"
-import { action } from "@storybook/addon-actions"
+import { AgeFilter } from "./index";
+import { action } from "@storybook/addon-actions";
 
 export default {
   title: "Components/Filters/AgeFilter",
   component: AgeFilter,
-}
+};
 
 export const Infants0To6Months = () => (
   <AgeFilter
@@ -13,7 +13,7 @@ export const Infants0To6Months = () => (
     ageUnit={"month"}
     onClick={action("Age Selector Clicked")}
   />
-)
+);
 
 export const Infants6MonthsTo12Months = () => (
   <AgeFilter
@@ -22,7 +22,7 @@ export const Infants6MonthsTo12Months = () => (
     ageUnit={"month"}
     onClick={action("Age Selector Clicked")}
   />
-)
+);
 
 export const Adult31To50Year = () => (
   <AgeFilter
@@ -31,7 +31,7 @@ export const Adult31To50Year = () => (
     ageUnit={"year"}
     onClick={action("Age Selector Clicked")}
   />
-)
+);
 
 export const Seniors = () => (
   <AgeFilter
@@ -39,4 +39,4 @@ export const Seniors = () => (
     ageUnit={"year"}
     onClick={action("Age Selector Clicked")}
   />
-)
+);

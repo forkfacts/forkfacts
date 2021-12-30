@@ -11,32 +11,32 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
-} from "@chakra-ui/react"
-import React, { ReactText, useState } from "react"
-import { ArrowBackIcon } from "@chakra-ui/icons"
-import { GenderFilterOptions } from "./GenderFilterOptions"
-import { AgeFilterOptions } from "./AgeFilterOptions"
-import { NutrientFilterOptions } from "./NutrientFilterOptions"
-import { FocusableElement } from "@chakra-ui/utils"
-import { UserSelectionProps } from "../TableFilters"
-import { Age, Gender, Nutrient } from "../../../shared/types"
+} from "@chakra-ui/react";
+import React, { ReactText, useState } from "react";
+import { ArrowBackIcon } from "@chakra-ui/icons";
+import { GenderFilterOptions } from "./GenderFilterOptions";
+import { AgeFilterOptions } from "./AgeFilterOptions";
+import { NutrientFilterOptions } from "./NutrientFilterOptions";
+import { FocusableElement } from "@chakra-ui/utils";
+import { UserSelectionProps } from "../TableFilters";
+import { Age, Gender, Nutrient } from "../../../shared/types";
 
 interface FilterModalProps {
-  allAges: Age[]
-  allNutrients: Nutrient[]
-  selectedNutrients: Nutrient[]
-  selectedGender: Gender
-  selectedAge: Age
-  isOpen: boolean
-  onClose: () => void
-  onDone: (changes: UserSelectionProps) => void
-  totalFiltersRef: React.RefObject<HTMLDivElement>
-  genderRef: React.RefObject<HTMLDivElement>
-  ageRef: React.RefObject<HTMLDivElement>
-  nutrientRef: React.RefObject<HTMLInputElement>
+  allAges: Age[];
+  allNutrients: Nutrient[];
+  selectedNutrients: Nutrient[];
+  selectedGender: Gender;
+  selectedAge: Age;
+  isOpen: boolean;
+  onClose: () => void;
+  onDone: (changes: UserSelectionProps) => void;
+  totalFiltersRef: React.RefObject<HTMLDivElement>;
+  genderRef: React.RefObject<HTMLDivElement>;
+  ageRef: React.RefObject<HTMLDivElement>;
+  nutrientRef: React.RefObject<HTMLInputElement>;
   focusRef:
     | React.RefObject<HTMLDivElement | HTMLInputElement | FocusableElement>
-    | undefined
+    | undefined;
 }
 
 export const FilterModal = ({
@@ -58,30 +58,30 @@ export const FilterModal = ({
     selectedAge,
     selectedGender,
     selectedNutrients,
-  })
+  });
   const onNutrientsChange = (values: ReactText[]) => {
-    const selectedNutrientValues = new Set<ReactText>(values)
+    const selectedNutrientValues = new Set<ReactText>(values);
     const selectedNutrients = allNutrients.filter(n =>
       selectedNutrientValues.has(n.name)
-    )
+    );
 
     setUserSelected(prevState => ({
       ...prevState,
       selectedNutrients: selectedNutrients,
-    }))
-  }
+    }));
+  };
   const onGenderChange = (selectedGender: Gender) => {
     setUserSelected(prevState => ({
       ...prevState,
       selectedGender,
-    }))
-  }
+    }));
+  };
   const onAgeChange = (age: Age) => {
     setUserSelected(prevState => ({
       ...prevState,
       selectedAge: age,
-    }))
-  }
+    }));
+  };
 
   return (
     <Box ref={totalFiltersRef}>
@@ -150,5 +150,5 @@ export const FilterModal = ({
         </ModalContent>
       </Modal>
     </Box>
-  )
-}
+  );
+};

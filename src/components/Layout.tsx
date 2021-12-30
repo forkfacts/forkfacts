@@ -5,23 +5,23 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from "react"
-import { ReactNode } from "react"
+import * as React from "react";
+import { ReactNode } from "react";
 //import { useStaticQuery, graphql } from "gatsby"
-import { Box, ChakraProvider, Text } from "@chakra-ui/react"
-import { theme } from "../theme"
-import { Header } from "./Header"
-import "@fontsource/inter/400.css"
-import "@fontsource/inter/500.css"
-import "@fontsource/inter/700.css"
-import "@fontsource/inter/900.css"
-import { Breadcrumb } from "../shared/types"
-import { Breadcrumbs } from "./Breadcrumb"
+import { Box, ChakraProvider, Text } from "@chakra-ui/react";
+import { theme } from "../theme";
+import { Header } from "./Header";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/inter/900.css";
+import { Breadcrumb } from "../shared/types";
+import { Breadcrumbs } from "./Breadcrumb";
 
 interface LayoutProps {
-  pageTitle?: string
-  breadcrumbs?: Breadcrumb[]
-  children: ReactNode
+  pageTitle?: string;
+  breadcrumbs?: Breadcrumb[];
+  children: ReactNode;
 }
 const Layout = ({ pageTitle, breadcrumbs, children }: LayoutProps) => {
   /*const data = useStaticQuery(graphql`
@@ -57,6 +57,6 @@ const Layout = ({ pageTitle, breadcrumbs, children }: LayoutProps) => {
         <main>{children}</main>
       </div>
     </ChakraProvider>
-  )
-}
-export default Layout
+  );
+};
+export default Layout;

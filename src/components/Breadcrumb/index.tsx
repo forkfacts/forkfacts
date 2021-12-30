@@ -1,16 +1,16 @@
-import * as React from "react"
+import * as React from "react";
 import {
   Breadcrumb as BreadcrumbComponent,
   BreadcrumbItem,
   BreadcrumbLink,
   Text,
-} from "@chakra-ui/react"
-import { Link } from "gatsby"
-import { ChevronRightIcon } from "@chakra-ui/icons"
-import { Breadcrumb } from "../../shared/types"
+} from "@chakra-ui/react";
+import { Link } from "gatsby";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+import { Breadcrumb } from "../../shared/types";
 
 interface BreadcrumbProps {
-  paths: Breadcrumb[]
+  paths: Breadcrumb[];
 }
 
 export const Breadcrumbs = ({ paths }: BreadcrumbProps) => {
@@ -26,8 +26,8 @@ export const Breadcrumbs = ({ paths }: BreadcrumbProps) => {
               <Text fontSize={"sm"}>{path.displayName}</Text>
             </BreadcrumbLink>
           </BreadcrumbItem>
-        )
+        );
       })}
     </BreadcrumbComponent>
-  )
-}
+  );
+};

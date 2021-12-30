@@ -1,4 +1,4 @@
-import { Age } from "./types"
+import { Age } from "./types";
 
 export const allAges: Age[] = [
   { index: 0, start: 0, end: 6, ageUnit: "month" },
@@ -11,4 +11,4 @@ export const allAges: Age[] = [
   { index: 7, start: 31, end: 50, ageUnit: "year" },
   { index: 8, start: 51, end: 70, ageUnit: "year" },
   { index: 9, start: 70, ageUnit: "year" },
-]
+];

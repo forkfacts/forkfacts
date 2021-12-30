@@ -1,7 +1,7 @@
-import { NutritionFactTable } from "./index"
-import { FoundationOrSrFood, NutrientRdi } from "../../shared/types"
-import React from "react"
-import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
+import { NutritionFactTable } from "./index";
+import { FoundationOrSrFood, NutrientRdi } from "../../shared/types";
+import React from "react";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 export default {
   title: "Components/Nutrition Fact Table",
@@ -11,7 +11,7 @@ export default {
       viewports: INITIAL_VIEWPORTS,
     },
   },
-}
+};
 
 const food: FoundationOrSrFood = {
   fdcId: 323294,
@@ -93,7 +93,7 @@ const food: FoundationOrSrFood = {
     { name: "PUFA 2:5 c", amount: 0.002, unit: "G" },
     { name: "Energy", amount: 2590, unit: "kJ" },
   ],
-}
+};
 
 const nutrientDailyValues: NutrientRdi[] = [
   {
@@ -276,26 +276,26 @@ const nutrientDailyValues: NutrientRdi[] = [
     },
     percentDaily: 2.2675675675675673,
   },
-]
+];
 
 export const Table = () => (
   <NutritionFactTable food={food} nutrientRdis={nutrientDailyValues} />
-)
+);
 
 export const Mobile = () => (
   <NutritionFactTable food={food} nutrientRdis={nutrientDailyValues} />
-)
+);
 Mobile.parameters = {
   viewport: {
     defaultViewport: "iphone5",
   },
-}
+};
 
 export const Tablet = () => (
   <NutritionFactTable food={food} nutrientRdis={nutrientDailyValues} />
-)
+);
 Tablet.parameters = {
   viewport: {
     defaultViewport: "ipad",
   },
-}
+};

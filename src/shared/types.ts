@@ -1,71 +1,71 @@
 export interface FoundationOrSrFood {
-  fdcId: number
-  name: string
-  category: string
+  fdcId: number;
+  name: string;
+  category: string;
   // todo: can we make units typed? How many different units we may have?
-  nutrients: Nutrient[]
+  nutrients: Nutrient[];
 }
 
 export interface Nutrient {
-  name: string
-  amount: number
-  unit: string
+  name: string;
+  amount: number;
+  unit: string;
 }
 
 export interface RDI {
   // todo: handle other gender later
-  applicableFor: "males" | "females"
+  applicableFor: "males" | "females";
   //| "infants"
   //| "children"
   // | "males"
   // | "females"
   //| "pregnancy"
   //| "lactation"
-  ageStart: number
-  ageEnd?: number
-  ageUnit: "month" | "year"
-  importTable: "Elements" | "Vitamins" | "Total Water & Macronutrients"
-  nutrient: string
-  amount: number
+  ageStart: number;
+  ageEnd?: number;
+  ageUnit: "month" | "year";
+  importTable: "Elements" | "Vitamins" | "Total Water & Macronutrients";
+  nutrient: string;
+  amount: number;
   // todo: can we make units typed? How many different units we may have?
-  nutrientUnit: string
+  nutrientUnit: string;
 }
 
 export interface UsdaToRdiUnitMapping {
   // todo: can we make units typed? How many different units we may have?
-  id: number
-  usdaNutrientId: number
-  usdaNutrientName: string
-  usdaNutrientUnit: string
-  rdiNutrientName: string
-  rdiNutrientUnit: string
-  rdiNutrientTable: string
-  usdaToRdiUnitMultiplier: number
+  id: number;
+  usdaNutrientId: number;
+  usdaNutrientName: string;
+  usdaNutrientUnit: string;
+  rdiNutrientName: string;
+  rdiNutrientUnit: string;
+  rdiNutrientTable: string;
+  usdaToRdiUnitMultiplier: number;
 }
 
-export type Gender = "Females" | "Males"
+export type Gender = "Females" | "Males";
 export interface Age {
-  index: number // todo: revisit this field
-  start: number
-  end?: number
-  ageUnit: "month" | "year"
+  index: number; // todo: revisit this field
+  start: number;
+  end?: number;
+  ageUnit: "month" | "year";
 }
 
 export interface NutrientRdi {
-  nutrient: Nutrient
-  rdi?: RDI
-  percentDaily?: number
+  nutrient: Nutrient;
+  rdi?: RDI;
+  percentDaily?: number;
 }
 
 export interface Breadcrumb {
-  displayName: string
-  url: string
+  displayName: string;
+  url: string;
 }
 
-export type SearchIndex = SearchIndexEntry[]
+export type SearchIndex = SearchIndexEntry[];
 
 export interface SearchIndexEntry {
-  name: string
-  category: string
-  url: string
+  name: string;
+  category: string;
+  url: string;
 }

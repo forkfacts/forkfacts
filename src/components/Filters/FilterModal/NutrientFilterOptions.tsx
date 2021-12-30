@@ -9,16 +9,16 @@ import {
   InputLeftElement,
   Stack,
   Text,
-} from "@chakra-ui/react"
-import React, { ReactText, useState } from "react"
-import { CgSearch } from "react-icons/cg"
-import { Nutrient } from "../../../shared/types"
+} from "@chakra-ui/react";
+import React, { ReactText, useState } from "react";
+import { CgSearch } from "react-icons/cg";
+import { Nutrient } from "../../../shared/types";
 
 interface NutrientFilterOptionsProps {
-  allNutrients: Nutrient[]
-  selectedNutrients: Nutrient[]
-  onChange: (selectedNutrients: ReactText[]) => void
-  focusRef: React.MutableRefObject<HTMLInputElement | undefined>
+  allNutrients: Nutrient[];
+  selectedNutrients: Nutrient[];
+  onChange: (selectedNutrients: ReactText[]) => void;
+  focusRef: React.MutableRefObject<HTMLInputElement | undefined>;
 }
 
 export const NutrientFilterOptions = ({
@@ -27,13 +27,13 @@ export const NutrientFilterOptions = ({
   onChange,
   focusRef,
 }: NutrientFilterOptionsProps) => {
-  const [searchResults, setSearchResults] = useState<Nutrient[]>(allNutrients)
+  const [searchResults, setSearchResults] = useState<Nutrient[]>(allNutrients);
   const onInputChange = (e: React.FormEvent<HTMLInputElement>) => {
     const filtered = allNutrients.filter(nutrient =>
       nutrient.name.includes(e.currentTarget.value)
-    )
-    setSearchResults(filtered)
-  }
+    );
+    setSearchResults(filtered);
+  };
   return (
     <Box>
       <Text fontSize="lg" fontWeight="bold">
@@ -73,5 +73,5 @@ export const NutrientFilterOptions = ({
         </CheckboxGroup>
       </Box>
     </Box>
-  )
-}
+  );
+};
