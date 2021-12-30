@@ -54,10 +54,10 @@ const columns: GridColDef[] = [
   },
   {
     field: "amount",
-    width: 100,
+    width: 200,
     type: "number",
     sortable: false,
-    renderHeader: (/*params*/) => getHeader("Amount"),
+    renderHeader: (/*params*/) => getHeader("Amount (per 100g)"),
     renderCell: (params: GridRenderCellParams) => {
       const row: FactTableRow = params.row as FactTableRow;
       return (
