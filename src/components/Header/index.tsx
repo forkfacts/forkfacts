@@ -11,7 +11,7 @@ export const Header = () => {
   const base = breakpoint === "base";
   return (
     <HStack spacing={sm || base ? 4 : 10} px={sm || base ? 2 : 4}>
-      {sm || (base && <ForkfactsLogo size={32} />)}
+      {sm || (base && <ForkfactsLogo size={40} />)}
       {!base && !sm && <LogoWithName />}
       <Box w="100%">
         <Search />
@@ -23,7 +23,7 @@ export const Header = () => {
 const LogoWithName = () => {
   return (
     <HStack spacing="16px">
-      <ForkfactsLogo size={24} />
+      <ForkfactsLogo size={40} />
       <Text fontSize={"xl"} fontWeight={"black"}>
         forkfacts
       </Text>
