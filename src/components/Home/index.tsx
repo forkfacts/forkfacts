@@ -46,7 +46,7 @@ const FoodItemsToTry = ({ text, url }: { text: string; url: string }) => {
 };
 const HomeBanner = () => {
   return (
-    <HStack spacing="16px">
+    <HStack spacing="10px">
       <Logo height={50} width={50} />
       <Text fontSize="4xl" fontWeight={"extrabold"}>
         forkfacts
