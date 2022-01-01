@@ -1,5 +1,6 @@
 import * as React from "react";
 import Seo from "../components/seo";
+import { Home } from "../components/Home";
 
 const Index = () => (
   <>
@@ -26,9 +27,10 @@ const Index = () => (
           gridArea: "Content",
           alignSelf: "center",
           justifySelf: "center",
+          width: "100%",
         }}
       >
-        Hello World
+        <Home />
       </div>
     </div>
   </>
