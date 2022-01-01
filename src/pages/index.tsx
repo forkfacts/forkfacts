@@ -1,9 +1,11 @@
 import * as React from "react";
 import Seo from "../components/seo";
+import { ChakraProvider } from "@chakra-ui/react";
+import { theme } from "../theme";
 import { Home } from "../components/Home";
 
 const Index = () => (
-  <>
+  <ChakraProvider theme={theme}>
     <Seo title="ForkFacts" />
     <div
       className="container"
@@ -33,7 +35,7 @@ const Index = () => (
         <Home />
       </div>
     </div>
-  </>
+  </ChakraProvider>
 );
 
 export default Index;
