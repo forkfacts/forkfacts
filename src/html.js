@@ -15,7 +15,7 @@ export default function HTML(props) {
           defer
           data-domain="forkfacts.app"
           src="https://plausible.io/js/plausible.js"
-        ></script>
+        />
         <meta name="yandex-verification" content="535592ba42ddb617" />
         {props.headComponents}
       </head>
