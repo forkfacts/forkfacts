@@ -28,7 +28,7 @@ const Index: React.FC<PageProps<DataProps>> = ({ data, path }) => (
       >
         Democratizing Nutrition information
       </Text>
-      <Text fontSize={"2xl"} style={{ gridRowStart: 2 }}>
+      <Text fontSize={"6xl"} style={{ gridRowStart: 2 }}>
         <i>... one food at a time</i>
       </Text>
       <Center bg="gray.100" color="white" style={{ gridRowStart: 3 }} p={4}>
