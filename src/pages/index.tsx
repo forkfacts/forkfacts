@@ -36,7 +36,6 @@ const Index = () => {
             gridArea: "Content",
             alignSelf: "center",
             justifySelf: "center",
-            border: "0px solid blue",
           }}
         >
           <Home />

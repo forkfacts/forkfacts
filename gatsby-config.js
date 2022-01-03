@@ -1,13 +1,20 @@
 module.exports = {
   siteMetadata: {
     title: `Forkfacts`,
-    description: `Coming soon`,
+    description: `Food nutrition information with RDI values at your fingertips. You can compare all the nutritional profiles of foods for men, women, and children.`,
     author: `@forkfacts`,
-    siteUrl: `https://forkfacts.app/`,
+    siteUrl: `https://forkfacts.app`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      sitemap: "https://forkfacts.app/sitemap.xml",
+      options: {
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -43,4 +50,4 @@ module.exports = {
 
     `gatsby-plugin-advanced-sitemap`,
   ],
-}
+};
