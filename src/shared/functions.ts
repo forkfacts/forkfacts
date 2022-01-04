@@ -81,12 +81,14 @@ export const writeJsonToFile = (fileName, jsonData) => {
   );
 };
 
-export const generateSEOTitle = (foodName: string) =>
-  foodName.replace(/\s*\([^)]*\)\s*/g, "");
+export const generateSEOTitle = (foodName: string) => {
+  const name = foodName.replace(/\s*\([^)]*\)\s*/g, "");
+  return `Nutrition facts - ${name}`;
+};
 
 export const generateSEOMetaDescription = (
   foodName: string,
   category: string
 ) => {
-  return `Nutrient facts from USDA and NIH with the option to filter by nutrient name, age and gender for 100gm of ${foodName} in ${category} category.`;
+  return `Nutrient facts from USDA and NIH with the option to filter by nutrients, age and gender for 100gm of  ${foodName} in ${category} category.`;
 };
