@@ -1,4 +1,4 @@
-export interface Seo {
+export interface PageSeo {
   title: string;
   metaDesc: string;
   slug: string;

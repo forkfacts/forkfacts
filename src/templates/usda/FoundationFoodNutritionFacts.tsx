@@ -1,5 +1,10 @@
 import * as React from "react";
-import { FoundationOrSrFood, NutrientRdi, RDI, Seo } from "../../shared/types";
+import {
+  FoundationOrSrFood,
+  NutrientRdi,
+  RDI,
+  PageSeo,
+} from "../../shared/types";
 import { generateRdiForFood } from "../../shared/functions";
 import { NutritionFactTable } from "../../components/NutritionFactTable";
 import Layout from "../../components/Layout";
@@ -10,7 +15,7 @@ export default ({ pageContext }) => {
   const thisFood = food as FoundationOrSrFood;
   const allRdis = rdis as RDI[];
   const nutrientRdis: NutrientRdi[] = generateRdiForFood(thisFood, allRdis);
-  const pageSeo = seo as Seo;
+  const pageSeo = seo as PageSeo;
 
   return (
     <>
