@@ -1,23 +1,15 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import * as React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-function Seo({ description, lang, meta, title }) {
+function Seo({ description, title, slug }) {
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
-            title
-            description
+            siteUrl
             author
           }
         }
@@ -25,20 +17,16 @@ function Seo({ description, lang, meta, title }) {
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
-
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: `en`,
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: description,
         },
         {
           property: `og:title`,
@@ -46,7 +34,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: description,
         },
         {
           property: `og:type`,
@@ -66,10 +54,16 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: description,
         },
-      ].concat(meta)}
-    />
+        {
+          name: `robots`,
+          content: `noodp, noydir`,
+        },
+      ]}
+    >
+      <link rel="canonical" href={`${site.siteMetadata.siteUrl}/${slug}`} />
+    </Helmet>
   );
 }
 
@@ -77,6 +71,7 @@ Seo.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
+  slug: ``,
 };
 
 Seo.propTypes = {

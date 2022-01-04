@@ -85,7 +85,7 @@ const createFoodPages = ({
     const seo: Seo = {
       title: generateSEOTitle(food.name),
       metaDesc: generateSEOMetaDescription(food.name, food.category),
-      canonicalUrl: `https://forkfacts.app/${pagePath}`,
+      slug: pagePath,
     };
     createPageFunction({
       path: pagePath,
