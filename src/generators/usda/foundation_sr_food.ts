@@ -1,7 +1,11 @@
 import { HOME, createBreadcrumb, FOODS } from "../utilities/breadcrumbs";
 import { spaceToDashes } from "../utilities/helpers";
-import { FoundationOrSrFood, RDI, SearchIndex } from "../../shared/types";
-import { writeJsonToFile } from "../../shared/functions";
+import { FoundationOrSrFood, RDI, SearchIndex, Seo } from "../../shared/types";
+import {
+  generateSEOMetaDescription,
+  generateSEOTitle,
+  writeJsonToFile,
+} from "../../shared/functions";
 
 const path = require("path");
 const ff_nutrition_facts = require("../../../src/data/foundation_food_nutrition_facts.json");
@@ -78,7 +82,11 @@ const createFoodPages = ({
   );
   foods.forEach((food: FoundationOrSrFood) => {
     const pagePath = spaceToDashes(food["name"].toString());
-
+    const seo: Seo = {
+      title: generateSEOTitle(food.name),
+      metaDesc: generateSEOMetaDescription(food.name, food.category),
+      canonicalUrl: `https://forkfacts.app/${pagePath}`,
+    };
     createPageFunction({
       path: pagePath,
       component: template,
@@ -86,6 +94,7 @@ const createFoodPages = ({
         food,
         rdis,
         breadcrumbs: [HOME, FOODS, createBreadcrumb(FOODS, food.category)],
+        seo,
       },
     });
     ffSearchIndex.push({
