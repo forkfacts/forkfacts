@@ -1,6 +1,11 @@
 import { HOME, createBreadcrumb, FOODS } from "../utilities/breadcrumbs";
 import { spaceToDashes } from "../utilities/helpers";
-import { FoundationOrSrFood, RDI, SearchIndex, Seo } from "../../shared/types";
+import {
+  FoundationOrSrFood,
+  RDI,
+  SearchIndex,
+  PageSeo,
+} from "../../shared/types";
 import {
   generateSEOMetaDescription,
   generateSEOTitle,
@@ -82,7 +87,7 @@ const createFoodPages = ({
   );
   foods.forEach((food: FoundationOrSrFood) => {
     const pagePath = spaceToDashes(food["name"].toString());
-    const seo: Seo = {
+    const seo: PageSeo = {
       title: generateSEOTitle(food.name),
       metaDesc: generateSEOMetaDescription(food.name, food.category),
       slug: pagePath,
