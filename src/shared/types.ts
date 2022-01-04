@@ -1,3 +1,9 @@
+export interface Seo {
+  title: string;
+  metaDesc: string;
+  canonicalUrl: string;
+}
+
 export interface FoundationOrSrFood {
   fdcId: number;
   name: string;
