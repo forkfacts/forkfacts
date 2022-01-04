@@ -22,7 +22,7 @@ function Seo({ description, title, slug, lang = `en` }: SeoType) {
       }
     `
   );
-
+  const canonicalUrl = `${site.siteMetadata.siteUrl}/${slug}`;
   return (
     <Helmet
       htmlAttributes={{
@@ -37,6 +37,10 @@ function Seo({ description, title, slug, lang = `en` }: SeoType) {
         {
           property: `og:title`,
           content: title,
+        },
+        {
+          property: `og:url`,
+          content: canonicalUrl,
         },
         {
           property: `og:description`,
@@ -68,7 +72,7 @@ function Seo({ description, title, slug, lang = `en` }: SeoType) {
         },
       ]}
     >
-      <link rel="canonical" href={`${site.siteMetadata.siteUrl}/${slug}`} />
+      <link rel="canonical" href={canonicalUrl} />
     </Helmet>
   );
 }
