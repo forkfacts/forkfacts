@@ -1,9 +1,15 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-function Seo({ description, title, slug }) {
+type SeoType = {
+  description: string;
+  title: string;
+  slug: string;
+  lang: string;
+};
+function Seo({ description, title, slug, lang = `en` }: SeoType) {
+  // noinspection GraphQLUnresolvedReference
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -20,7 +26,7 @@ function Seo({ description, title, slug }) {
   return (
     <Helmet
       htmlAttributes={{
-        lang: `en`,
+        lang,
       }}
       title={title}
       meta={[
@@ -66,19 +72,4 @@ function Seo({ description, title, slug }) {
     </Helmet>
   );
 }
-
-Seo.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-  slug: ``,
-};
-
-Seo.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-};
-
 export default Seo;
