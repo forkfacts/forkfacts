@@ -52,7 +52,7 @@ function Seo({ description, title, slug, lang = `en` }: SeoType) {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: description,
         },
         {
           name: `twitter:creator`,
@@ -68,7 +68,7 @@ function Seo({ description, title, slug, lang = `en` }: SeoType) {
         },
         {
           name: `robots`,
-          content: `noodp, noydir`,
+          content: `index, follow, noodp, noydir`,
         },
       ]}
     >
