@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Forkfacts`,
     description: `Food nutrition information with RDI values at your fingertips. You can compare all the nutritional profiles of foods for men, women, and children.`,
-    author: `@forkfacts`,
+    author: `@theforkfacts`,
     siteUrl: `https://forkfacts.app`,
   },
   plugins: [
