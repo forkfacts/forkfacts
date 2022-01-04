@@ -1,5 +1,5 @@
 import * as React from "react";
-import Seo from "../components/seo";
+import Seo from "../components/Seo";
 import { ChakraProvider, useBreakpoint } from "@chakra-ui/react";
 import { theme } from "../theme";
 import { Home } from "../components/Home";
@@ -13,7 +13,7 @@ const Index = () => {
   const columnWidth = sm || base ? "0.2fr 2fr 2fr 0.2fr" : "repeat(4, 1fr)";
   return (
     <ChakraProvider theme={theme}>
-      <Seo title="ForkFacts" />
+      <Seo title="ForkFacts" slug={"/"} description={"Welcome to forkfacts"} />
       <div
         className="container"
         style={{

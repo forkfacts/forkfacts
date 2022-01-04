@@ -1,7 +1,7 @@
 export interface Seo {
   title: string;
   metaDesc: string;
-  canonicalUrl: string;
+  slug: string;
 }
 
 export interface FoundationOrSrFood {
