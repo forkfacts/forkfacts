@@ -10,9 +10,9 @@ module.exports = {
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-robots-txt`,
-      sitemap: "https://forkfacts.app/sitemap.xml",
       options: {
         policy: [{ userAgent: "*", allow: "/" }],
+        sitemap: "https://forkfacts.app/sitemap.xml",
       },
     },
     {
