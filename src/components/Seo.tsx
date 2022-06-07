@@ -6,7 +6,7 @@ type SeoType = {
   description: string;
   title: string;
   slug: string;
-  lang: string;
+  lang?: string;
 };
 function Seo({ description, title, slug, lang = `en` }: SeoType) {
   // noinspection GraphQLUnresolvedReference
