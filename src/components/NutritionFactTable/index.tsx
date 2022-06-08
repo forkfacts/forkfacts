@@ -8,6 +8,7 @@ import {
 import { FactTable, FactTableRow } from "../FactTable";
 import { Age, FoundationOrSrFood, NutrientRdi } from "../../shared/types";
 import { allAges as allAgesData } from "../../shared/data";
+import { Share } from "../Share";
 
 type NutritionFactTableProps = {
   food: FoundationOrSrFood;
@@ -87,26 +88,40 @@ export const NutritionFactTable = ({
     });
     setRows(nutrientsWithRdis);
   }, [state.selectedAge, state.selectedGender, state.selectedNutrients]);
-
   if (
     !(state.food && state.allAges && state.selectedAge && state.selectedGender)
   )
     return null;
-
+  const isBrowser = () => typeof window !== "undefined";
   return (
-    <Box>
-      <TableFilters
-        allNutrients={state.food.nutrients}
-        allAges={allAges}
-        selectedNutrients={state.selectedNutrients}
-        selectedGender={state.selectedGender}
-        selectedAge={state.selectedAge}
-        onDone={onDone}
+    <>
+      <Box mb={"4"}>
+        <TableFilters
+          allNutrients={state.food.nutrients}
+          allAges={allAges}
+          selectedNutrients={state.selectedNutrients}
+          selectedGender={state.selectedGender}
+          selectedAge={state.selectedAge}
+          onDone={onDone}
+        />
+        <FactTable
+          rows={rows}
+          nutrientsFilterApplied={state.selectedNutrients.length > 0}
+        />
+      </Box>
+      <Share
+        headline={"Contribute towards nutrition awareness by sharing!"}
+        title={`Learn about the nutrition in ${state.food.name}`}
+        url={`${typeof window !== "undefined" ? window.location.href : ""}`}
+        twitterHashTags={[
+          "nutrition",
+          "food",
+          "macronutrients",
+          "micronutrients",
+        ]}
+        facebookHashTag={`nutritionfact${state.food.name}`}
+        emailBody={"Hey, I think you will care about this information"}
       />
-      <FactTable
-        rows={rows}
-        nutrientsFilterApplied={state.selectedNutrients.length > 0}
-      />
-    </Box>
+    </>
   );
 };
