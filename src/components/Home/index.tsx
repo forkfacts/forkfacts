@@ -134,7 +134,13 @@ export const Mission = ({
   buttonLabel2: string;
 }) => {
   return (
-    <VStack backgroundImage={BackgroundImg} spacing={12} p={10}>
+    <VStack
+      backgroundImage={BackgroundImg}
+      backgroundRepeat={"no-repeat"}
+      backgroundSize={"100% 100%"}
+      spacing={12}
+      p={10}
+    >
       <Text fontSize="5xl" fontWeight={"extrabold"} align={"center"}>
         {boldText}
       </Text>
@@ -167,7 +173,7 @@ export const Sponsors = () => {
       <Text fontSize="xl" fontWeight={"bold"} align={"center"}>
         {SUPPORTED_BY}
       </Text>
-      <HStack spacing={10}>
+      <HStack spacing={20}>
         <Image boxSize="150px" src={Vercel} alt="Vercel" />
         <Image boxSize="150px" src={Algolia} alt="Algolia" />
         <Image boxSize="150px" src={DigitalOcean} alt="Digital Ocean" />
