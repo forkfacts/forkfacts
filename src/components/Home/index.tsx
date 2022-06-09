@@ -1,36 +1,103 @@
 import React from "react";
-import { Box, HStack, VStack, Flex, Text } from "@chakra-ui/react";
-import { ReactComponent as Logo } from "../../images/svg/strawberry.svg";
+import {
+  Box,
+  HStack,
+  VStack,
+  Flex,
+  Text,
+  Button,
+  Image,
+  Divider,
+} from "@chakra-ui/react";
+import { ReactComponent as Logo } from "../../images/svg/logo.svg";
+import Vercel from "../../images/svg/vercel.svg";
+import Algolia from "../../images/svg/algolia.svg";
+import DigitalOcean from "../../images/svg/digital-ocean.svg";
+import ClickUp from "../../images/svg/clickup.svg";
+import BackgroundImg from "../../images/svg/background.svg";
 import Search from "../Search";
 import { Link } from "gatsby";
+import {
+  MISSION_SUB_TEXT,
+  MISSION_TEXT,
+  SUPPORTED_BY,
+  TRY_BUTTON_LABEL_1,
+  TRY_BUTTON_LABEL_2,
+} from "../Share/shareConstants";
+import { navigate } from "gatsby";
+
+// export const Home = () => {
+//   return (
+//     <VStack spacing={4} align="stretch" style={{ border: "2px solid red" }}>
+//       <Flex justify={"center"}>
+//         <HomeBanner />
+//       </Flex>
+//       <Box py={5}>
+//         <Search />
+//       </Box>
+//       <Flex justify={"center"}>
+//         <Text fontSize={"sm"}>
+//           Try:
+//           <FoodItemsToTry
+//             text={"Sesame Butter"}
+//             url={"/seeds-sesame-butter-paste"}
+//           />
+//           ,
+//           <FoodItemsToTry
+//             text={"Kidney Beans"}
+//             url={"/beans-dry-dark-red-kidney-0-moisture"}
+//           />
+//           ,
+//           <FoodItemsToTry text={"Cumin"} url={"/spices-cumin-seed"} />,
+//           <FoodItemsToTry text={"Thyme"} url={"/spices-thyme-dried"} />,
+//           <FoodItemsToTry text={"Chia Seeds"} url={"/seeds-chia-seeds-dried"} />
+//         </Text>
+//       </Flex>
+//     </VStack>
+//   );
+// };
 
 export const Home = () => {
   return (
-    <VStack spacing={4} align="stretch">
-      <Flex justify={"center"}>
-        <HomeBanner />
-      </Flex>
-      <Box py={5}>
-        <Search />
-      </Box>
-      <Flex justify={"center"}>
-        <Text fontSize={"sm"}>
-          Try:
-          <FoodItemsToTry
-            text={"Sesame Butter"}
-            url={"/seeds-sesame-butter-paste"}
-          />
-          ,
-          <FoodItemsToTry
-            text={"Kidney Beans"}
-            url={"/beans-dry-dark-red-kidney-0-moisture"}
-          />
-          ,
-          <FoodItemsToTry text={"Cumin"} url={"/spices-cumin-seed"} />,
-          <FoodItemsToTry text={"Thyme"} url={"/spices-thyme-dried"} />,
-          <FoodItemsToTry text={"Chia Seeds"} url={"/seeds-chia-seeds-dried"} />
-        </Text>
-      </Flex>
+    <VStack spacing={10}>
+      <HStack w="70vw" spacing={8}>
+        <Box>
+          <HomeBanner />
+        </Box>
+        <Box w="70vw" pt={7}>
+          <Search />
+          <Flex pt={4} style={{ border: "0px solid red" }}>
+            <Text fontSize={"sm"}>
+              Try:
+              <FoodItemsToTry
+                text={"Sesame Butter"}
+                url={"/seeds-sesame-butter-paste"}
+              />
+              ,
+              <FoodItemsToTry
+                text={"Kidney Beans"}
+                url={"/beans-dry-dark-red-kidney-0-moisture"}
+              />
+              ,
+              <FoodItemsToTry text={"Cumin"} url={"/spices-cumin-seed"} />,
+              <FoodItemsToTry text={"Thyme"} url={"/spices-thyme-dried"} />,
+              <FoodItemsToTry
+                text={"Chia Seeds"}
+                url={"/seeds-chia-seeds-dried"}
+              />
+            </Text>
+          </Flex>
+        </Box>
+      </HStack>
+      <Mission
+        boldText={MISSION_TEXT}
+        smallText={MISSION_SUB_TEXT}
+        buttonLabel1={TRY_BUTTON_LABEL_1}
+        buttonLabel2={TRY_BUTTON_LABEL_2}
+      />
+      <Divider />
+      <Sponsors />
+      <Divider />
     </VStack>
   );
 };
@@ -46,11 +113,66 @@ const FoodItemsToTry = ({ text, url }: { text: string; url: string }) => {
 };
 const HomeBanner = () => {
   return (
-    <HStack spacing="10px">
-      <Logo height={50} width={50} />
-      <Text fontSize="4xl" fontWeight={"extrabold"}>
+    <HStack>
+      <Logo height={40} width={40} />
+      <Text fontSize="2xl" fontWeight={"extrabold"}>
         forkfacts
       </Text>
     </HStack>
+  );
+};
+
+export const Mission = ({
+  boldText,
+  smallText,
+  buttonLabel1,
+  buttonLabel2,
+}: {
+  boldText: string;
+  smallText: string;
+  buttonLabel1: string;
+  buttonLabel2: string;
+}) => {
+  return (
+    <VStack backgroundImage={BackgroundImg} spacing={12} p={10}>
+      <Text fontSize="5xl" fontWeight={"extrabold"} align={"center"}>
+        {boldText}
+      </Text>
+      <Text fontSize="xl" fontWeight={"medium"} color={"#4A5568"}>
+        {smallText}
+      </Text>
+      <HStack spacing={8} pt={10}>
+        <Button
+          backgroundColor={"black"}
+          colorScheme={"blackAlpha"}
+          onClick={() => navigate("/broccoli-raw")}
+        >
+          {buttonLabel1}
+        </Button>
+        <Button
+          backgroundColor={"black"}
+          colorScheme={"blackAlpha"}
+          onClick={() => navigate("/seeds-hemp-seed-hulled")}
+        >
+          {buttonLabel2}
+        </Button>
+      </HStack>
+    </VStack>
+  );
+};
+
+export const Sponsors = () => {
+  return (
+    <VStack spacing={6} p={10}>
+      <Text fontSize="xl" fontWeight={"bold"} align={"center"}>
+        {SUPPORTED_BY}
+      </Text>
+      <HStack spacing={10}>
+        <Image boxSize="150px" src={Vercel} alt="Vercel" />
+        <Image boxSize="150px" src={Algolia} alt="Algolia" />
+        <Image boxSize="150px" src={DigitalOcean} alt="Digital Ocean" />
+        <Image boxSize="150px" src={ClickUp} alt="ClickUp" />
+      </HStack>
+    </VStack>
   );
 };

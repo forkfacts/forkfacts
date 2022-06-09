@@ -18,7 +18,7 @@ const Index = () => {
         className="container"
         style={{
           display: "grid",
-          height: "95vh",
+          height: "100vh",
           gridTemplateColumns: columnWidth,
           gap: "10px",
           gridTemplateRows: "repeat(4, 1fr)",
@@ -34,8 +34,8 @@ const Index = () => {
           className="Content"
           style={{
             gridArea: "Content",
-            alignSelf: "center",
-            justifySelf: "center",
+            alignSelf: "self-start",
+            justifySelf: "self-start",
           }}
         >
           <Home />
