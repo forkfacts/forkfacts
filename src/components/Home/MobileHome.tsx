@@ -26,36 +26,13 @@ import {
 } from "../Share/shareConstants";
 import { navigate } from "gatsby";
 
-export const Home = () => {
+export const MobileHome = () => {
   return (
-    <VStack spacing={10}>
-      <HStack w="70vw" spacing={8}>
+    <VStack alignItems={"flex-start"} style={{ border: "2px solid red" }}>
+      <HStack>
+        <MobileHomeBanner />
         <Box>
-          <HomeBanner />
-        </Box>
-        <Box w="70vw" pt={7}>
           <Search />
-          <Flex pt={4}>
-            <Text fontSize={"sm"}>
-              Try:
-              <FoodItemsToTry
-                text={"Sesame Butter"}
-                url={"/seeds-sesame-butter-paste"}
-              />
-              ,
-              <FoodItemsToTry
-                text={"Kidney Beans"}
-                url={"/beans-dry-dark-red-kidney-0-moisture"}
-              />
-              ,
-              <FoodItemsToTry text={"Cumin"} url={"/spices-cumin-seed"} />,
-              <FoodItemsToTry text={"Thyme"} url={"/spices-thyme-dried"} />,
-              <FoodItemsToTry
-                text={"Chia Seeds"}
-                url={"/seeds-chia-seeds-dried"}
-              />
-            </Text>
-          </Flex>
         </Box>
       </HStack>
       <Mission
@@ -65,7 +42,7 @@ export const Home = () => {
         buttonLabel2={TRY_BUTTON_LABEL_2}
       />
       <Divider />
-      <Sponsors />
+      {/*<Sponsors />*/}
       <Divider />
       <Footer />
       <Divider />
@@ -73,24 +50,8 @@ export const Home = () => {
   );
 };
 
-const FoodItemsToTry = ({ text, url }: { text: string; url: string }) => {
-  return (
-    <Box as={"span"} pl={2}>
-      <Link to={url} style={{ textDecoration: "underline" }}>
-        {text}
-      </Link>
-    </Box>
-  );
-};
-const HomeBanner = () => {
-  return (
-    <HStack>
-      <Logo height={40} width={40} />
-      <Text fontSize="2xl" fontWeight={"extrabold"}>
-        forkfacts
-      </Text>
-    </HStack>
-  );
+const MobileHomeBanner = () => {
+  return <Logo height={40} width={40} />;
 };
 
 export const Mission = ({
