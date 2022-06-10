@@ -10,13 +10,7 @@ const Index = () => {
   return (
     <ChakraProvider theme={theme}>
       <SEO title="ForkFacts" slug={"/"} description={"Welcome to forkfacts"} />
-      <div
-        className="container"
-        style={{
-          display: "grid",
-          height: "100vh",
-        }}
-      >
+      <div className="container">
         <div
           className="Content"
           style={{

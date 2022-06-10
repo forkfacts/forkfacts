@@ -28,10 +28,10 @@ import { navigate } from "gatsby";
 
 export const MobileHome = () => {
   return (
-    <VStack alignItems={"flex-start"} style={{ border: "2px solid red" }}>
-      <HStack>
+    <VStack>
+      <HStack w={"100%"} justify={"space-evenly"} pt={6}>
         <MobileHomeBanner />
-        <Box>
+        <Box w={"75%"}>
           <Search />
         </Box>
       </HStack>
@@ -44,8 +44,7 @@ export const MobileHome = () => {
       <Divider />
       {/*<Sponsors />*/}
       <Divider />
-      <Footer />
-      <Divider />
+      <MobileFooter />
     </VStack>
   );
 };
@@ -73,10 +72,15 @@ export const Mission = ({
       spacing={12}
       p={10}
     >
-      <Text fontSize="5xl" fontWeight={"extrabold"} align={"center"}>
+      <Text fontSize="3xl" fontWeight={"extrabold"} align={"center"}>
         {boldText}
       </Text>
-      <Text fontSize="xl" fontWeight={"medium"} color={"#4A5568"}>
+      <Text
+        fontSize="md"
+        fontWeight={"medium"}
+        color={"#4A5568"}
+        align={"center"}
+      >
         {smallText}
       </Text>
       <HStack spacing={8} pt={10}>
@@ -115,17 +119,15 @@ export const Sponsors = () => {
   );
 };
 
-export const Footer = () => {
+export const MobileFooter = () => {
   return (
-    <HStack spacing={10} style={{ border: "0px solid red" }}>
-      <Text fontSize="l" fontWeight={"bold"} align={"left"}>
+    <VStack px={3}>
+      <Text fontSize="l" fontWeight={"bold"} align={"center"}>
         {"forkfacts"}
       </Text>
-      <Text fontSize="xs" pl={10} align={"right"} color="#718096">
-        {
-          "You are not tracked or identified via tracker or cookies on this site. 🫶"
-        }
+      <Text fontSize="xs" align={"right"} color="#718096" textAlign={"center"}>
+        You are not tracked or identified via tracker or cookies on this site. 🫶
       </Text>
-    </HStack>
+    </VStack>
   );
 };
