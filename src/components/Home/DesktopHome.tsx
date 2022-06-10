@@ -112,10 +112,21 @@ export const Mission = ({
       spacing={12}
       p={10}
     >
-      <Text fontSize="5xl" fontWeight={"extrabold"} align={"center"}>
+      <Text
+        fontSize="5xl"
+        fontWeight={"extrabold"}
+        align={"center"}
+        maxW={["80%", "70%", "60%"]}
+      >
         {boldText}
       </Text>
-      <Text fontSize="xl" fontWeight={"medium"} color={"#4A5568"}>
+      <Text
+        fontSize="xl"
+        fontWeight={"medium"}
+        color={"#4A5568"}
+        textAlign={"center"}
+        maxW={["80%", "70%", "60%"]}
+      >
         {smallText}
       </Text>
       <HStack spacing={8} pt={10}>
