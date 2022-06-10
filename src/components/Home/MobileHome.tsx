@@ -3,7 +3,6 @@ import {
   Box,
   HStack,
   VStack,
-  Flex,
   Text,
   Button,
   Image,
@@ -16,7 +15,6 @@ import DigitalOcean from "../../images/svg/digital-ocean.svg";
 import ClickUp from "../../images/svg/clickup.svg";
 import BackgroundImg from "../../images/svg/background.svg";
 import Search from "../Search";
-import { Link } from "gatsby";
 import {
   MISSION_SUB_TEXT,
   MISSION_TEXT,
@@ -42,7 +40,7 @@ export const MobileHome = () => {
         buttonLabel2={TRY_BUTTON_LABEL_2}
       />
       <Divider />
-      {/*<Sponsors />*/}
+      <MobileSponsors />
       <Divider />
       <MobileFooter />
     </VStack>
@@ -103,25 +101,29 @@ export const Mission = ({
   );
 };
 
-export const Sponsors = () => {
+export const MobileSponsors = () => {
   return (
     <VStack spacing={6} p={10}>
       <Text fontSize="xl" fontWeight={"bold"} align={"center"}>
         {SUPPORTED_BY}
       </Text>
-      <HStack spacing={20}>
-        <Image boxSize="150px" src={Vercel} alt="Vercel" />
-        <Image boxSize="150px" src={Algolia} alt="Algolia" />
-        <Image boxSize="150px" src={DigitalOcean} alt="Digital Ocean" />
-        <Image boxSize="150px" src={ClickUp} alt="ClickUp" />
-      </HStack>
+      <VStack>
+        <HStack>
+          <Image boxSize="120px" src={Vercel} alt="Vercel" />
+          <Image boxSize="120px" src={Algolia} alt="Algolia" />
+        </HStack>
+        <HStack>
+          <Image boxSize="120px" src={DigitalOcean} alt="Digital Ocean" />
+          <Image boxSize="120px" src={ClickUp} alt="ClickUp" />
+        </HStack>
+      </VStack>
     </VStack>
   );
 };
 
 export const MobileFooter = () => {
   return (
-    <VStack px={3}>
+    <VStack px={3} pb={6}>
       <Text fontSize="l" fontWeight={"bold"} align={"center"}>
         {"forkfacts"}
       </Text>
