@@ -2,7 +2,7 @@ import * as React from "react";
 import SEO from "../components/Seo";
 import { ChakraProvider, useMediaQuery } from "@chakra-ui/react";
 import { theme } from "../theme";
-import { Home } from "../components/Home";
+import { DesktopHome } from "../components/Home/DesktopHome";
 import { MobileHome } from "../components/Home/MobileHome";
 
 const Index = () => {
@@ -19,7 +19,7 @@ const Index = () => {
             justifySelf: "self-start",
           }}
         >
-          {!isMobile && <Home />}
+          {!isMobile && <DesktopHome />}
           {isMobile && <MobileHome />}
         </div>
       </div>

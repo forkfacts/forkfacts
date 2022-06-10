@@ -26,7 +26,7 @@ import {
 } from "../Share/shareConstants";
 import { navigate } from "gatsby";
 
-export const Home = () => {
+export const DesktopHome = () => {
   return (
     <VStack spacing={10}>
       <HStack w="70vw" spacing={8}>
