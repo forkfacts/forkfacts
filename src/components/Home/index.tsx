@@ -26,37 +26,6 @@ import {
 } from "../Share/shareConstants";
 import { navigate } from "gatsby";
 
-// export const Home = () => {
-//   return (
-//     <VStack spacing={4} align="stretch" style={{ border: "2px solid red" }}>
-//       <Flex justify={"center"}>
-//         <HomeBanner />
-//       </Flex>
-//       <Box py={5}>
-//         <Search />
-//       </Box>
-//       <Flex justify={"center"}>
-//         <Text fontSize={"sm"}>
-//           Try:
-//           <FoodItemsToTry
-//             text={"Sesame Butter"}
-//             url={"/seeds-sesame-butter-paste"}
-//           />
-//           ,
-//           <FoodItemsToTry
-//             text={"Kidney Beans"}
-//             url={"/beans-dry-dark-red-kidney-0-moisture"}
-//           />
-//           ,
-//           <FoodItemsToTry text={"Cumin"} url={"/spices-cumin-seed"} />,
-//           <FoodItemsToTry text={"Thyme"} url={"/spices-thyme-dried"} />,
-//           <FoodItemsToTry text={"Chia Seeds"} url={"/seeds-chia-seeds-dried"} />
-//         </Text>
-//       </Flex>
-//     </VStack>
-//   );
-// };
-
 export const Home = () => {
   return (
     <VStack spacing={10}>
@@ -66,7 +35,7 @@ export const Home = () => {
         </Box>
         <Box w="70vw" pt={7}>
           <Search />
-          <Flex pt={4} style={{ border: "0px solid red" }}>
+          <Flex pt={4}>
             <Text fontSize={"sm"}>
               Try:
               <FoodItemsToTry
@@ -97,6 +66,8 @@ export const Home = () => {
       />
       <Divider />
       <Sponsors />
+      <Divider />
+      <Footer />
       <Divider />
     </VStack>
   );
@@ -180,5 +151,20 @@ export const Sponsors = () => {
         <Image boxSize="150px" src={ClickUp} alt="ClickUp" />
       </HStack>
     </VStack>
+  );
+};
+
+export const Footer = () => {
+  return (
+    <HStack spacing={10} style={{ border: "0px solid red" }}>
+      <Text fontSize="l" fontWeight={"bold"} align={"left"}>
+        {"forkfacts"}
+      </Text>
+      <Text fontSize="xs" pl={10} align={"right"} color="#718096">
+        {
+          "You are not tracked or identified via tracker or cookies on this site. 🫶"
+        }
+      </Text>
+    </HStack>
   );
 };
