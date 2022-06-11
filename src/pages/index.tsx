@@ -1,44 +1,26 @@
 import * as React from "react";
 import SEO from "../components/Seo";
-import { ChakraProvider, useBreakpoint } from "@chakra-ui/react";
+import { ChakraProvider, useMediaQuery } from "@chakra-ui/react";
 import { theme } from "../theme";
-import { Home } from "../components/Home";
-import { ResponsiveBreakpoint } from "../components/utils";
+import { DesktopHome } from "../components/Home/DesktopHome";
+import { MobileHome } from "../components/Home/MobileHome";
 
 const Index = () => {
-  const breakpoint = useBreakpoint() as ResponsiveBreakpoint;
-  const sm = breakpoint === "sm";
-  const base = breakpoint === "base";
-  // todo: this does not seem to be working
-  const columnWidth = sm || base ? "0.2fr 2fr 2fr 0.2fr" : "repeat(4, 1fr)";
+  const [isMobile] = useMediaQuery("(min-width:320px) and (max-width:600px)");
   return (
     <ChakraProvider theme={theme}>
       <SEO title="ForkFacts" slug={"/"} description={"Welcome to forkfacts"} />
-      <div
-        className="container"
-        style={{
-          display: "grid",
-          height: "95vh",
-          gridTemplateColumns: columnWidth,
-          gap: "10px",
-          gridTemplateRows: "repeat(4, 1fr)",
-          gridTemplateAreas: `
-        ". Content Content ."
-        ". Content Content ."
-        ". Content Content ."
-        ". Content Content ."
-        `,
-        }}
-      >
+      <div className="container">
         <div
           className="Content"
           style={{
             gridArea: "Content",
-            alignSelf: "center",
-            justifySelf: "center",
+            alignSelf: "self-start",
+            justifySelf: "self-start",
           }}
         >
-          <Home />
+          {!isMobile && <DesktopHome />}
+          {isMobile && <MobileHome />}
         </div>
       </div>
     </ChakraProvider>
